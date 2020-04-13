@@ -9,5 +9,6 @@
 - As a user, I want to be able to like articles, so that I can keep track of my favorite pieces.
 - As an author, I want to be able to see how many likes an article I wrote has, so that I can track its popularity.
 - As an administrator, I want to be able to delete articles, comments, and users (in addition to the normal user actions), so that I can moderate the site.
-- Bonus Feature: As an author, I want to be able to add images, code blocks, external links and then have the site handle them for me appropriately.
+- As an author, I want to be able to add code blocks, external links, and then have the site handle them for me appropriately.
+- Bonus Feature: As an author, I want to be able to add images to the stories I write, so that my stories are expressive.
 - Bonus Feature: As a user, I want to be able to see all of my liked articles in one location, so that I can easily browse my favorites.

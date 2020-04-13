@@ -1,0 +1,13 @@
+  # User Stories
+- As a user, I want to search, so that I can find stories and authors.
+- As a user, I want there to be a distiction between authors and users so that I could find just authors when I search for people.
+- As a user, I want there to be an estimate on time to read, so that I know how long it will take to read an article.
+- As a user, I want to be able to write a story so that the world can see it.
+- As a Author, I want to be able to write stories, so that I can share my thoughts with other site users/authors.
+- As a user, I want to be able to comment on stories, so that I can share my thoughts with authors.
+- As a user, I want to be able follow authors, so that I can see their articles pop up in my feed.
+- As a user, I want to be able to like articles, so that I can keep track of my favorite pieces.
+- As an author, I want to be able to see how many likes an article I wrote has, so that I can track its popularity.
+- As an administrator, I want to be able to delete articles, comments, and users (in addition to the normal user actions), so that I can moderate the site.
+- Bonus Feature: As an author, I want to be able to add images, code blocks, external links and then have the site handle them for me appropriately.
+- Bonus Feature: As a user, I want to be able to see all of my liked articles in one location, so that I can easily browse my favorites.

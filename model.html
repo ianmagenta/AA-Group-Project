@@ -1,0 +1,463 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+	<meta name="created" content="2020-04-14T10:31:40.784834680"/>
+	<meta name="changed" content="2020-04-14T10:49:12.676343896"/>
+</head>
+<body lang="en-US" dir="ltr">
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Some further thoughts to the model:</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<ol>
+	<li/>
+<p style="margin-bottom: 0in">Email has been added to user.</p>
+	<li/>
+<p style="margin-bottom: 0in">With regards to stories and
+	comments there are some new issues. It seems that on most sites
+	comments can be commented as well so probably merging the two tables
+	is the easiest way to deal with it. As a result the previous STORY
+	table has changed and the COMMENTS table has been deleted.</p>
+	<li/>
+<p style="margin-bottom: 0in">Since all comments and stories
+	get a unique identifier from the same table one LIKES table is
+	enough.</p>
+</ol>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="384" cellpadding="4" cellspacing="0">
+	<col width="111">
+	<col width="136">
+	<col width="111">
+	<tr>
+		<td colspan="3" width="374" valign="top" style="border: 1px solid #000000; padding: 0.04in">
+			<p align="center">USER</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center">COLUMN</p>
+		</td>
+		<td width="136" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center">TYPE</p>
+		</td>
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p align="center">CONSTRAINT</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>id</p>
+		</td>
+		<td width="136" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>INTEGER</p>
+		</td>
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>PRIMARY KEY</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>firstName</p>
+		</td>
+		<td width="136" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>STRING(50)</p>
+		</td>
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>NOT NULL</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>lastName</p>
+		</td>
+		<td width="136" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>STRING(50)</p>
+		</td>
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>NOT NULL</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><b>email</b></font></p>
+		</td>
+		<td width="136" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><b>EMAIL</b></font></p>
+		</td>
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><font color="#ce181e"><b>NOT NULL, UNIQUE</b></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>isAuthor</p>
+		</td>
+		<td width="136" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>BOOLEAN - DEFAULT: FALSE</p>
+		</td>
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>bio</p>
+		</td>
+		<td width="136" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>TEXT</p>
+		</td>
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>isAdmin</p>
+		</td>
+		<td width="136" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>BOOLEAN - DEFAULT: FALSE</p>
+		</td>
+		<td width="111" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="384" cellpadding="4" cellspacing="0">
+	<col width="87">
+	<col width="82">
+	<col width="189">
+	<tr>
+		<td colspan="3" width="374" valign="top" style="border: 1px solid #000000; padding: 0.04in">
+			<p align="center">STORY/COMMENT</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center">COLUMN</p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center">TYPE</p>
+		</td>
+		<td width="189" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p align="center">CONSTRAINT</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>id</p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>INTEGER</p>
+		</td>
+		<td width="189" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>PRIMARY KEY</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>title</p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>TEXT</p>
+		</td>
+		<td width="189" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><font color="#ce181e">NULL if comment or inherits from story?</font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>subHeading</p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>TEXT</p>
+		</td>
+		<td width="189" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><font color="#ce181e">NULL if comment or inherits from story?</font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><b>story/comment</b></font></p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>TEXT</p>
+		</td>
+		<td width="189" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>NOT NULL</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>userID</p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>INTEGER</p>
+		</td>
+		<td width="189" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>FOREIGN KEY (USER: id), NOT NULL</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>categoryId</p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>INTEGER</p>
+		</td>
+		<td width="189" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>FOREIGN KEY (CATEGORY: id), NOT NULL</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="87" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><b>parentId</b></font></p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><b>INTEGER</b></font></p>
+		</td>
+		<td width="189" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><font color="#ce181e"><b>FOREIGN KEY (STORY/COMMENT: id), NULL
+			(only if story)</b></font></p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="312" cellpadding="4" cellspacing="0">
+	<col width="75">
+	<col width="94">
+	<col width="117">
+	<tr>
+		<td colspan="3" width="302" valign="top" style="border: 1px solid #000000; padding: 0.04in">
+			<p align="center">STORY CATEGORIES</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="75" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center">COLUMN</p>
+		</td>
+		<td width="94" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center">TYPE</p>
+		</td>
+		<td width="117" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p align="center">CONSTRAINT</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="75" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>id</p>
+		</td>
+		<td width="94" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>INTEGER</p>
+		</td>
+		<td width="117" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>PRIMARY KEY</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="75" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>category</p>
+		</td>
+		<td width="94" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>STRING(50)</p>
+		</td>
+		<td width="117" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>NOT NULL</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="306" cellpadding="4" cellspacing="0">
+	<col width="75">
+	<col width="82">
+	<col width="123">
+	<tr>
+		<td colspan="3" width="296" valign="top" style="border: 1px solid #000000; padding: 0.04in">
+			<p align="center"><font color="#ce181e"><strike><b>COMMENT</b></strike></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="75" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center"><font color="#ce181e"><strike><b>COLUMN</b></strike></font></p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center"><font color="#ce181e"><strike><b>TYPE</b></strike></font></p>
+		</td>
+		<td width="123" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p align="center"><font color="#ce181e"><strike><b>CONSTRAINT</b></strike></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="75" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><strike><b>id</b></strike></font></p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><strike><b>UUID</b></strike></font></p>
+		</td>
+		<td width="123" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><font color="#ce181e"><strike><b>PRIMARY KEY</b></strike></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="75" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><strike><b>storyID</b></strike></font></p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><strike><b>INTEGER</b></strike></font></p>
+		</td>
+		<td width="123" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><font color="#ce181e"><strike><b>FOREIGN KEY (USER: id), NOT
+			NULL</b></strike></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="75" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><strike><b>userID</b></strike></font></p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><strike><b>INTEGER</b></strike></font></p>
+		</td>
+		<td width="123" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><font color="#ce181e"><strike><b>FOREIGN KEY (USER: id), NOT
+			NULL</b></strike></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="75" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><strike><b>comment</b></strike></font></p>
+		</td>
+		<td width="82" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><strike><b>TEXT</b></strike></font></p>
+		</td>
+		<td width="123" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><font color="#ce181e"><strike><b>NOT NULL</b></strike></font></p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="100%" cellpadding="4" cellspacing="0">
+	<col width="85*">
+	<col width="85*">
+	<col width="85*">
+	<tr>
+		<td colspan="3" width="100%" valign="top" style="border: 1px solid #000000; padding: 0.04in">
+			<p align="center"><font color="#ce181e"><b>LIKE</b></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center"><font color="#ce181e"><b>COLUMN</b></font></p>
+		</td>
+		<td width="33%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center"><font color="#ce181e"><b>TYPE</b></font></p>
+		</td>
+		<td width="33%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p align="center"><font color="#ce181e"><b>CONSTRAINT</b></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><b>id</b></font></p>
+		</td>
+		<td width="33%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><b>INTEGER</b></font></p>
+		</td>
+		<td width="33%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><font color="#ce181e"><b>PRIMARY KEY</b></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="33%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><b>story/commentId)</b></font></p>
+		</td>
+		<td width="33%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><font color="#ce181e"><b>INTEGER</b></font></p>
+		</td>
+		<td width="33%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><font color="#ce181e"><b>FOREIGN KEY (STORY/COMMENT: id), NOT
+			NULL</b></font></p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="312" cellpadding="4" cellspacing="0">
+	<col width="75">
+	<col width="94">
+	<col width="117">
+	<tr>
+		<td colspan="3" width="302" valign="top" style="border: 1px solid #000000; padding: 0.04in">
+			<p align="center">STORY CATEGORIES</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="75" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center">COLUMN</p>
+		</td>
+		<td width="94" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p align="center">TYPE</p>
+		</td>
+		<td width="117" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p align="center">CONSTRAINT</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="75" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>id</p>
+		</td>
+		<td width="94" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>INTEGER</p>
+		</td>
+		<td width="117" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>PRIMARY KEY</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="75" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>category</p>
+		</td>
+		<td width="94" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>STRING(50)</p>
+		</td>
+		<td width="117" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>NOT NULL</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+</body>
+</html>

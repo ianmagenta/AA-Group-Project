@@ -8,42 +8,58 @@
 - Articles Liked by User
 
 ### Users Table
-- userName : string
-- password : string
-- firstName : string
-- lastName : string
-- isAuthor : boolean
-- bio : text
-- isAdmin : boolean
+| column    | type    | max length | default | constraints      |
+| --------- | ------- | ---------- | ------- | ---------------- |
+| userName  | varchar | 20         | no      | not null, unique |
+| password  | varchar | 20         | no      | not null         |
+| firstName | varchar | 50         | no      | not null         |
+| lastName  | varchar | 50         | no      | not null         |
+| email     | varchar | 50         | no      | not null, unique |
+| isAuthor  | boolean | none       | false   | not null         |
+| bio       | text    | none       | no      | none             |
+| isAdmin   | boolean | none       | false   | not null         |
+
 
 ### Stories
-- title : string
-- subHeading : string
-- story : text
-- userId : int foreignKey (User)
-- likes : integer
-- date : read from updatedAt
-- categoryId : int foreignKey (StoryCategories)
+| column     | type    | max length | default | constraints                                |
+| ---------- | ------- | ---------- | ------- | ------------------------------------------ |
+| title      | varchar | 500        | no      | not null                                   |
+| subHeading | varchar | 500        | no      | none                                       |
+| story      | text    | none       | no      | not null                                   |
+| userID     | integer | none       | no      | not null, references: (Users.Id)           |
+| likes      | integer | none       | 0       | not null                                   |
+| date       |         |            |         | read val from updatedAt                    |
+| categoryId | integer | none       | no      | not null, references: (StoryCategories.Id) |
+
 
 ### Comments
-- storyId : int foreignKey (Stories)
-- userId : int foreignKey (User)
-- comment : text
-- likes : int
-- date : read from updatedAt
+| column  | type    | max length | default | constraints                        |
+| ------- | ------- | ---------- | ------- | ---------------------------------- |
+| storyId | integer | none       | no      | not null, references: (Stories.Id) |
+| userId  | integer | none       | no      | not null, references: (Users.Id)   |
+| comment | text    | none       | no      | not null                           |
+| likes   | integer | none       | 0       | not null                           |
+| date    |         |            |         | read val from updatedAt            |
 
 ### Story Categories
-- category : string
+| column   | type    | max length | default | constraints |
+| -------- | ------- | ---------- | ------- | ----------- |
+| category | varchar | 25         | no      | not null    |
 
-### Draft: Articles/Comments Liked
-- userId : int foreignKey (Users)
-- storiesId/commentId : int foreignKey (Stories, Comments)
-- IsStory(?)
-
-### Articles Liked
-- userId : int foreignKey (Users)
-- storiesId : int foreignKey (Stories)
+### Stories Liked
+| column    | type    | max length | default | constraints                       |
+| --------- | ------- | ---------- | ------- | --------------------------------- |
+| userId    | integer | none       | no      | not null references: (Users.Id)   |
+| storiesId | integer | none       | no      | not null references: (Stories.Id) |
 
 ### Comments Liked
-- userId : int foreignKey (Users)
-- commentId : int foreignKey (Comment)
+| column    | type    | max length | default | constraints                        |
+| --------- | ------- | ---------- | ------- | ---------------------------------- |
+| userId    | integer | none       | no      | not null references: (Users.Id)    |
+| commentId | integer | none       | no      | not null references: (Comments.Id) |
+
+### Images
+| column | type    | max length | default | constraints |
+| ------ | ------- | ---------- | ------- | ----------- |
+| name   | varchar | 25         | no      | not null    |
+| image  | bytea   | none       | no      | not null    |

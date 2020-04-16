@@ -1,6 +1,7 @@
 # Endpoints
 
 ## Front Endpoints
+
 - "/"
   - Splash Page
 - "/login"
@@ -19,6 +20,7 @@
   - Story Edit Page
 
 ## API Endpoints
+
 - Users
   - GET /api/users
     - return data from user table
@@ -34,8 +36,8 @@
   - POST /api/session
   - DELETE /api/session
 - Stories
-    - GET /api/stories
-      - return data from stories table
+  - GET /api/stories
+    - return data from stories table
   - POST /api/stories
     - add story to stories table
   - GET /api/stories/:id
@@ -45,14 +47,14 @@
   - DELETE /api/stories/:id
     - delete specific story from stories table
 - Likes
-    - POST /api/stories/:articleId/likes
-      - Add a like to story
-    - DELETE /api/stories/:articleId/likes
-      - Remove a like from story
-    - POST /api/comments/:commentId/likes
-      - Add a like to comment
-    - DELETE /api/comments/:commentId/likes
-      - Remove a like from comment
+  - POST /api/stories/:articleId/likes
+    - Add a like to story
+  - DELETE /api/stories/:articleId/likes
+    - Remove a like from story
+  - POST /api/comments/:commentId/likes
+    - Add a like to comment
+  - DELETE /api/comments/:commentId/likes
+    - Remove a like from comment
 - Comments
   - GET /api/comments
     - return data from comments table

@@ -22,8 +22,8 @@
 ## API Endpoints
 
 - Users
-  - GET /api/users
-    - return data from user table
+  - GET /api/authors/:searchTerm
+    - returns users who have written articles based on search term
   - POST /api/users
     - add user to users table
   - GET /api/users/:id
@@ -56,18 +56,17 @@
   - DELETE /api/comments/:commentId/likes
     - Remove a like from comment
 - Comments
-  - GET /api/comments
-    - return data from comments table
-  - POST /api/comments
-    - add comment to comments table
+  - GET /api/stories/:id/comments
+    - return comments tied to a specific story
+  - POST /api/stories/:id/comments
+    - add comment to comments table based on current story
   - GET /api/comments/:id
     - return specific comment from comments table
-  - PUT /api/comments/:id
-    - update specific comment from comments table
   - DELETE /api/comments/:id
     - delete specific comment from comments table
-- Images
+
+<!-- - Images
   - GET /api/image/:id
     - Get image from database
   - GET /api/image/:name
-    - Get image from database based on image name
+    - Get image from database based on image name -->

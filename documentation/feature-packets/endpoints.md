@@ -4,6 +4,8 @@
 
 - "/"
   - Splash Page
+- "/" (Once logged in)
+  - Shows most recent stories
 - "/login"
   - Session Form
 - "/register"

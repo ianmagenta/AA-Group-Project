@@ -1,20 +1,20 @@
 # Models
 
-## Table List
+## Model List
 
-- Users
-- Stories
-- Comments
-- Categories of stories
-- Stories liked
-- Comments liked
+- User
+- Story
+- Comment
+- Story Category
+- Story Like
+- Comment Like
 
 ### Users Table
 
 | column    | type    | max length | default | constraints      |
 | --------- | ------- | ---------- | ------- | ---------------- |
 | userName  | varchar | 20         | no      | not null, unique |
-| password  | varchar | 20         | no      | not null         |
+| password  | binary  | none       | no      | not null         |
 | firstName | varchar | 50         | no      | not null         |
 | lastName  | varchar | 50         | no      | not null         |
 | email     | varchar | 50         | no      | not null, unique |
@@ -28,9 +28,7 @@
 | title      | varchar | 500        | no      | not null                                   |
 | subHeading | varchar | 500        | no      | none                                       |
 | body       | text    | none       | no      | not null                                   |
-| userID     | integer | none       | no      | not null, references: (Users.Id)           |
-| likes      | integer | none       | 0       | not null                                   |
-| date       |         |            |         | read val from updatedAt                    |
+| userId     | integer | none       | no      | not null, references: (Users.Id)           |
 | categoryId | integer | none       | no      | not null, references: (StoryCategories.Id) |
 
 ### Comments
@@ -40,8 +38,6 @@
 | storyId | integer | none       | no      | not null, references: (Stories.Id) |
 | userId  | integer | none       | no      | not null, references: (Users.Id)   |
 | body    | text    | none       | no      | not null                           |
-| likes   | integer | none       | 0       | not null                           |
-| date    |         |            |         | read val from updatedAt            |
 
 ### Story Categories
 
@@ -49,14 +45,14 @@
 | ------------ | ------- | ---------- | ------- | ----------- |
 | categoryName | varchar | 25         | no      | not null    |
 
-### Stories Liked
+### Story Likes
 
 | column  | type    | max length | default | constraints                       |
 | ------- | ------- | ---------- | ------- | --------------------------------- |
 | userId  | integer | none       | no      | not null references: (Users.Id)   |
 | storyId | integer | none       | no      | not null references: (Stories.Id) |
 
-### Comments Liked
+### Comment Likes
 
 | column    | type    | max length | default | constraints                        |
 | --------- | ------- | ---------- | ------- | ---------------------------------- |

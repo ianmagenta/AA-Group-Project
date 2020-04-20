@@ -5,6 +5,7 @@ doctype html
     .signin-text Sign in
     .instructions-text Enter your email and password
     form.register-form(action="" method="post")
+      input(type="hidden" name="_csrf" value=csrfToken)
       input(type="email" name="email" value="email" placeholder="youremail@domain.com")
       input(type="password" name="password" value="password" placeholder="enter password")
       button(type="submit") Sign in

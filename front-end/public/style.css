@@ -37,8 +37,9 @@ body {
   display: grid;
   margin: 0 auto;
   max-width: 800px;
+  /* height: 500px; */
   grid-template-areas:
-  "categories categories categories"
+  "categories categories categories categories"
   "image image image image"
   "image image image image"
   "image image image image"
@@ -54,26 +55,41 @@ body {
   justify-content: center;
 }
 
+.category {
+  padding: 5px;
+}
+
 .index-image {
   padding: 10px;
   grid-area: image;
-  /* align-self: center; */
+  align-self: center;
 }
 
 .top-stories-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 10px;
   grid-area: topstories;
 }
 
-.article-container{
+.article-container {
+  border: 1px solid black;
   padding: 10px;
+  margin: 10px;
   display: grid;
   grid-template-areas:
   "title title title likes"
-  "subheader subheader subheader"
+  "subheader subheader subheader subheader"
   "author author author author"
   "date date time time";
+}
+
+.heading-text {
+  color: white;
+  background-color: rgb(59, 128, 255);
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
 }
 
 .article-title {
@@ -96,4 +112,23 @@ body {
 }
 .article-likes {
   grid-area: likes;
+}
+
+.main-stories-container {
+  background-color: white;
+  display: grid;
+  padding-top: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  grid-template-areas:
+  "lefts lefts rights"
+  "lefts lefts rights";
+}
+
+.main-stories-left {
+  grid-area: lefts;
+}
+
+.main-stories-right {
+  grid-area: rights;
 }

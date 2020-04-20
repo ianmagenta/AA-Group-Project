@@ -8,10 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      storyId: {
+      commentId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: "Stories" }
+        references: { model: "Comments" }
       },
       userId: {
         allowNull: false,
@@ -26,7 +26,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    }).then(() => queryInterface.addConstraint('CommentLikes', ['storyId', 'userId'], {
+    }).then(() => queryInterface.addConstraint('CommentLikes', ['commentId', 'userId'], {
       type: 'unique',
       name: ''
     }));

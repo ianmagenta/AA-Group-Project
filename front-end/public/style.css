@@ -132,3 +132,40 @@ body {
 .main-stories-right {
   grid-area: rights;
 }
+
+.form-container {
+  background-color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+.form-top {
+  background-color: rgb(59, 128, 255);
+}
+
+.form-inner-container, .register-text, .register-instructions-text {
+  display: flex;
+  margin: 10px auto;
+  flex-direction: column;
+}
+
+.register-form {
+  padding: 20px;
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+  flex-direction: column;
+}
+
+input {
+  max-width: 600px;
+}
+
+
+
+button {
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 100px;
+}

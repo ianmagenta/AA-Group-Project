@@ -1,3 +1,4 @@
+const { port } = require("./config/index");
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -49,5 +50,6 @@ app.get("/profile", (req, res) => {
   res.render("profile");
 })
 
-const port = 4000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+app.listen(port, () => {
+  console.log(`Listening for requests on port ${port}...`);
+});

@@ -1,0 +1,178 @@
+.top-bar {
+  background-color: rgb(59, 128, 255);
+}
+
+body {
+  background-color: rgb(217, 245, 255);
+}
+
+.inner-top-bar{
+  margin: 0 auto;
+  max-width: 800px;
+  display: grid;
+  padding: 10px;
+  grid-template-areas: "logo . . . . . . signin register";
+}
+
+.rare-logo {
+  grid-area: logo;
+}
+
+.sign-in-top {
+  grid-area: signin;
+  text-align: right;
+}
+
+.register-top {
+  grid-area: register;
+  text-align: right;
+}
+
+ .rare-logo, .sign-in-top, .register-top {
+   color: white;
+ }
+
+.index-top-container {
+  background-color: white;
+  display: grid;
+  margin: 0 auto;
+  max-width: 800px;
+  /* height: 500px; */
+  grid-template-areas:
+  "categories categories categories categories"
+  "image image image image"
+  "image image image image"
+  "image image image image"
+  "topstories topstories topstories topstories"
+  "topstories topstories topstories topstories"
+  "topstories topstories topstories topstories";
+}
+
+.categories-container {
+  padding: 10px;
+  grid-area: categories;
+  display: flex;
+  justify-content: center;
+}
+
+.category {
+  padding: 5px;
+}
+
+.index-image {
+  padding: 10px;
+  grid-area: image;
+  align-self: center;
+}
+
+.top-stories-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  grid-area: topstories;
+}
+
+.article-container {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  display: grid;
+  grid-template-areas:
+  "title title title likes"
+  "subheader subheader subheader subheader"
+  "author author author author"
+  "date date time time";
+}
+
+.heading-text {
+  color: white;
+  background-color: rgb(59, 128, 255);
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.article-title {
+  grid-area: title;
+}
+
+.article-subheader {
+  grid-area: subheader;
+}
+
+.article-author {
+  grid-area: author;
+}
+.article-date {
+  grid-area: date;
+}
+
+.article-time {
+  grid-area: time;
+}
+.article-likes {
+  grid-area: likes;
+}
+
+.main-stories-container {
+  background-color: white;
+  display: grid;
+  padding-top: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  grid-template-areas:
+  "lefts lefts rights"
+  "lefts lefts rights";
+}
+
+.main-stories-left {
+  grid-area: lefts;
+}
+
+.main-stories-right {
+  grid-area: rights;
+}
+
+.form-container {
+  background-color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+.form-top {
+  display: grid;
+  border-radius: 3px;
+  background-color: rgb(59, 128, 255);
+  grid-template-areas: ". . . . . . . . . . exitbutton";
+}
+
+.form-inner-container, .register-text, .register-instructions-text {
+  display: flex;
+  margin: 10px auto;
+  flex-direction: column;
+}
+
+.register-form {
+  padding: 20px;
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+  flex-direction: column;
+}
+
+input {
+  max-width: 600px;
+}
+
+.exit-button {
+  margin: 10px;
+  text-align: right;
+  grid-area: exitbutton;
+}
+
+button {
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 100px;
+}

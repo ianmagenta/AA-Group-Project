@@ -141,7 +141,10 @@ body {
 }
 
 .form-top {
+  display: grid;
+  border-radius: 3px;
   background-color: rgb(59, 128, 255);
+  grid-template-areas: ". . . . . . . . . . exitbutton";
 }
 
 .form-inner-container, .register-text, .register-instructions-text {
@@ -162,7 +165,11 @@ input {
   max-width: 600px;
 }
 
-
+.exit-button {
+  margin: 10px;
+  text-align: right;
+  grid-area: exitbutton;
+}
 
 button {
   margin: 10px auto;

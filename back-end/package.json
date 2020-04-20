@@ -1,10 +1,10 @@
 {
-  "name": "projects",
+  "name": "back-end",
   "version": "1.0.0",
   "description": "",
   "main": "./bin/www",
   "scripts": {
-    "start": "per-env",
+    "start": "node ./index.js",
     "start:development": "nodemon -r dotenv/config ./bin/www",
     "start:production": "./bin/www"
   },

@@ -14,6 +14,9 @@ module.exports = {
     host,
     dialect: "postgres",
   },
+  production: {
+    use_env_variable: 'DATABASE_URL',
+  },
   test: {
     dialect: "sqlite",
     DB_CONN: "sqlite.memory",

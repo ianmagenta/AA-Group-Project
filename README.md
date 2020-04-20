@@ -21,6 +21,7 @@ Rare was built using:
 - Markdown
 - Bcryptjs
 - Pug
+- Heroku
 - And good old js, html, and css.
 
 ## Challenges and Highlights

@@ -1,0 +1,15 @@
+doctype html
+link(rel="stylesheet" href="./style.css")
+.form-container
+  .form-top
+  .form-inner-container
+    .register-text Register
+    .register-instructions-text Enter your email and password
+    form.register-form(action="" method="post")
+      input(type="hidden" name="_csrf" value=csrfToken)
+      input(type="email" name="email" placeholder="YourEmail@Domain.com")
+      input(type="text" name="firstName" placeholder="Enter your first name here (required)")
+      input(type="text" name="lastName" placeholder="Enter your last name here (required)")
+      input(type="password" name="password" placeholder="Enter password")
+      input(type="password" name="confirmPassword" placeholder="Re-enter password")
+      button(type="submit") Register

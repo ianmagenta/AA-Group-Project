@@ -1,8 +1,99 @@
 .top-bar {
-  background-color: blue;
+  background-color: rgb(59, 128, 255);
+}
+
+body {
+  background-color: rgb(217, 245, 255);
+}
+
+.inner-top-bar{
+  margin: 0 auto;
+  max-width: 800px;
+  display: grid;
   padding: 10px;
+  grid-template-areas: "logo . . . . . . signin register";
+}
+
+.rare-logo {
+  grid-area: logo;
+}
+
+.sign-in-top {
+  grid-area: signin;
+  text-align: right;
+}
+
+.register-top {
+  grid-area: register;
+  text-align: right;
 }
 
  .rare-logo, .sign-in-top, .register-top {
    color: white;
  }
+
+.index-top-container {
+  background-color: white;
+  display: grid;
+  margin: 0 auto;
+  max-width: 800px;
+  grid-template-areas:
+  "categories categories categories"
+  "image image image image"
+  "image image image image"
+  "image image image image"
+  "topstories topstories topstories topstories"
+  "topstories topstories topstories topstories"
+  "topstories topstories topstories topstories";
+}
+
+.categories-container {
+  padding: 10px;
+  grid-area: categories;
+  display: flex;
+  justify-content: center;
+}
+
+.index-image {
+  padding: 10px;
+  grid-area: image;
+  /* align-self: center; */
+}
+
+.top-stories-container {
+  display: flex;
+  justify-content: center;
+  grid-area: topstories;
+}
+
+.article-container{
+  padding: 10px;
+  display: grid;
+  grid-template-areas:
+  "title title title likes"
+  "subheader subheader subheader"
+  "author author author author"
+  "date date time time";
+}
+
+.article-title {
+  grid-area: title;
+}
+
+.article-subheader {
+  grid-area: subheader;
+}
+
+.article-author {
+  grid-area: author;
+}
+.article-date {
+  grid-area: date;
+}
+
+.article-time {
+  grid-area: time;
+}
+.article-likes {
+  grid-area: likes;
+}

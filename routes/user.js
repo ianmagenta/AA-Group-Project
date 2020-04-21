@@ -2,8 +2,8 @@ const express = require('express');
 const csrf = require('csurf');
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require('express-validator');
-const { asyncHandler, handleValidationErrors } = require("../utils");
-const { requireAuth } = require("../auth");
+const { asyncHandler, handleValidationErrors } = require("./utils");
+const { requireAuth, getUserToken } = require("../auth");
 const db = require('../db/models');
 
 
@@ -12,16 +12,16 @@ const csrfProtection = csrf({ cookie: true });
 const { User } = db;
 
 
-router.use(requireAuth);
+// router.use(requireAuth);
 
-router.get('/', csrfProtection, (req, res) => {
-    const user = db.User.build();
-    res.render('register', {
-        title: 'Add User',
-        user,
-        csrfToken: req.csrfToken(),
-    });
-});
+// router.get('/', csrfProtection, (req, res) => {
+//     const user = db.User.build();
+//     res.render('register', {
+//         title: 'Add User',
+//         user,
+//         csrfToken: req.csrfToken(),
+//     });
+// });
 
 const userValidators = [
     check('userName')
@@ -45,11 +45,13 @@ const userValidators = [
     check('email')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a value for Email')
-        .isEmail
+        .isEmail({ checkFalsy: true })
         .withMessage('Please provide a valid email format'),
+    handleValidationErrors
 ];
 
-router.post('/', csrfProtection, userValidators, handleValidationErrors, asyncHandler(async (req, res) => {
+router.post('/', userValidators, asyncHandler(async (req, res) => {
+
     const {
         userName,
         password,
@@ -60,39 +62,17 @@ router.post('/', csrfProtection, userValidators, handleValidationErrors, asyncHa
         isAdmin
     } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = db.User.create({
+    const user = await db.User.create({
         userName,
-        hashedPassword,
+        password: hashedPassword,
         firstName,
         lastName,
         email,
         bio,
         isAdmin
     });
+    res.json({ user });
 
-    const token = getUserToken(user);
-    res.status(201).json({
-        user: { id: user.id },
-        token,
-    });
-
-
-    // try {
-    //     await user.save();
-    //     res.redirect('/');
-    // } catch (err) {
-    //     if (err.name === 'SequelizeValidationError') {
-    //         const errors = err.errors.map((error) => error.message);
-    //         res.render('register', {
-    //             title: 'Add User',
-    //             user,
-    //             errors,
-    //             csrfToken: req.csrfToken(),
-    //         });
-    //     } else {
-    //         next(err);
-    //     }
-    // }
 }));
 
 module.exports = router;

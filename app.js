@@ -4,7 +4,8 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const morgan = require('morgan');
 const path = require('path');
-// const userRoute = require('./routes/user');
+const userRoute = require('./routes/user');
+const indexRoute = require('./routes/index');
 // const csrf = require('csurf');
 // const csrfProtection = csrf({ cookie: true });
 // const { check, validationResult } = require('express-validator');
@@ -19,13 +20,16 @@ const path = require('path');
 //     }
 //   }
 // }
-
+app.use(morgan('dev'));
+app.use(express.json());
+// app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
 app.set('view engine', 'pug');
 app.use(morgan('dev'));
-// app.use('/user', userRoute);
-// app.use(cookieParser());
-// app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use('/user', userRoute);
+app.use('/', indexRoute);
+
 
 // Define a route.
 app.get("/", (req, res) => {

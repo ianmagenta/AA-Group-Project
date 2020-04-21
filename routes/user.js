@@ -47,7 +47,6 @@ const userValidators = [
         .withMessage('Please provide a value for Email')
         .isEmail
         .withMessage('Please provide a valid email format'),
-
 ];
 
 router.post('/', csrfProtection, userValidators, handleValidationErrors, asyncHandler(async (req, res) => {

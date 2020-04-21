@@ -15,7 +15,7 @@ module.exports = {
 
       {
         title: "The Tell-Tale Heart",
-        subHeading: "You may have heard of this one!",
+        subHeading: "Another part of my classic works",
         body: "TRUE!—nervous—very, very dreadfully nervous I had been and am; but why will you say that I am mad? The disease had sharpened my senses—not destroyed—not dulled them. Above all was the sense of hearing acute. I heard all things in the heaven and in the earth. I heard many things in hell. How, then, am I mad? Hearken! and observe how healthily—how calmly I can tell you the whole story. It is impossible to say how first the idea entered my brain; but once conceived, it haunted me day and night. Object there was none. Passion there was none. I loved the old man. He had never wronged me. He had never given me insult. For his gold I had no desire. I think it was his eye! yes, it was this! He had the eye of a vulture—a pale blue eye, with a film over it. Whenever it fell upon me, my blood ran cold; and so by degrees—very gradually—I made up my mind to take the life of the old man, and thus rid myself of the eye forever. Now this is the point. You fancy me mad. Madmen know nothing. But you should have seen me. You should have seen how wisely I proceeded—with what caution—with what foresight—with what dissimulation I went to work! I was never kinder to the old man than during the whole week before I killed him. And every night, about midnight, I turned the latch of his door and opened it—oh so gently! And then, when I had made an opening sufficient for my head, I put in a dark lantern, all closed, closed, that no light shone out, and then I thrust in my head. Oh, you would have laughed to see how cunningly I thrust it in! I moved it slowly—very, very slowly, so that I might not disturb the old man’s sleep. It took me an hour to place my whole head within the opening so far that I could see him as he lay upon his bed. Ha! would a madman have been so wise as this? And then, when my head was well in the room, I undid the lantern cautiously—oh, so cautiously—cautiously (for the hinges creaked)—I undid it just so much that a single thin ray fell upon the vulture eye. And this I did for seven long nights—every night just at midnight—but I found the eye always closed; and so it was impossible to do the work; for it was not the old man who vexed me, but his Evil Eye. And every morning, when the day broke, I went boldly into the chamber, and spoke courageously to him, calling him by name in a hearty tone, and inquiring how he has passed the night. So you see he would have been a very profound old man, indeed, to suspect that every night, just at twelve, I looked in upon him while he slept. ",
         userId: 5,
         categoryId: 37,
@@ -25,7 +25,7 @@ module.exports = {
 
       {
         title: "The Raven",
-        subHeading: "The kids love this one!",
+        subHeading: "Part of my classic poem",
         body: "Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume of forgotten lore, While I nodded, nearly napping, suddenly there came a tapping, As of some one gently rapping, rapping at my chamber door. 'Tis some visiter,' I muttered, 'tapping at my chamber door— Only this, and nothing more.'",
         userId: 5,
         categoryId: 37,
@@ -35,7 +35,7 @@ module.exports = {
 
       {
         title: "Pride and Prejudice",
-        subHeading: "Chapter 1",
+        subHeading: "Draft of Chapter 1",
         body: ` It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.
 
 However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.
@@ -112,7 +112,7 @@ Mr. Bennet was so odd a mixture of quick parts, sarcastic humour, reserve, and c
       {
         title: "The Importance of Being Earnest",
         subHeading: "Act 1",
-        body: `![enter image description here](https://upload.wikimedia.org/wikipedia/commons/8/8a/The_Importance_of_Being_Earnest_-_Cigarettecase.jpg)
+        body: `![These two know The Importance of Being Earnest](https://upload.wikimedia.org/wikipedia/commons/8/8a/The_Importance_of_Being_Earnest_-_Cigarettecase.jpg)
 
 Morning-room in Algernon’s flat in Half-Moon Street. The room is luxuriously and artistically furnished. The sound of a piano is heard in the adjoining room.
 
@@ -758,6 +758,16 @@ ACT DROP
 `,
         userId: 8,
         categoryId: 20,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      {
+        title: "The Black Cat",
+        subHeading: "",
+        body: "For the most wild, yet most homely narrative which I am about to pen, I neither expect nor solicit belief. Mad indeed would I be to expect it, in a case where my very senses reject their own evidence. Yet, mad am I not—and very surely do I not dream. But to-morrow I die, and to-day I would unburthen my soul. My immediate purpose is to place before the world, plainly, succinctly, and without comment, a series of mere household events. In their consequences, these events have terrified—have tortured—have destroyed me. Yet I will not attempt to expound them. To me, they have presented little but Horror—to many they will seem less terrible than barroques. Hereafter, perhaps, some intellect may be found which will reduce my phantasm to the common-place—some intellect more calm, more logical, and far less excitable than my own, which will perceive, in the circumstances I detail with awe, nothing more than an ordinary succession of very natural causes and effects. From my infancy I was noted for the docility and humanity of my disposition. My tenderness of heart was even so conspicuous as to make me the jest of my companions. I was especially fond of animals, and was indulged by my parents with a great variety of pets. With these I spent most of my time, and never was so happy as when feeding and caressing them. This peculiarity of character grew with my growth, and in my manhood, I derived from it one of my principal sources of pleasure. To those who have cherished an affection for a faithful and sagacious dog, I need hardly be at the trouble of explaining the nature or the intensity of the gratification thus derivable. There is something in the unselfish and self-sacrificing love of a brute, which goes directly to the heart of him who has had frequent occasion to test the paltry friendship and gossamer fidelity of mere Man.",
+        userId: 5,
+        categoryId: 37,
         createdAt: new Date(),
         updatedAt: new Date()
       },

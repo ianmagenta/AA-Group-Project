@@ -1,9 +1,11 @@
 doctype html
+link(rel="stylesheet" href="./style.css")
 .form-container
   .form-top
+    a.exit-button(href="/index") X
   .form-inner-container
-    .signin-text Sign in
-    .instructions-text Enter your email and password
+    .register-text Sign in
+    .register-instructions-text Enter your email and password
     form.register-form(action="" method="post")
       input(type="hidden" name="_csrf" value=csrfToken)
       input(type="email" name="email" placeholder="youremail@domain.com")

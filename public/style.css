@@ -112,6 +112,7 @@ body {
 }
 .article-likes {
   grid-area: likes;
+  text-align: end;
 }
 
 .main-stories-container {

@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const morgan = require('morgan');
 const path = require('path');
+const userRoute = require('./routes/user');
 // const csrf = require('csurf');
 // const csrfProtection = csrf({ cookie: true });
 // const { check, validationResult } = require('express-validator');
@@ -21,6 +22,7 @@ const path = require('path');
 
 app.set('view engine', 'pug');
 app.use(morgan('dev'));
+app.use(userRoute);
 // app.use(cookieParser());
 // app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));

@@ -162,6 +162,11 @@ body {
   flex-direction: column;
 }
 
+.guest-login-form, .guest-button {
+  max-width: 400px;
+  margin: 10px auto;
+}
+
 input {
   max-width: 600px;
 }

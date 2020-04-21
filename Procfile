@@ -1,1 +1,1 @@
-web: node app.js
+web: node -r dotenv/config ./bin/www

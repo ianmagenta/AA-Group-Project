@@ -1,12 +1,16 @@
 const express = require('express');
 const csrf = require('csurf');
-const router = express.Router();
+const bcrypt = require("bcryptjs");
 const { check, validationResult } = require('express-validator');
-const csrfProtection = csrf({ cookie: true });
-const db = require('../db/models');
-// const { User } = db;
 const { asyncHandler, handleValidationErrors } = require("../utils");
 const { requireAuth } = require("../auth");
+const db = require('../db/models');
+
+
+const router = express.Router();
+const csrfProtection = csrf({ cookie: true });
+const { User } = db;
+
 
 router.use(requireAuth);
 
@@ -74,22 +78,22 @@ router.post('/', csrfProtection, userValidators, handleValidationErrors, asyncHa
     });
 
 
-    try {
-        await user.save();
-        res.redirect('/');
-    } catch (err) {
-        if (err.name === 'SequelizeValidationError') {
-            const errors = err.errors.map((error) => error.message);
-            res.render('register', {
-                title: 'Add User',
-                user,
-                errors,
-                csrfToken: req.csrfToken(),
-            });
-        } else {
-            next(err);
-        }
-    }
+    // try {
+    //     await user.save();
+    //     res.redirect('/');
+    // } catch (err) {
+    //     if (err.name === 'SequelizeValidationError') {
+    //         const errors = err.errors.map((error) => error.message);
+    //         res.render('register', {
+    //             title: 'Add User',
+    //             user,
+    //             errors,
+    //             csrfToken: req.csrfToken(),
+    //         });
+    //     } else {
+    //         next(err);
+    //     }
+    // }
 }));
 
 module.exports = router;

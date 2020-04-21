@@ -169,6 +169,8 @@ body {
 
 input {
   max-width: 600px;
+  padding: 5px;
+  margin: 5px;
 }
 
 .exit-button {

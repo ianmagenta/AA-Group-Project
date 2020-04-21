@@ -124,6 +124,16 @@ body {
   grid-area: leftprofile;
 }
 
+.story-form {
+  margin: 0 auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  max-width: 800px;
+  padding: 10px;
+}
+
 .likes-container {
   display: flex;
   flex-direction: column;

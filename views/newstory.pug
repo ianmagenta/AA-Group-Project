@@ -1,9 +1,15 @@
 extends layout.pug
 
 block content
-  //- figure out adding markdown editor
-  //- Title
-  //- Subheader
-  //- Story
-  //- Categories
+  form.story-form
+    label(for='markdown-title-editor') Title:
+    input#markdown-title-editor
+    label(for='markdown-subheader-editor') Subheader:
+    input#markdown-subheader-editor
+    label(for='markdown-story-editor') Story:
+    textarea#markdown-story-editor
+
+  <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+  <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+  script(type='module' src='js/newstory.js')
   //- add publish button that will move down the page

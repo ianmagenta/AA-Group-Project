@@ -1,7 +1,5 @@
-let editorTitle = new MarkdownEditor('#markdown-title-editor');
-let editorSubheader = new MarkdownEditor('#markdown-subheader-editor');
-let editorStory = new MarkdownEditor('#markdown-story-editor');
+// let editorTitle = new EasyMDE({ element: document.getElementById('markdown-title-editor') });
+// let editorSubheader = new EasyMDE({ element: document.getElementById('markdown-subheader-editor') });
+let editorStory = new EasyMDE({ element: document.getElementById('markdown-story-editor') });
 
-editorTitle.render('auto');
-editorSubheader.render('auto');
-editorStory.render('auto');
+// editorTitle.value() //returns value of editor contents, to save for later w/ publish button

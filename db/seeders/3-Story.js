@@ -763,11 +763,106 @@ ACT DROP
       },
 
       {
-        title: "The Black Cat",
-        subHeading: "",
-        body: "For the most wild, yet most homely narrative which I am about to pen, I neither expect nor solicit belief. Mad indeed would I be to expect it, in a case where my very senses reject their own evidence. Yet, mad am I not—and very surely do I not dream. But to-morrow I die, and to-day I would unburthen my soul. My immediate purpose is to place before the world, plainly, succinctly, and without comment, a series of mere household events. In their consequences, these events have terrified—have tortured—have destroyed me. Yet I will not attempt to expound them. To me, they have presented little but Horror—to many they will seem less terrible than barroques. Hereafter, perhaps, some intellect may be found which will reduce my phantasm to the common-place—some intellect more calm, more logical, and far less excitable than my own, which will perceive, in the circumstances I detail with awe, nothing more than an ordinary succession of very natural causes and effects. From my infancy I was noted for the docility and humanity of my disposition. My tenderness of heart was even so conspicuous as to make me the jest of my companions. I was especially fond of animals, and was indulged by my parents with a great variety of pets. With these I spent most of my time, and never was so happy as when feeding and caressing them. This peculiarity of character grew with my growth, and in my manhood, I derived from it one of my principal sources of pleasure. To those who have cherished an affection for a faithful and sagacious dog, I need hardly be at the trouble of explaining the nature or the intensity of the gratification thus derivable. There is something in the unselfish and self-sacrificing love of a brute, which goes directly to the heart of him who has had frequent occasion to test the paltry friendship and gossamer fidelity of mere Man.",
-        userId: 5,
-        categoryId: 37,
+        title: "Frankenstein",
+        subHeading: "Chapter 1",
+        body: `
+![Illustration by Theodor von Holst from the frontispiece of the 1831 edition](https://upload.wikimedia.org/wikipedia/commons/e/e6/Frontispiece_to_Frankenstein_1831.jpg)
+
+I am by birth a Genevese, and my family is one of the most distinguished of that republic. My ancestors had been for many years counsellors and syndics, and my father had filled several public situations with honour and reputation. He was respected by all who knew him for his integrity and indefatigable attention to public business. He passed his younger days perpetually occupied by the affairs of his country; a variety of circumstances had prevented his marrying early, nor was it until the decline of life that he became a husband and the father of a family.
+
+As the circumstances of his marriage illustrate his character, I cannot refrain from relating them. One of his most intimate friends was a merchant who, from a flourishing state, fell, through numerous mischances, into poverty. This man, whose name was Beaufort, was of a proud and unbending disposition and could not bear to live in poverty and oblivion in the same country where he had formerly been distinguished for his rank and magnificence. Having paid his debts, therefore, in the most honourable manner, he retreated with his daughter to the town of Lucerne, where he lived unknown and in wretchedness. My father loved Beaufort with the truest friendship and was deeply grieved by his retreat in these unfortunate circumstances. He bitterly deplored the false pride which led his friend to a conduct so little worthy of the affection that united them. He lost no time in endeavouring to seek him out, with the hope of persuading him to begin the world again through his credit and assistance.
+
+Beaufort had taken effectual measures to conceal himself, and it was ten months before my father discovered his abode. Overjoyed at this discovery, he hastened to the house, which was situated in a mean street near the Reuss. But when he entered, misery and despair alone welcomed him. Beaufort had saved but a very small sum of money from the wreck of his fortunes, but it was sufficient to provide him with sustenance for some months, and in the meantime he hoped to procure some respectable employment in a merchant’s house. The interval was, consequently, spent in inaction; his grief only became more deep and rankling when he had leisure for reflection, and at length it took so fast hold of his mind that at the end of three months he lay on a bed of sickness, incapable of any exertion.
+
+His daughter attended him with the greatest tenderness, but she saw with despair that their little fund was rapidly decreasing and that there was no other prospect of support. But Caroline Beaufort possessed a mind of an uncommon mould, and her courage rose to support her in her adversity. She procured plain work; she plaited straw and by various means contrived to earn a pittance scarcely sufficient to support life.
+
+Several months passed in this manner. Her father grew worse; her time was more entirely occupied in attending him; her means of subsistence decreased; and in the tenth month her father died in her arms, leaving her an orphan and a beggar. This last blow overcame her, and she knelt by Beaufort’s coffin weeping bitterly, when my father entered the chamber. He came like a protecting spirit to the poor girl, who committed herself to his care; and after the interment of his friend he conducted her to Geneva and placed her under the protection of a relation. Two years after this event Caroline became his wife.
+
+There was a considerable difference between the ages of my parents, but this circumstance seemed to unite them only closer in bonds of devoted affection. There was a sense of justice in my father’s upright mind which rendered it necessary that he should approve highly to love strongly. Perhaps during former years he had suffered from the late-discovered unworthiness of one beloved and so was disposed to set a greater value on tried worth. There was a show of gratitude and worship in his attachment to my mother, differing wholly from the doting fondness of age, for it was inspired by reverence for her virtues and a desire to be the means of, in some degree, recompensing her for the sorrows she had endured, but which gave inexpressible grace to his behaviour to her. Everything was made to yield to her wishes and her convenience. He strove to shelter her, as a fair exotic is sheltered by the gardener, from every rougher wind and to surround her with all that could tend to excite pleasurable emotion in her soft and benevolent mind. Her health, and even the tranquillity of her hitherto constant spirit, had been shaken by what she had gone through. During the two years that had elapsed previous to their marriage my father had gradually relinquished all his public functions; and immediately after their union they sought the pleasant climate of Italy, and the change of scene and interest attendant on a tour through that land of wonders, as a restorative for her weakened frame.
+
+From Italy they visited Germany and France. I, their eldest child, was born at Naples, and as an infant accompanied them in their rambles. I remained for several years their only child. Much as they were attached to each other, they seemed to draw inexhaustible stores of affection from a very mine of love to bestow them upon me. My mother’s tender caresses and my father’s smile of benevolent pleasure while regarding me are my first recollections. I was their plaything and their idol, and something better—their child, the innocent and helpless creature bestowed on them by Heaven, whom to bring up to good, and whose future lot it was in their hands to direct to happiness or misery, according as they fulfilled their duties towards me. With this deep consciousness of what they owed towards the being to which they had given life, added to the active spirit of tenderness that animated both, it may be imagined that while during every hour of my infant life I received a lesson of patience, of charity, and of self-control, I was so guided by a silken cord that all seemed but one train of enjoyment to me.
+
+For a long time I was their only care. My mother had much desired to have a daughter, but I continued their single offspring. When I was about five years old, while making an excursion beyond the frontiers of Italy, they passed a week on the shores of the Lake of Como. Their benevolent disposition often made them enter the cottages of the poor. This, to my mother, was more than a duty; it was a necessity, a passion—remembering what she had suffered, and how she had been relieved—for her to act in her turn the guardian angel to the afflicted. During one of their walks a poor cot in the foldings of a vale attracted their notice as being singularly disconsolate, while the number of half-clothed children gathered about it spoke of penury in its worst shape. One day, when my father had gone by himself to Milan, my mother, accompanied by me, visited this abode. She found a peasant and his wife, hard working, bent down by care and labour, distributing a scanty meal to five hungry babes. Among these there was one which attracted my mother far above all the rest. She appeared of a different stock. The four others were dark-eyed, hardy little vagrants; this child was thin and very fair. Her hair was the brightest living gold, and despite the poverty of her clothing, seemed to set a crown of distinction on her head. Her brow was clear and ample, her blue eyes cloudless, and her lips and the moulding of her face so expressive of sensibility and sweetness that none could behold her without looking on her as of a distinct species, a being heaven-sent, and bearing a celestial stamp in all her features.
+
+The peasant woman, perceiving that my mother fixed eyes of wonder and admiration on this lovely girl, eagerly communicated her history. She was not her child, but the daughter of a Milanese nobleman. Her mother was a German and had died on giving her birth. The infant had been placed with these good people to nurse: they were better off then. They had not been long married, and their eldest child was but just born. The father of their charge was one of those Italians nursed in the memory of the antique glory of Italy—one among the _schiavi ognor frementi,_ who exerted himself to obtain the liberty of his country. He became the victim of its weakness. Whether he had died or still lingered in the dungeons of Austria was not known. His property was confiscated; his child became an orphan and a beggar. She continued with her foster parents and bloomed in their rude abode, fairer than a garden rose among dark-leaved brambles.
+
+When my father returned from Milan, he found playing with me in the hall of our villa a child fairer than pictured cherub—a creature who seemed to shed radiance from her looks and whose form and motions were lighter than the chamois of the hills. The apparition was soon explained. With his permission my mother prevailed on her rustic guardians to yield their charge to her. They were fond of the sweet orphan. Her presence had seemed a blessing to them, but it would be unfair to her to keep her in poverty and want when Providence afforded her such powerful protection. They consulted their village priest, and the result was that Elizabeth Lavenza became the inmate of my parents’ house—my more than sister—the beautiful and adored companion of all my occupations and my pleasures.
+
+Everyone loved Elizabeth. The passionate and almost reverential attachment with which all regarded her became, while I shared it, my pride and my delight. On the evening previous to her being brought to my home, my mother had said playfully, “I have a pretty present for my Victor—tomorrow he shall have it.” And when, on the morrow, she presented Elizabeth to me as her promised gift, I, with childish seriousness, interpreted her words literally and looked upon Elizabeth as mine—mine to protect, love, and cherish. All praises bestowed on her I received as made to a possession of my own. We called each other familiarly by the name of cousin. No word, no expression could body forth the kind of relation in which she stood to me—my more than sister, since till death she was to be mine only.
+`,
+        userId: 9,
+        categoryId: 38,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      {
+        title: "Some of my Deepest Personal Thoughts",
+        subHeading: "Please take time to read through them carefully",
+        body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed nisl odio. Sed varius in neque ut sagittis. Praesent at dolor interdum, ullamcorper dolor nec, blandit augue. Sed lobortis quam erat, sed **vestibulum mi tempus sit amet. Curabitur nec magna in quam aliquam** ullamcorper. Vivamus vitae ornare felis. Aenean eget faucibus sapien. Nullam ante felis, maximus ac ullamcorper quis, tempus sed nisl. Ut condimentum malesuada dictum. Duis dapibus metus id eleifend fermentum. Sed imperdiet fermentum tellus vitae imperdiet. Phasellus vel viverra eros, at sollicitudin lectus. Curabitur nec suscipit nibh. Suspendisse vel semper elit. Praesent dignissim mi eleifend eros feugiat semper. Ut tincidunt ligula nulla, eu gravida massa elementum vitae.
+
+Integer nec consequat turpis. Vivamus a tincidunt elit. Maecenas vitae faucibus est. Sed varius faucibus nunc. Integer fermentum erat orci, vitae viverra quam dictum in. Phasellus odio ex, sagittis ac lacinia non, interdum eget sapien. *Pellentesque rhoncus gravida diam, vel scelerisque diam hendrerit vitae. Integer ac metus blandit, maximus tellus a, maximus turpis*. Sed ac neque nec nulla scelerisque molestie eleifend et leo. In felis ante, efficitur eget ullamcorper id, accumsan laoreet risus. Donec laoreet egestas risus, non pellentesque odio pharetra quis. Quisque ac consequat velit, eget aliquam ipsum. Maecenas pretium tincidunt varius. Integer hendrerit convallis ante eget ullamcorper. Donec venenatis metus tellus, eu interdum dui tempus non. Pellentesque vestibulum massa ac efficitur convallis.
+
+> Nunc ultrices, lacus eu tempus auctor, ex nisi suscipit nisl, in
+> maximus mauris urna vel turpis. Nam bibendum ac libero eget tincidunt.
+> Maecenas a aliquam mi, eu eleifend urna. Sed euismod lacus nunc, sed
+> porta purus consequat nec. Proin vitae purus vel tellus ultrices
+> luctus. Phasellus et est posuere, mollis magna sit amet, porta orci.
+> Vestibulum malesuada, odio eget consequat malesuada, augue erat
+> tristique arcu, ut fringilla nunc urna id mauris. Morbi commodo non
+> turpis at mattis. Etiam pharetra metus arcu, in ultricies enim
+> tristique a. Ut urna nisi, lacinia at diam a, laoreet dictum arcu.
+
+~~Curabitur et lorem id metus feugiat accumsan. Fusce malesuada feugiat malesuada. Suspendisse hendrerit volutpat tincidunt. Mauris hendrerit felis sed facilisis posuere. Aenean dui enim, gravida ut porta nec, cursus et eros. Vestibulum facilisis odio nisl, id volutpat erat molestie sit amet. Aenean turpis odio, ultrices a dui non, posuere convallis dolor. Quisque odio sapien, ullamcorper non commodo a, porttitor id neque. Vestibulum vestibulum elit nec tellus aliquet dictum ac at ex. Fusce id orci non lectus finibus pulvinar et in dolor. Nullam gravida lectus eget porta lobortis. Sed dictum, sem vel condimentum ullamcorper, sapien metus rutrum magna, in lacinia sem neque sit amet turpis. Nam ac molestie mi. Integer malesuada bibendum nunc at elementum.~~
+
+Proin maximus, leo et venenatis iaculis, lectus quam lacinia odio, id tincidunt sapien leo eget erat. Aliquam mattis, metus eget viverra euismod, dui elit feugiat libero, nec elementum sapien est ac leo. Fusce purus mauris, efficitur id posuere nec, ultricies ut metus. Aliquam quis luctus enim, tempus commodo dolor. Praesent dictum placerat mauris, nec tincidunt dui efficitur in. Proin vitae feugiat orci. Mauris a condimentum nisl. Integer non nulla non lorem porta euismod. Praesent scelerisque vulputate orci, non laoreet ligula gravida sed. Suspendisse congue neque at erat blandit placerat.
+`,
+        userId: 17,
+        categoryId: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      {
+        title: "General Thoughts",
+        subHeading: "On things in general",
+        body: `## Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis lacinia dolor. Vestibulum finibus, ipsum id laoreet bibendum, velit mi gravida velit, et dapibus justo tellus non mi. Donec porttitor ullamcorper sodales. Vivamus at elit quis arcu vestibulum lobortis at sit amet mi. Curabitur tincidunt eros at ex accumsan, vel interdum urna pretium. Proin dapibus malesuada erat, vitae congue dolor tristique non. Nam cursus eget felis id dignissim. Nam sagittis augue a tellus facilisis tristique. Nulla id ipsum mi. Morbi enim erat, pellentesque nec ornare a, aliquet eget neque. Vestibulum tempus, nunc eget imperdiet sagittis, mi justo fermentum nisi, sit amet accumsan sapien sem non ipsum.
+
+ 1. Nunc sit amet ex felis. Donec hendrerit nisi eget orci luctus, sit
+ 2. amet mattis velit blandit. Fusce id felis id eros tincidunt rhoncus.
+ 3. Phasellus at nunc leo. Sed nec augue urna. Ut a sodales magna, vitae
+ 4. tempor felis. Nullam nunc arcu, lobortis non condimentum eu,
+ 5. pulvinar at quam. Aenean interdum tortor quis justo viverra, id
+ 6. facilisis justo interdum.
+
+Pellentesque ac pretium est, et laoreet nulla. Praesent fringilla tortor
+
+ - facilisis pellentesque lacinia. Vestibulum sodales, ligula ut
+ - condimentum scelerisque, ligula justo commodo velit, a
+ - condimentum
+ - sapien ipsum a est. Pellentesque dapibus dictum bibendum. Duis
+ - tempor
+ - non massa in sodales. Morbi at efficitur mauris. Aenean malesuada
+ - justo ac diam consequat, at placerat risus sagittis. Donec blandit
+ - pulvinar interdum. Mauris commodo vehicula tempus. Donec
+ - bibendum
+ - sapien sit amet sapien interdum, vitae pretium libero feugiat. Donec
+ - tempor accumsan finibus. Ut non est sit amet eros gravida pharetra a
+ - sed diam. Integer nec mauris et dolor commodo molestie.
+
+ - [x] Praesent maximus tincidunt tincidunt. Suspendisse egestas
+       tincidunt mi eget auctor. Nunc ipsum metus, elementum eu ligula
+       sit amet, vehicula rhoncus turpis. Sed eu enim tempus neque
+       suscipit blandit. Etiam tincidunt velit mi. In a pretium odio. Ut
+       eget sem ut sapien tincidunt viverra id at sapien. Pellentesque
+       fermentum placerat finibus. Sed fringilla venenatis tellus sed
+       egestas. Orci varius natoque penatibus et magnis dis parturient
+       montes, nascetur ridiculus mus. Nam viverra nulla aliquet,
+       egestas sem sed, convallis mi.
+
+`,
+        userId: 18,
+        categoryId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },

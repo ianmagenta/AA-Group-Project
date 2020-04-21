@@ -20,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     };
     Story.belongsToMany(models.User, columnMapping)
 
-
   };
   return Story;
 };

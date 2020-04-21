@@ -39,6 +39,56 @@ body {
   border: 1px solid black;
 }
 
+.mid-container {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  margin: 30px;
+}
+
+.register-button-container {
+  /* border: 1px solid black; */
+  margin: 0 auto;
+  max-width: 200px;
+  display: grid;
+  justify-content: center;
+}
+
+.site-description {
+  text-align: center;
+  font-size: 25px;
+  padding: 20px;
+}
+
+.register-large {
+  background-color: rgb(59, 128, 255);
+  color: white;
+  font-size: 32px;
+  max-width: 100px;
+  padding: 50px 100px;
+  border-radius: 5px;
+}
+
+.splash-container {
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: white;
+  margin: 10px auto;
+  max-width: 800px;
+}
+
+.top-container {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 50px;
+}
+
+.top-container-text {
+  text-align: center;
+  padding: 50px;
+  font-size: 30px;
+}
+
 .profile-container {
   border: 1px solid black;
   border-radius: 3px;

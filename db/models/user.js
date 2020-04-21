@@ -13,6 +13,20 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     User.hasMany(models.Story, { foreignKey: 'userId' });
     User.hasMany(models.Comment, { foreignKey: 'userId' });
+
+    const columnMap = {
+      foreignKey: 'userId',
+      through: 'CommentLikes',
+      otherKey: 'commentId'
+    };
+    User.belongsToMany(models.Comment, columnMap)
+
+    const columnMapping = {
+      foreignKey: 'userId',
+      through: 'StoryLikes',
+      otherKey: 'storyId'
+    };
+    User.belongsToMany(models.Story, columnMapping)
   };
   return User;
 };

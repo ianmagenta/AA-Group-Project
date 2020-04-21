@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const morgan = require('morgan');
 const path = require('path');
-const userRoute = require('./routes/user');
+// const userRoute = require('./routes/user');
 // const csrf = require('csurf');
 // const csrfProtection = csrf({ cookie: true });
 // const { check, validationResult } = require('express-validator');
@@ -22,7 +22,7 @@ const userRoute = require('./routes/user');
 
 app.set('view engine', 'pug');
 app.use(morgan('dev'));
-app.use('/user', userRoute);
+// app.use('/user', userRoute);
 // app.use(cookieParser());
 // app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -52,6 +52,5 @@ app.get("/profile", (req, res) => {
   res.render("profile");
 })
 
-app.listen(port, () => {
-  console.log(`Listening for requests on port ${port}...`);
-});
+
+module.exports = app;

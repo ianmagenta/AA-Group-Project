@@ -22,7 +22,7 @@ const userRoute = require('./routes/user');
 
 app.set('view engine', 'pug');
 app.use(morgan('dev'));
-app.use(userRoute);
+app.use('/user', userRoute);
 // app.use(cookieParser());
 // app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -36,9 +36,9 @@ app.get("/profile", (req, res) => {
   res.render("profile");
 });
 
-app.get("/register", (req, res) => {
-  res.render("register");
-});
+// app.get("/register", (req, res) => {
+//   res.render("register");
+// });
 
 app.get("/signin", (req, res) => {
   res.render("signin");

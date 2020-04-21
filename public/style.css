@@ -39,6 +39,29 @@ body {
   border: 1px solid black;
 }
 
+.profile-container {
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: white;
+  margin: 0 auto;
+  max-width: 800px;
+  display: grid;
+  grid-template-areas:
+  "leftprofile leftprofile rightprofile";
+}
+
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  grid-area: leftprofile;
+}
+
+.likes-container {
+  display: flex;
+  flex-direction: column;
+  grid-area: rightprofile;
+}
+
 .username, .member-since, .bio {
   margin: 10px;
   padding: 10px;

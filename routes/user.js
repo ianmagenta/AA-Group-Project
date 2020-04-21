@@ -3,8 +3,8 @@ const csrf = require('csurf');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const csrfProtection = csrf({ cookie: true });
-const db = require('./db/models');
-const { User } = db;
+const db = require('../db/models');
+// const { User } = db;
 const { asyncHandler, handleValidationErrors } = require("../utils");
 const { requireAuth } = require("../auth");
 

@@ -51,15 +51,13 @@ const userValidators = [
 ];
 
 router.post('/', userValidators, asyncHandler(async (req, res) => {
-
+    console.log("Welcome to the back end!")
     const {
         userName,
         password,
         firstName,
         lastName,
-        email,
-        bio,
-        isAdmin
+        email
     } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await db.User.create({
@@ -68,8 +66,8 @@ router.post('/', userValidators, asyncHandler(async (req, res) => {
         firstName,
         lastName,
         email,
-        bio,
-        isAdmin
+        bio: "",
+        isAdmin: false
     });
     res.json({ user });
 

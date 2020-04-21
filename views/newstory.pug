@@ -2,12 +2,12 @@ extends layout.pug
 
 block content
   form.story-form
-    label(for='markdown-title-editor') Title:
+    label.text-style1(for='markdown-title-editor') Title:
     input#markdown-title-editor
-    label(for='markdown-subheader-editor') Subheader:
+    label.text-style2(for='markdown-subheader-editor') Subheader:
     input#markdown-subheader-editor
-    label(for='markdown-story-editor') Story:
-    textarea#markdown-story-editor
+    label.text-style2(for='markdown-story-editor') Story:
+    textarea#markdown-story-editor.text-style2
 
   <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
   <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>

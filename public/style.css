@@ -124,6 +124,14 @@ body {
   grid-area: leftprofile;
 }
 
+.text-style1 {
+  font-family: 'Abril Fatface', cursive;
+}
+
+.text-style2 {
+  font-family: 'Raleway', sans-serif;
+}
+
 .story-form {
   margin: 0 auto;
   margin-top: 10px;
@@ -204,7 +212,7 @@ body {
   "title title title likes"
   "subheader subheader subheader subheader"
   "author author author author"
-  "date date time time";
+  "date date date time";
 }
 
 .heading-text {
@@ -232,6 +240,7 @@ body {
 
 .article-time {
   grid-area: time;
+  text-align: right;
 }
 .article-likes {
   grid-area: likes;

@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set('view engine', 'pug');
 app.use(morgan('dev'));
 app.use('/user', userRoute);
-app.use('/', indexRoute);
+// app.use('/', indexRoute);
 
 
 // Define a route.

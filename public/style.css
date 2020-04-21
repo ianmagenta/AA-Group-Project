@@ -32,6 +32,91 @@ body {
    color: white;
  }
 
+.bio-container {
+  max-width: 400px;
+  background-color: white;
+  margin: 10px auto;
+  border: 1px solid black;
+}
+
+.mid-container {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  margin: 30px;
+}
+
+.register-button-container {
+  /* border: 1px solid black; */
+  margin: 0 auto;
+  max-width: 200px;
+  display: grid;
+  justify-content: center;
+}
+
+.site-description {
+  text-align: center;
+  font-size: 25px;
+  padding: 20px;
+}
+
+.register-large {
+  background-color: rgb(59, 128, 255);
+  color: white;
+  font-size: 32px;
+  max-width: 100px;
+  padding: 50px 100px;
+  border-radius: 5px;
+}
+
+.splash-container {
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: white;
+  margin: 10px auto;
+  max-width: 800px;
+}
+
+.top-container {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 50px;
+}
+
+.top-container-text {
+  text-align: center;
+  padding: 50px;
+  font-size: 30px;
+}
+
+.profile-container {
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: white;
+  margin: 0 auto;
+  max-width: 800px;
+  display: grid;
+  grid-template-areas:
+  "leftprofile leftprofile rightprofile";
+}
+
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  grid-area: leftprofile;
+}
+
+.likes-container {
+  display: flex;
+  flex-direction: column;
+  grid-area: rightprofile;
+}
+
+.username, .member-since, .bio {
+  margin: 10px;
+  padding: 10px;
+}
+
 .index-top-container {
   background-color: white;
   display: grid;
@@ -67,12 +152,12 @@ body {
 
 .top-stories-container {
   display: flex;
-  justify-content: space-around;
-  padding: 10px;
+  justify-content: space-between;
   grid-area: topstories;
 }
 
 .article-container {
+  flex-grow: 1;
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
@@ -112,6 +197,7 @@ body {
 }
 .article-likes {
   grid-area: likes;
+  text-align: end;
 }
 
 .main-stories-container {
@@ -161,8 +247,15 @@ body {
   flex-direction: column;
 }
 
+.guest-login-form, .guest-button {
+  max-width: 400px;
+  margin: 10px auto;
+}
+
 input {
   max-width: 600px;
+  padding: 5px;
+  margin: 5px;
 }
 
 .exit-button {

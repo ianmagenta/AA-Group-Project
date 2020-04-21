@@ -36,9 +36,9 @@ app.get("/profile", (req, res) => {
   res.render("profile");
 });
 
-// app.get("/register", (req, res) => {
-//   res.render("register");
-// });
+app.get("/register", (req, res) => {
+  res.render("register");
+});
 
 app.get("/signin", (req, res) => {
   res.render("signin");
@@ -50,6 +50,10 @@ app.get("/newstory", (req, res) => {
 
 app.get("/profile", (req, res) => {
   res.render("profile");
+})
+
+app.get("/splash", (req, res) => {
+  res.render("splash");
 })
 
 

@@ -56,5 +56,9 @@ app.get("/splash", (req, res) => {
   res.render("splash");
 })
 
+app.get("/story", (req, res) => {
+  res.render("story");
+})
+
 
 module.exports = app;

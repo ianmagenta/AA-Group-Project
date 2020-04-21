@@ -226,6 +226,34 @@ body {
   border-radius: 3px;
 }
 
+.story-container, .author-info-container, .comments-container {
+  max-width: 600px;
+  padding: 20px;
+  background-color: white;
+  margin: 10px auto;
+}
+
+.comment {
+  margin: 10px;
+}
+
+.story-body {
+  position: relative;
+  max-width: 800px;
+  padding: 20px;
+  background-color: white;
+  margin: 0 auto;
+}
+
+.sidebar-container {
+  top: 50px;
+  left: -200px;
+  max-width: 150px;
+  position: relative;
+  background-color: white;
+  border: 1px solid black;
+}
+
 .form-top {
   display: grid;
   border-radius: 3px;
@@ -260,6 +288,7 @@ input {
 
 .exit-button {
   margin: 10px;
+  color: white;
   text-align: right;
   grid-area: exitbutton;
 }

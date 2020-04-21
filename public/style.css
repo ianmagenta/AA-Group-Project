@@ -32,6 +32,18 @@ body {
    color: white;
  }
 
+.bio-container {
+  max-width: 400px;
+  background-color: white;
+  margin: 10px auto;
+  border: 1px solid black;
+}
+
+.username, .member-since, .bio {
+  margin: 10px;
+  padding: 10px;
+}
+
 .index-top-container {
   background-color: white;
   display: grid;

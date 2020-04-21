@@ -6,12 +6,12 @@ link(rel="stylesheet" href="./style.css")
   .form-inner-container
     .register-text Register
     .register-instructions-text Enter your email and password
-    form.register-form(action="" method="post")
+    form.register-form(action="" method="")
       input(type="hidden" name="_csrf" value=csrfToken)
       label(for="email") Email:
       input(type="email" name="email" placeholder="YourEmail@Domain.com")
-      label(for="username") Username:
-      input(type="text" name="username" placeholder="Enter your username here (required)")
+      label(for="userName") Username:
+      input(type="text" name="userName" placeholder="Enter your username here (required)")
       label(for="firstName") First name:
       input(type="text" name="firstName" placeholder="Enter your first name here (required)")
       label(for="lastName") Last name:

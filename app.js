@@ -30,10 +30,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.set('view engine', 'pug');
 app.use(morgan('dev'));
-
 app.use('/register', registerRoute)
 app.use('/users', userRoute);
 app.use('/', indexRoute);
+
 
 
 // Catch unhandled requests and forward to error handler.

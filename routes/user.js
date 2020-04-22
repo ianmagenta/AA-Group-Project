@@ -49,7 +49,6 @@ const userValidators = [
 ];
 
 router.post('/', userValidators, asyncHandler(async (req, res) => {
-    console.log("Welcome to the back end!")
     const {
         userName,
         password,

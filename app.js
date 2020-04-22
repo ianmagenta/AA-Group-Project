@@ -3,11 +3,14 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const morgan = require('morgan');
 const path = require('path');
+
 const userRoute = require('./routes/user');
 const indexRoute = require('./routes/index');
 const registerRoute = require('./routes/register');
 const storyRoute = require('./routes/story');
 const sessionRoute = require('./routes/session');
+const profileRoute = require('./routes/profile');
+
 const { ValidationError } = require("sequelize");
 const { environment } = require("./config");
 
@@ -30,10 +33,12 @@ app.use(express.json());
 // app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'pug');
+
 app.use('/register', registerRoute);
 app.use('/story', storyRoute);
 app.use('/users', userRoute);
 app.use('/session', sessionRoute)
+app.use('/profile', profileRoute);
 app.use('/', indexRoute);
 
 // Catch unhandled requests and forward to error handler.

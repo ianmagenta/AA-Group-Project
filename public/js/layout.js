@@ -36,6 +36,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     // tweetsContainer.innerHTML = tweetsHtml.join("");
 
   } catch (err) {
-    console.error(err);
+    handleErrors(err);
   }
 });

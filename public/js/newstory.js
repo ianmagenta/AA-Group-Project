@@ -1,9 +1,9 @@
 import { handleErrors } from "./utils.js";
-const registerForm = document.querySelector(".register-form");
+const storyForm = document.querySelector(".story-form");
 
-registerForm.addEventListener("submit", async (e) => {
+storyForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const formData = new FormData(registerForm);
+    const formData = new FormData(storyForm);
     const title = formData.get("title");
     const subHeading = formData.get("subHeading");
     const body = formData.get("body");
@@ -11,21 +11,19 @@ registerForm.addEventListener("submit", async (e) => {
     const body = { title, subHeading, body };
 
     try {
-        const res = await fetch("http://localhost:8080/users", {
+        const res = await fetch("http://localhost:8080/story", {
             method: "POST",
             body: JSON.stringify(body),
             headers: {
                 "Content-Type": "application/json",
             }
         });
-
         if (!res.ok) {
             throw res;
+        } else {
+            const { story } = await res.json();
+            window.location.href = `/story/${story.id}`
         }
-        const { token, user: { id }, } = await res.json();
-        localStorage.setItem("RARE_ACCESS_TOKEN", token);
-        localStorage.setItem("RARE_USER_ID", id);
-        window.location.href = "/";
     } catch (err) {
         handleErrors(err);
     }

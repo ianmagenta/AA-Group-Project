@@ -28,7 +28,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: "StoryCategories" },
-        defaultValue: 1 // Don't forget this!
+        defaultValue: 1
+        // Don't forget this!
       },
       createdAt: {
         allowNull: false,

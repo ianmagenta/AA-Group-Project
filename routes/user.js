@@ -47,9 +47,9 @@ const userValidators = [
 //         user,
 //     });
 // });
-router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const id = parseInt(req.params.id, 10);
-    console.log("The id is: ", id);
+    // console.log("The id is: ", id);
     const user = await db.User.findByPk(id);
     // console.log("The whole user info is: ", user);
     res.json({ user });

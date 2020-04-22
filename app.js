@@ -8,6 +8,7 @@ const userRoute = require('./routes/user');
 const indexRoute = require('./routes/index');
 const registerRoute = require('./routes/register');
 const storyRoute = require('./routes/story');
+const storiesRoute = require('./routes/stories')
 const sessionRoute = require('./routes/session');
 const profileRoute = require('./routes/profile');
 
@@ -35,6 +36,7 @@ app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'pug');
 
 app.use('/register', registerRoute);
+app.use('/stories', storiesRoute);
 app.use('/story', storyRoute);
 app.use('/users', userRoute);
 app.use('/session', sessionRoute)

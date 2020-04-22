@@ -1,41 +1,34 @@
 const signInOrUsername = document.querySelector(".sign-in-top");
 const RegisterOrLogout = document.querySelector(".register-top");
+signInOrUsername.innerHTML = `<a href="/login">Sign in</a>`;
+RegisterOrLogout.innerHTML = `<a href="/register">Register</a>`;
 
 document.addEventListener("DOMContentLoaded", async () => {
   const userId = localStorage.getItem("RARE_USER_ID");
+  // console.log('this runs');
   try {
-    if (userId) {
-      const res = await fetch(`http://localhost:8080/users/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
-      // const res = await fetch(`http://localhost:8080/users/${userId}`);
-      const data = await res.json();
-      // console.log('code runs on layoutpug');
-      console.log(data);
-      const { user } = data;
-      console.log(user);
-      if (res.status === 401) {
-        // window.location.href = "/login";
-        // return;
-      }
-      if (res.ok) {
-        signInOrUsername.innerHTML = `<a>${user.userName}`;
-        RegisterOrLogout.innerHTML = "Logout";
-      }
+    // if (userId) {
+    const res = await fetch(`http://localhost:8080/users/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const data = await res.json();
+    // console.log(data);
+    debugger;
+    const { user } = data;
+    // console.log(user);
+    if (res.status >= 401) {
+      window.location.href = "./login";
+      return;
     }
 
-
-    // const { tweets } = await res.json();
-    // const tweetsContainer = document.querySelector(".tweets-container");
-    // const tweetsHtml = tweets.map(({ message, id }) =>
-    //   `<div class="card" id="tweet-${id}">
-    //     <div class="card-body">
-    //       <p class="card-text">${message}</p>
-    //     </div>
-    //   </div>`
-    // );
-    // console.log("Tweets:", tweetsHtml);
-    // tweetsContainer.innerHTML = tweetsHtml.join("");
-
+    if (res.ok) {
+      RegisterOrLogout.addEventListener("click", (e) => {
+        localStorage.removeItem("RARE_ACCESS_TOKEN");
+        localStorage.removeItem("RARE_USER_ID");
+      });
+      signInOrUsername.innerHTML = `<a href="/profile/${userId}">${user.userName}</a>`;
+      RegisterOrLogout.innerHTML = `<a href="/splash">Logout</a>`;
+    }
+    // }
   } catch (err) {
-    console.error(err);
+    handleErrors(err);
   }
 });

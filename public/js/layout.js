@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     if (userId) {
       const res = await fetch(`http://localhost:8080/users/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
-      res.json();
+      const data = await res.json();
       console.log('code runs on layoutpug');
       console.log(res);
       if (res.status === 401) {

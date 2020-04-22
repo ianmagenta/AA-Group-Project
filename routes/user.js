@@ -51,8 +51,8 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const id = parseInt(req.params.id, 10);
     console.log("The id is: ", id);
     const user = await db.User.findByPk(id);
-    console.log("The whole user info is: ", user);
-    return user;
+    // console.log("The whole user info is: ", user);
+    res.json({ user });
 }))
 
 router.post('/', userValidators, asyncHandler(async (req, res) => {
@@ -75,7 +75,7 @@ router.post('/', userValidators, asyncHandler(async (req, res) => {
     });
     //res.json({ user });
     const token = getUserToken(user);
-    res.status(201).json({
+    res.json({
         user: { id: user.id },
         token,
     });

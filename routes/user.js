@@ -13,14 +13,6 @@ const { User } = db;
 // router.use(requireAuth);
 
 
-// router.get('/:id+', (req, res) => {
-//     const user = db.User.build();
-//     res.render('register', {
-//         title: 'Add User',
-//         user,
-//     });
-// });
-
 const userValidators = [
     check('userName')
         .exists({ checkFalsy: true })
@@ -47,6 +39,21 @@ const userValidators = [
         .withMessage('Please provide a valid email format'),
     handleValidationErrors
 ];
+
+// router.get('/:id+', (req, res) => {
+//     const user = db.User.build();
+//     res.render('register', {
+//         title: 'Add User',
+//         user,
+//     });
+// });
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    console.log("The id is: ", id);
+    const user = await db.User.findByPk(id);
+    console.log("The whole user info is: ", user);
+    return user;
+}))
 
 router.post('/', userValidators, asyncHandler(async (req, res) => {
     const {

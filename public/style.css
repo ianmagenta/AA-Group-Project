@@ -37,7 +37,13 @@ body {
   max-width: 800px;
   display: grid;
   padding: 5px;
-  grid-template-areas: "logo . . . . . . signin register";
+  grid-template-areas: "logo . . . . . . . . . searchbar signin register";
+}
+
+.search-bar {
+  grid-area: searchbar;
+  justify-self: flex-end;
+  max-height: 10px;
 }
 
 .rare-logo {
@@ -109,6 +115,14 @@ body {
   margin: 50px;
 }
 
+.errors-container {
+  margin: 0 auto;
+}
+
+.alert-danger {
+  color: red;
+}
+
 .top-container-text {
   text-align: center;
   padding: 50px;
@@ -134,6 +148,7 @@ body {
 
 .text-style1 {
   font-family: 'Abril Fatface', cursive;
+  font-size: larger;
 }
 
 .text-style2 {

@@ -24,11 +24,9 @@ registerForm.addEventListener("submit", async (e) => {
     if (!res.ok) {
       throw res;
     }
-
-    // JWT???
-    // const { token, user: { id }, } = await res.json();
-    // localStorage.setItem("RARE_ACCESS_TOKEN", token);
-    // localStorage.setItem("RARE_USER_ID", id);
+    const { token, user: { id }, } = await res.json();
+    localStorage.setItem("RARE_ACCESS_TOKEN", token);
+    localStorage.setItem("RARE_USER_ID", id);
     window.location.href = "/";
   } catch (err) {
     handleErrors(err);

@@ -2,11 +2,10 @@ const express = require('express');
 const router = express.Router();
 const { requireAuth } = require("../auth");
 const db = require("../db/models");
-const { Story } = db;
 const { check } = require('express-validator');
 const { asyncHandler, handleValidationErrors } = require("./utils");
 
-//router.use(requireAuth);
+router.use(requireAuth);
 
 const storyValidators = [
     check('title')
@@ -17,14 +16,13 @@ const storyValidators = [
     check('subHeading')
         .isLength({ max: 500 })
         .withMessage('First Name must not be more than 500 characters long'),
-
     handleValidationErrors
 ];
 router.get("/", asyncHandler(async (req, res) => {
     const stories = await db.Story.findAll();
-    console.log(stories);
-    res.json({ stories })
+    res.json({ stories });
 }));
+
 router.post('/', storyValidators, asyncHandler(async (req, res) => {
     const {
         title,
@@ -41,7 +39,7 @@ router.post('/', storyValidators, asyncHandler(async (req, res) => {
         userId,
         categoryId
     });
-    res.json({ task });
+    res.json({ story });
 
 }));
 

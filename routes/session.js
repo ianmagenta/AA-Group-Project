@@ -23,7 +23,8 @@ const validateUserNameAndPassword = [
     handleValidationErrors
 ];
 
-router.post("/session", validateUserNameAndPassword, asyncHandler(async (req, res, next) => {
+router.post("/", validateUserNameAndPassword, asyncHandler(async (req, res, next) => {
+    console.log("Hello there!");
     const { userName, password } = req.body;
     const user = await User.findOne({
         where: {
@@ -46,4 +47,4 @@ router.post("/session", validateUserNameAndPassword, asyncHandler(async (req, re
 }));
 
 
-module.exports = routes;
+module.exports = router;

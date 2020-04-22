@@ -7,6 +7,7 @@ const userRoute = require('./routes/user');
 const indexRoute = require('./routes/index');
 const registerRoute = require('./routes/register');
 const storyRoute = require('./routes/story');
+const sessionRoute = require('./routes/session');
 const { ValidationError } = require("sequelize");
 const { environment } = require("./config");
 
@@ -32,6 +33,7 @@ app.set('view engine', 'pug');
 app.use('/register', registerRoute);
 app.use('/story', storyRoute);
 app.use('/users', userRoute);
+app.use('/session', sessionRoute)
 app.use('/', indexRoute);
 
 // Catch unhandled requests and forward to error handler.

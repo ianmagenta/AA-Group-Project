@@ -5,11 +5,13 @@ link(rel="stylesheet" href="/style.css")
     a.exit-button(href="/") X
   .form-inner-container
     .register-text Sign in
-    .register-instructions-text Enter your email and password
-    form.register-form(action="" method="post")
-      input(type="hidden" name="_csrf" value=csrfToken)
-      input(type="email" name="email" placeholder="youremail@domain.com")
+    .register-instructions-text Enter your username and password
+    .errors-container
+    form.register-form(action="" method="")
+      //- input(type="hidden" name="_csrf" value=csrfToken)
+      input(type="text" name="userName" placeholder="enter username")
       input(type="password" name="password" placeholder="enter password")
       button(type="submit") Sign in
-    form.guest-login-form(action="" method="post")
+    form.guest-login-form(action="" method="")
       button.guest-button(type="submit") Guest sign in
+script(type="module" src='js/signin.js')

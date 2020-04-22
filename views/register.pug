@@ -5,9 +5,10 @@ link(rel="stylesheet" href="./style.css")
     a.exit-button(href="/") X
   .form-inner-container
     .register-text Register
-    .register-instructions-text Enter your email and password
+    .register-instructions-text Enter your information to create an account
+    .errors-container
     form.register-form(action="" method="")
-      input(type="hidden" name="_csrf" value=csrfToken)
+      //- input(type="hidden" name="_csrf" value=csrfToken)
       label(for="email") Email:
       input(type="email" name="email" placeholder="YourEmail@Domain.com")
       label(for="userName") Username:
@@ -20,4 +21,4 @@ link(rel="stylesheet" href="./style.css")
       input(type="password" name="password" placeholder="Enter password")
       input(type="password" name="confirmPassword" placeholder="Re-enter password")
       button(type="submit") Register
-script(src='js/register.js')
+script(type="module" src='js/register.js')

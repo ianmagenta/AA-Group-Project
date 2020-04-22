@@ -10,7 +10,7 @@
   - Session Form
 - "/register"
   - Registration Form
-- "/users/:userId"
+- "/profile/:userId"
   - Profile Page
   - Liked Stories & Bio
   - Stories Written

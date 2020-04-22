@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     Story.belongsTo(models.StoryCategory, { foreignKey: 'categoryId' })
     Story.hasMany(models.Comment, { foreignKey: 'storyId' });
 
-    // associations can be defined here
+    //associations can be defined here
     const columnMapping = {
       foreignKey: 'storyId',
       through: 'StoryLikes',

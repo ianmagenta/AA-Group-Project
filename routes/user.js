@@ -1,5 +1,4 @@
 const express = require('express');
-const csrf = require('csurf');
 const bcrypt = require("bcryptjs");
 const { check } = require('express-validator');
 const { asyncHandler, handleValidationErrors } = require("./utils");
@@ -8,18 +7,16 @@ const db = require('../db/models');
 
 
 const router = express.Router();
-const csrfProtection = csrf({ cookie: true });
 const { User } = db;
 
 
 // router.use(requireAuth);
 
-// router.get('/', csrfProtection, (req, res) => {
+// router.get('/', (req, res) => {
 //     const user = db.User.build();
 //     res.render('register', {
 //         title: 'Add User',
 //         user,
-//         csrfToken: req.csrfToken(),
 //     });
 // });
 

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const userId = localStorage.getItem("RARE_USER_ID");
   try {
     if (userId) {
-      const res = await fetch(`http://localhost:8080/users/${userId}`, {
+      const res = await fetch(`http://localhost:8080/get/users/${userId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
         }

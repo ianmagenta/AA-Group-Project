@@ -4,10 +4,10 @@ const registerForm = document.querySelector(".register-form");
 registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(registerForm);
-    const email = formData.get("email");
+    const userName = formData.get("userName");
     const password = formData.get("password");
 
-    const body = { email, password };
+    const body = { userName, password };
 
     try {
         const res = await fetch("http://localhost:8080/session", {

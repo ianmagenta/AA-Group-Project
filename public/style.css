@@ -50,7 +50,8 @@ body {
   max-height: 10px;
 }
 
-.rare-logo {
+.rare-logo.text-style1 {
+  font-size: 30px;
   grid-area: logo;
 }
 

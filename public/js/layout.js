@@ -6,15 +6,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     if (userId) {
       const res = await fetch(`http://localhost:8080/users/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
-      const { userName } = await res.json();
-      console.log('code runs on layoutpug');
-      console.log(res);
+      // const res = await fetch(`http://localhost:8080/users/${userId}`);
+      const data = await res.json();
+      // console.log('code runs on layoutpug');
+      console.log(data);
+      const { user } = data;
+      console.log(user);
       if (res.status === 401) {
         // window.location.href = "/login";
         // return;
       }
       if (res.ok) {
-        signInOrUsername.innerHTML = res.userName;
+        signInOrUsername.innerHTML = `<a>${user.userName}`;
         RegisterOrLogout.innerHTML = "Logout";
       }
     }

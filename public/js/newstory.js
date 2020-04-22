@@ -7,13 +7,14 @@ storyForm.addEventListener("submit", async (e) => {
     const title = formData.get("title");
     const subHeading = formData.get("subHeading");
     const body = formData.get("body");
+    const userId = localStorage.getItem("RARE_USER_ID");
 
-    const body = { title, subHeading, body };
+    const jsonBody = { title, subHeading, body, userId, categoryId: 1 };
 
     try {
         const res = await fetch("http://localhost:8080/story", {
             method: "POST",
-            body: JSON.stringify(body),
+            body: JSON.stringify(jsonBody),
             headers: {
                 "Content-Type": "application/json",
             }
@@ -22,7 +23,7 @@ storyForm.addEventListener("submit", async (e) => {
             throw res;
         } else {
             const { story } = await res.json();
-            window.location.href = `/story/${story.id}`
+            window.location.href = `/stories/${story.id}`
         }
     } catch (err) {
         handleErrors(err);

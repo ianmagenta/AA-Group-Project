@@ -24,7 +24,7 @@
 ## API Endpoints
 
 - Users
-  - GET /api/authors/:searchTerm
+  - GET /api/users/:searchTerm
     - returns users who have written articles based on search term
   - POST /api/users
     - add user to users table

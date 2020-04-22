@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const { jwtConfig } = require("./config");
 const bearerToken = require("express-bearer-token");
 const { secret, expiresIn } = jwtConfig;
+const db = require('./db/models');
 
 const getUserToken = (user) => {
 
@@ -34,7 +35,7 @@ const restoreUser = (req, res, next) => {
         const { id } = jwtPayload.data;
 
         try {
-            req.user = await User.findByPk(id);
+            req.user = await db.User.findByPk(id);
         } catch (e) {
             return next(e);
         }

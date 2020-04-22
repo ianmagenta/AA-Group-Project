@@ -1,4 +1,3 @@
-const { port } = require("./config/index");
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -7,6 +6,7 @@ const path = require('path');
 const userRoute = require('./routes/user');
 const indexRoute = require('./routes/index');
 const registerRoute = require('./routes/register');
+const storyRoute = require('./routes/story');
 const { ValidationError } = require("sequelize");
 const { environment } = require("./config");
 
@@ -22,15 +22,15 @@ const { environment } = require("./config");
 //     }
 //   }
 // }
+app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(express.json());
 // app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
 app.set('view engine', 'pug');
-app.use(morgan('dev'));
-app.use('/register', registerRoute)
+app.use('/register', registerRoute);
+app.use('/story', storyRoute);
 app.use('/users', userRoute);
 app.use('/', indexRoute);
 

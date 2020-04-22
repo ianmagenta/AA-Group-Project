@@ -5,7 +5,14 @@ const db = require("../db/models");
 const { check } = require('express-validator');
 const { asyncHandler, handleValidationErrors } = require("./utils");
 
-// router.use(requireAuth);
+//router.use(requireAuth);
+
+const storyNotFoundError = (id) => {
+    const err = Error(`Story with id of ${id} could not be found.`);
+    err.title = "Story not found.";
+    err.status = 404;
+    return err;
+};
 
 const storyValidators = [
     check('title')
@@ -21,6 +28,12 @@ const storyValidators = [
 router.get("/", asyncHandler(async (req, res) => {
     const stories = await db.Story.findAll();
     res.json({ stories });
+}));
+
+router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+    res.json({ story });
 }));
 
 router.post('/', storyValidators, asyncHandler(async (req, res) => {
@@ -40,6 +53,47 @@ router.post('/', storyValidators, asyncHandler(async (req, res) => {
         categoryId
     });
     res.json({ story });
+}));
+
+router.put("/:id(\\d+)", storyValidators, asyncHandler(async (req, res, next) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+    if (story) {
+        const {
+            title,
+            subHeading,
+            body,
+            userId,
+            categoryId
+        } = req.body;
+
+        await story.update({
+            title,
+            subHeading,
+            body,
+            userId,
+            categoryId
+        });
+
+        res.json({ story });
+    } else {
+        next(storyNotFoundError(storyId));
+    }
+
+
+}));
+
+router.delete("/:id(\\d+)", asyncHandler(async (req, res, next) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+    if (story) {
+        await story.destroy();
+
+        res.end();
+    } else {
+        next(storyNotFoundError(storyId));
+    }
+
 
 }));
 

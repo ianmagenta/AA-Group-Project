@@ -1,5 +1,32 @@
-// let editorTitle = new EasyMDE({ element: document.getElementById('markdown-title-editor') });
-// let editorSubheader = new EasyMDE({ element: document.getElementById('markdown-subheader-editor') });
-let editorStory = new EasyMDE({ element: document.getElementById('markdown-story-editor') });
+import { handleErrors } from "./utils.js";
+const registerForm = document.querySelector(".register-form");
 
-// editorTitle.value() //returns value of editor contents, to save for later w/ publish button
+registerForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(registerForm);
+    const title = formData.get("title");
+    const subHeading = formData.get("subHeading");
+    const body = formData.get("body");
+
+    const body = { title, subHeading, body };
+
+    try {
+        const res = await fetch("http://localhost:8080/users", {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        if (!res.ok) {
+            throw res;
+        }
+        const { token, user: { id }, } = await res.json();
+        localStorage.setItem("RARE_ACCESS_TOKEN", token);
+        localStorage.setItem("RARE_USER_ID", id);
+        window.location.href = "/";
+    } catch (err) {
+        handleErrors(err);
+    }
+})

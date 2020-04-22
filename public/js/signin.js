@@ -27,4 +27,4 @@ registerForm.addEventListener("submit", async (e) => {
     } catch (err) {
         handleErrors(err);
     }
-})
+});

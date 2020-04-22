@@ -3,6 +3,10 @@ html, body {
   padding:0;
 }
 
+a:visited {
+  color: white;
+}
+
 .footer-container {
   background-color: rgb(20, 20, 20);
   display: flex;
@@ -53,11 +57,13 @@ body {
 .sign-in-top {
   grid-area: signin;
   text-align: right;
+  padding-top: 10px;
 }
 
 .register-top {
   grid-area: register;
   text-align: right;
+  padding-top: 10px;
 }
 
  .rare-logo, .sign-in-top, .register-top {

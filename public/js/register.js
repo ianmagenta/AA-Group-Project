@@ -1,3 +1,4 @@
+import { handleErrors } from "./utils.js";
 const registerForm = document.querySelector(".register-form");
 
 registerForm.addEventListener("submit", async (e) => {
@@ -30,7 +31,6 @@ registerForm.addEventListener("submit", async (e) => {
     // localStorage.setItem("RARE_USER_ID", id);
     window.location.href = "/";
   } catch (err) {
-    //handle errors bette later
-    console.log(err);
+    handleErrors(err);
   }
 })

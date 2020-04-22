@@ -12,12 +12,12 @@ const { User } = db;
 
 // router.use(requireAuth);
 
+
 // router.get('/:id+', (req, res) => {
 //     const user = db.User.build();
 //     res.render('register', {
 //         title: 'Add User',
 //         user,
-//         csrfToken: req.csrfToken(),
 //     });
 // });
 

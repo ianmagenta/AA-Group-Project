@@ -2,15 +2,12 @@ const signInOrUsername = document.querySelector(".sign-in-top");
 const RegisterOrLogout = document.querySelector(".register-top");
 
 document.addEventListener("DOMContentLoaded", async () => {
-
   const userId = localStorage.getItem("RARE_USER_ID");
   try {
     if (userId) {
-      const res = await fetch(`http://localhost:8080/get/users/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
-        }
-      });
+      const res = await fetch(`http://localhost:8080/users/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+      res.json();
+      console.log('code runs on layoutpug');
       console.log(res);
       if (res.status === 401) {
         // window.location.href = "/login";

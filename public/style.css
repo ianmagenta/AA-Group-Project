@@ -244,7 +244,7 @@ a.article-title {
   color: black;
 }
 
-a.user-username {
+a.user-fullname {
   font-weight: bold;
   color: black;
 }
@@ -336,6 +336,10 @@ a.user-username {
   grid-template-areas:
   "lefts lefts rights"
   "lefts lefts rights";
+}
+
+.main-search-container.hidden {
+  display: none;
 }
 
 .main-search-container {

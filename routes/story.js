@@ -60,7 +60,7 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
     const searchTerm = '%' + req.params.searchTerm + '%';
 
     const stories = await db.Story.findAll({
-        attributes: ['title'],
+
         where: {
             [Op.or]: [
                 { title: { [Op.iLike]: searchTerm } },

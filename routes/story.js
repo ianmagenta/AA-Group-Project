@@ -54,8 +54,8 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     } else {
         next(storyNotFoundError(storyId));
     }
-
 }));
+
 router.get("/:searchTerm", asyncHandler(async (req, res) => {
     const searchTerm = '%' + req.params.searchTerm + '%';
     console.log(searchTerm)
@@ -72,16 +72,6 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
     });
 
     res.json({ stories });
-}));
-
-router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
-    const storyId = parseInt(req.params.id, 10);
-    const story = await db.Story.findByPk(storyId);
-    if (story) {
-        res.json({ story });
-    } else {
-        next(storyNotFoundError(storyId));
-    }
 }));
 
 router.post('/', storyValidators, asyncHandler(async (req, res) => {

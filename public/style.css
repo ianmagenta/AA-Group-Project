@@ -310,6 +310,33 @@ body {
   "lefts lefts rights";
 }
 
+.main-search-container {
+  background-color: white;
+  display: grid;
+  padding-top: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  grid-template-areas:
+  "leftsearch leftsearch rightsearch";
+}
+
+.user-container {
+  flex-grow: 1;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.articles-search-container {
+  grid-area: leftsearch;
+}
+
+.users-search-container {
+  grid-area: rightsearch;
+}
+
 .main-stories-left {
   grid-area: lefts;
 }

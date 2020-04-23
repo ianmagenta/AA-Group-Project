@@ -35,7 +35,7 @@ const storyValidators = [
         .withMessage('First Name must not be more than 500 characters long'),
     check('body')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a comment'),
+        .withMessage('Please provide a story'),
     handleValidationErrors
 ];
 router.get("/", asyncHandler(async (req, res) => {
@@ -68,7 +68,7 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
                 { body: { [Op.iLike]: searchTerm } }
             ]
 
-        }
+        }, include: [db.User]
     });
 
     res.json({ stories });

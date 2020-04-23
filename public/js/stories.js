@@ -6,10 +6,9 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     try {
         const res = await fetch(`http://localhost:8080/story/${id}`);
         if (!res.ok) {
-            throw res;
+            window.location.href = "/"
         } else {
             const { story, readTime, parsedBody } = await res.json();
-            console.log(story, readTime);
             document.querySelector(".story-title").innerHTML = story.title;
             document.querySelector(".story-subheader").innerHTML = story.subHeading;
             document.querySelector(".story-author").innerHTML = `${story.User.firstName} ${story.User.lastName}`;

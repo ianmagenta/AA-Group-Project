@@ -10,7 +10,7 @@ router.get("/new", (req, res) => {
 });
 
 router.get("/:id", asyncHandler(async (req, res) => {
-
+    res.render("story");
 }));
 
 module.exports = router;

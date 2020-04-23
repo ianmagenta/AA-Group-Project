@@ -32,7 +32,7 @@ router.get("/", asyncHandler(async (req, res) => {
 
 router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.id, 10);
-    const story = await db.Story.findByPk(storyId);
+    const story = await db.Story.findByPk(storyId, { include: [db.User] });
     res.json({ story });
 }));
 

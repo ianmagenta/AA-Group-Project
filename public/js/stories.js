@@ -8,12 +8,16 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         if (!res.ok) {
             throw res;
         } else {
-            const { story } = await res.json();
-            console.log(story);
+            const { story, readTime, parsedBody } = await res.json();
+            console.log(story, readTime);
             document.querySelector(".story-title").innerHTML = story.title;
             document.querySelector(".story-subheader").innerHTML = story.subHeading;
             document.querySelector(".story-author").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
-            document.querySelector(".story-date").innerHTML = new Date(story.createdAt.replace(' ', 'T')).toLocaleFormat('%A, %B %e, %Y');
+            document.querySelector(".story-date").innerHTML = new Date(story.createdAt.replace(' ', 'T')).toDateString();
+            document.querySelector(".story-read-time").innerHTML = readTime.text;
+            document.querySelector(".story-body").innerHTML += parsedBody;
+            document.querySelector(".author-name").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
+            document.querySelector(".author-bio").innerHTML = story.User.bio;
         }
     } catch (err) {
         handleErrors(err);

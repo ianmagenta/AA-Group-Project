@@ -29,7 +29,8 @@ a {
   justify-content: flex-end;
   bottom: 0;
   width: 100%;
-  height: fill;
+  position: absolute;
+  /* height: fill; */
   box-shadow: 0 50vh 0 50vh rgb(20, 20, 20);
 }
 
@@ -436,7 +437,7 @@ input {
   grid-area: exitbutton;
 }
 
-button {
+.site-button {
   background-color: rgb(59, 128, 255);
   color: white;
   /* font-size: 32px; */

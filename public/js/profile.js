@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       let newJoinTime = new Date(user.createdAt.replace("T", " ")).toDateString();
 
       userName.innerHTML = `${user.userName}`;
-      memberSince.innerHTML = `${newJoinTime}`;
+      memberSince.innerHTML = `Rare member since ${newJoinTime}`;
       bio.innerHTML = `${user.bio}`;
     }
   } catch (err) {

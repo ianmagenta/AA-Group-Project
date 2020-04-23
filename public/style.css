@@ -431,7 +431,14 @@ input {
 }
 
 button {
-  margin: 10px auto;
+  background-color: rgb(59, 128, 255);
+  color: white;
+  /* font-size: 32px; */
+  /* padding: 50px 100px; */
+  border-radius: 5px;
+  border: 1px solid;
+  margin: 0 auto;
   padding: 10px;
   max-width: 100px;
+  cursor: pointer;
 }

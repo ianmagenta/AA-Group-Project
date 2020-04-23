@@ -36,6 +36,17 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 
 }));
 
+router.get("/storyId/:id(\\d+)", asyncHandler(async (req, res, next) => {
+    const storyId = parseInt(req.params.id, 10);
+    const comment = await db.Comment.findAll({ where: { storyId }, incl });
+    if (comment) {
+        res.json({ comment });
+    } else {
+        next(commentNotFoundError(storyId));
+    }
+
+}));
+
 router.post('/', commentValidators, asyncHandler(async (req, res) => {
     const {
         storyId,

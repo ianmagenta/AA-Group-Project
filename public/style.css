@@ -450,3 +450,7 @@ input {
   max-width: 100px;
   cursor: pointer;
 }
+
+.story-title {
+  font-size: 50px;
+}

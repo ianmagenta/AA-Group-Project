@@ -22,13 +22,26 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         }
 
         // load comments
-        // const otherRes = await fetch(`http://localhost:8080/comment/storyId/${id}`);
-        // if (!otherRes.ok) {
-        //     console.log("no data!");
-        // } else {
-        //     const data = await otherRes.json();
-        //     console.log(data);
-        // }
+        const otherRes = await fetch(`http://localhost:8080/comment/storyId/${id}`);
+        if (!otherRes.ok) {
+            throw otherRes;
+        } else {
+            const data = await otherRes.json();
+            const commentContainer = document.querySelector(".comments-container");
+            commentContainer.innerHTML = "";
+            const comments = data.comment;
+            comments.forEach(comment => {
+                let div = document.createElement("div");
+                div.classList.add("comment");
+                div.innerHTML = `
+                <div class=.commenter-name>${comment.User.firstName} ${comment.User.lastName}<div>
+                <div class=.commenter-date>${new Date(comment.createdAt.replace(' ', 'T')).toDateString()}<div>
+                <div class=.commenter-body>${comment.body}<div>
+                <div class=.commenter-likes>Add Likes in here!<div>
+                `
+                commentContainer.appendChild(div);
+            });
+        }
 
     } catch (err) {
         handleErrors(err);

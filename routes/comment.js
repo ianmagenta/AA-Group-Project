@@ -43,7 +43,7 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 
 router.get("/storyId/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.id, 10);
-    const comment = await db.Comment.findAll({ where: { storyId }, incl });
+    const comment = await db.Comment.findAll({ where: { storyId }, include: [db.User] });
     if (comment) {
         res.json({ comment });
     } else {

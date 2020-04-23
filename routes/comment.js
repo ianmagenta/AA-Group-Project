@@ -4,6 +4,7 @@ const { requireAuth } = require("../auth");
 const db = require("../db/models");
 const { check } = require('express-validator');
 const { asyncHandler, handleValidationErrors } = require("./utils");
+const md = require('markdown-it')();
 
 router.use(requireAuth);
 
@@ -21,8 +22,12 @@ const commentValidators = [
     handleValidationErrors
 ];
 router.get("/", asyncHandler(async (req, res) => {
+    //console.log('this')
     const comments = await db.Comment.findAll();
-    res.json({ comments });
+    //console.log(comments)
+    //const parsedBody = md.render(story.body);
+    //res.json({ comments });
+    return { comments };
 }));
 
 router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
@@ -32,6 +37,17 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
         res.json({ comment });
     } else {
         next(commentNotFoundError(commentId));
+    }
+
+}));
+
+router.get("/storyId/:id(\\d+)", asyncHandler(async (req, res, next) => {
+    const storyId = parseInt(req.params.id, 10);
+    const comment = await db.Comment.findAll({ where: { storyId }, incl });
+    if (comment) {
+        res.json({ comment });
+    } else {
+        next(commentNotFoundError(storyId));
     }
 
 }));

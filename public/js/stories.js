@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     const url = window.location.pathname;
     const id = url.substring(url.lastIndexOf('/') + 1);
     try {
+        // load story
         const res = await fetch(`http://localhost:8080/story/${id}`);
         if (!res.ok) {
             window.location.href = "/"
@@ -11,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             const { story, readTime, parsedBody } = await res.json();
             document.querySelector(".story-title").innerHTML = story.title;
             document.querySelector(".story-subheader").innerHTML = story.subHeading;
-            document.querySelector(".story-author").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
+            document.querySelector(".story-author").innerHTML = `By ${story.User.firstName} ${story.User.lastName}`;
             document.querySelector(".story-date").innerHTML = new Date(story.createdAt.replace(' ', 'T')).toDateString();
             document.querySelector(".story-read-time").innerHTML = readTime.text;
             document.querySelector(".story-body").innerHTML += parsedBody;
@@ -19,6 +20,16 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             document.querySelector(".author-bio").innerHTML = story.User.bio;
             document.title = story.title;
         }
+
+        // load comments
+        // const otherRes = await fetch(`http://localhost:8080/comment/storyId/${id}`);
+        // if (!otherRes.ok) {
+        //     console.log("no data!");
+        // } else {
+        //     const data = await otherRes.json();
+        //     console.log(data);
+        // }
+
     } catch (err) {
         handleErrors(err);
     }

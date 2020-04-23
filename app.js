@@ -9,7 +9,7 @@ const indexRoute = require('./routes/index');
 const registerRoute = require('./routes/register');
 const storyRoute = require('./routes/story');
 const commentRoute = require('./routes/comment');
-const storiesRoute = require('./routes/stories')
+const storiesRoute = require('./routes/stories');
 const sessionRoute = require('./routes/session');
 const profileRoute = require('./routes/profile');
 

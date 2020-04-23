@@ -13,7 +13,7 @@ registerForm.addEventListener("submit", async (e) => {
   const body = { userName, password, firstName, lastName, email };
 
   try {
-    const res = await fetch("http://localhost:8080/users", {
+    const res = await fetch("http://localhost:8080/user", {
       method: "POST",
       body: JSON.stringify(body),
       headers: {

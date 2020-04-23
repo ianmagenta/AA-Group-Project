@@ -1,3 +1,4 @@
+import { handleErrors } from "./utils.js";
 const signInOrUsername = document.querySelector(".sign-in-top");
 const RegisterOrLogout = document.querySelector(".register-top");
 signInOrUsername.innerHTML = `<a href="/login">Sign in</a>`;

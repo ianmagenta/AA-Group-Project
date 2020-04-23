@@ -13,4 +13,8 @@ router.get("/:id", asyncHandler(async (req, res) => {
     res.render("story");
 }));
 
+router.get("/:id/edit", asyncHandler(async (req, res) => {
+    res.render("storyedit");
+}));
+
 module.exports = router;

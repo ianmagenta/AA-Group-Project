@@ -1,10 +1,22 @@
-export function generateArticleHtml(articleArr) {
+export function generateArticleHtml(articleArr, readTimeArr) {
     let articlesHTML = "";
-    articleArr.forEach(articleObj => {
-        articlesHTML += `<div class="article-container text-style2"><div class="article-title text-style1">${articleObj.title}</div><div class="article-subheader">${articleObj.subHeading}</div>
-        <div class="article-author">${articleObj.User.firstName} ${articleObj.User.lastName} in ${articleObj.StoryCategory.categoryName}</div><div class="article-date">${new Date(articleObj.createdAt.replace("T", " ")).toDateString()}</div>
-        <div class="article-time">5 min read</div><div class="article-likes">Likes</div></div>`
-    });
+
+    if (readTimeArr) {
+        let readTimes = [];
+        readTimeArr.map(obj => {
+            readTimes.push(obj.text);
+        });
+        console.log(readTimes);
+        let readCount = 0;
+        articleArr.forEach(articleObj => {
+            articlesHTML += `<div class="article-container text-style2"><a class="article-title text-style1" href="/stories/${articleObj.id}">${articleObj.title}</a><div class="article-subheader">${articleObj.subHeading}</div>
+            <div class="article-author">${articleObj.User.firstName} ${articleObj.User.lastName} in ${articleObj.StoryCategory.categoryName}</div><div class="article-date">${new Date(articleObj.createdAt.replace("T", " ")).toDateString()}</div>
+            <div class="article-time">${readTimes[readCount]}</div><div class="article-likes">Likes</div></div>`;
+            readCount++;
+        });
+    } else {
+
+    }
 
     return articlesHTML;
 }

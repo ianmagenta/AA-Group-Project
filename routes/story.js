@@ -74,7 +74,6 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
     stories.forEach(story => {
         readTimes.push(readingTime(story.body));
     });
-    console.log(readTimes);
     res.json({ stories, readTimes });
 }));
 

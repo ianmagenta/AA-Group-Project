@@ -5,12 +5,14 @@ document.addEventListener("DOMContentLoaded", async (e) => {
   const usersSearchContainer = document.querySelector(".users-search-container");
   const searchButton = document.querySelector(".site-button");
   const searchBox = document.querySelector(".search-box");
+  const mainSearchContainer = document.querySelector(".main-search-container");
 
   searchButton.addEventListener("click", async (e) => {
     const searchTerm = searchBox.value;
     console.log(searchTerm);
 
     try {
+      mainSearchContainer.classList.remove("hidden");
       const res = await fetch(`http://localhost:8080/story/${searchTerm}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
       const data = await res.json();
       const { stories, readTimes } = data;

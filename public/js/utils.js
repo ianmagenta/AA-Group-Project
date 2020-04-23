@@ -35,8 +35,11 @@ export function generateUserHtml(users) {
     }
 
     users.forEach(userObj => {
-        userHTML += `<div class="user-container text-style2"><a class="user-username" href="/profile/${userObj.id}">${userObj.userName}</a>
-        <div class="user-first-name">${userObj.firstName}</div><div class="user-last-name">${userObj.lastName}</div></div>`;
+        userHTML += `
+        <div class="user-container text-style2">
+            <a class="user-fullname" href="profile/${userObj.id}">${userObj.firstName} ${userObj.lastName}</a>
+            <div class="user-bio">${userObj.bio}</div>
+        </div>`;
     });
 
     return userHTML;

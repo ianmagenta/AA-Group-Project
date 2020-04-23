@@ -38,13 +38,13 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 
 router.post('/', commentValidators, asyncHandler(async (req, res) => {
     const {
-        commentId,
+        storyId,
         userId,
         body
     } = req.body;
 
     const comment = await db.Comment.create({
-        commentId,
+        storyId,
         userId,
         body
     });
@@ -56,13 +56,13 @@ router.put("/:id(\\d+)", commentValidators, asyncHandler(async (req, res, next) 
     const comment = await db.Comment.findByPk(commentId);
     if (comment) {
         const {
-            commentId,
+            storyId,
             userId,
             body
         } = req.body;
 
         await comment.update({
-            commentId,
+            storyId,
             userId,
             body
         });

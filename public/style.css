@@ -244,6 +244,11 @@ a.article-title {
   color: black;
 }
 
+a.user-username {
+  font-weight: bold;
+  color: black;
+}
+
 .categories-container {
   padding: 10px;
   grid-area: categories;

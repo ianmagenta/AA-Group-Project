@@ -113,9 +113,15 @@ body {
 
 .mid-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   border: 1px solid black;
   margin: 30px;
+}
+
+.category-text {
+  padding: 10px;
+  margin: 10px;
 }
 
 .register-button-container {

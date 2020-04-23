@@ -7,12 +7,17 @@ const db = require('../db/models');
 
 
 const router = express.Router();
-const { User } = db;
+
 
 
 // router.use(requireAuth);
 
-
+const userNotFoundError = (id) => {
+    const err = Error(`User with id of ${id} could not be found.`);
+    err.title = "User not found.";
+    err.status = 404;
+    return err;
+};
 const userValidators = [
     check('userName')
         .exists({ checkFalsy: true })
@@ -40,20 +45,39 @@ const userValidators = [
     handleValidationErrors
 ];
 
-// router.get('/:id+', (req, res) => {
-//     const user = db.User.build();
-//     res.render('register', {
-//         title: 'Add User',
-//         user,
-//     });
-// });
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-    const id = parseInt(req.params.id, 10);
-    // console.log("The id is: ", id);
-    const user = await db.User.findByPk(id);
-    // console.log("The whole user info is: ", user);
-    res.json({ user });
+router.get("/", asyncHandler(async (req, res) => {
+    const users = await db.User.findAll();
+    res.json({ users });
+}));
+
+router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
+    const userId = parseInt(req.params.id, 10);
+    const user = await db.User.findByPk(userId);
+    if (user) {
+        res.json({ user });
+    } else {
+        next(userNotFoundError(userId));
+    }
+
 }))
+
+router.get("/:searchTerm", asyncHandler(async (req, res) => {
+    const searchTerm = '%' + req.params.searchTerm + '%';
+    console.log(searchTerm)
+    const users = await db.User.findAll({
+
+        where: {
+            [Op.or]: [
+                { lastName: { [Op.iLike]: searchTerm } },
+                { firstName: { [Op.iLike]: searchTerm } }
+
+            ]
+
+        }
+    });
+
+    res.json({ users });
+}));
 
 router.post('/', userValidators, asyncHandler(async (req, res) => {
     const {
@@ -73,7 +97,7 @@ router.post('/', userValidators, asyncHandler(async (req, res) => {
         bio: "",
         isAdmin: false
     });
-    //res.json({ user });
+
     const token = getUserToken(user);
     res.json({
         user: { id: user.id },
@@ -82,4 +106,50 @@ router.post('/', userValidators, asyncHandler(async (req, res) => {
 
 }));
 
+router.put("/:id(\\d+)", userValidators, asyncHandler(async (req, res, next) => {
+    const userId = parseInt(req.params.id, 10);
+    const user = await db.User.findByPk(userId);
+    if (user) {
+        const {
+            userName,
+            password,
+            firstName,
+            lastName,
+            email
+        } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
+        await user.update({
+            userName,
+            password: hashedPassword,
+            firstName,
+            lastName,
+            email,
+            bio: "",
+            isAdmin: false
+        });
+
+        res.json({ user });
+    } else {
+        next(userNotFoundError(userId));
+    }
+
+
+}));
+
+router.delete("/:id(\\d+)", asyncHandler(async (req, res, next) => {
+    const userId = parseInt(req.params.id, 10);
+    console.log('this')
+    const user = await db.User.findByPk(userId);
+
+    if (user) {
+        await user.destroy();
+
+        res.end();
+    } else {
+
+        next(userNotFoundError(userId));
+    }
+
+
+}));
 module.exports = router;

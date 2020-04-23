@@ -1,4 +1,5 @@
 const express = require('express');
+const { Op } = require('sequelize');
 const router = express.Router();
 const { requireAuth } = require("../auth");
 const db = require("../db/models");
@@ -14,6 +15,13 @@ const storyNotFoundError = (id) => {
     return err;
 };
 
+const storyLikeNotFoundError = (storyid, userId) => {
+    const err = Error(`StoryLike with id of ${storyid} and ${userId} could not be found.`);
+    err.title = "StoryLike not found.";
+    err.status = 404;
+    return err;
+};
+
 const storyValidators = [
     check('title')
         .exists({ checkFalsy: true })
@@ -23,6 +31,9 @@ const storyValidators = [
     check('subHeading')
         .isLength({ max: 500 })
         .withMessage('First Name must not be more than 500 characters long'),
+    check('body')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a comment'),
     handleValidationErrors
 ];
 router.get("/", asyncHandler(async (req, res) => {
@@ -33,7 +44,40 @@ router.get("/", asyncHandler(async (req, res) => {
 router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await db.Story.findByPk(storyId);
-    res.json({ story });
+    if (story) {
+        res.json({ story });
+    } else {
+        next(storyNotFoundError(storyId));
+    }
+
+}));
+router.get("/:searchTerm", asyncHandler(async (req, res) => {
+    const searchTerm = '%' + req.params.searchTerm + '%';
+    console.log(searchTerm)
+    const stories = await db.Story.findAll({
+        attributes: ['title'],
+        where: {
+            [Op.or]: [
+                { title: { [Op.iLike]: searchTerm } },
+                { subHeading: { [Op.iLike]: searchTerm } },
+                { body: { [Op.iLike]: searchTerm } }
+            ]
+
+        }
+    });
+
+    res.json({ stories });
+}));
+
+router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+    if (story) {
+        res.json({ story });
+    } else {
+        next(storyNotFoundError(storyId));
+    }
+
 }));
 
 router.post('/', storyValidators, asyncHandler(async (req, res) => {
@@ -97,4 +141,48 @@ router.delete("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 
 }));
 
+router.post("/:id(\\d+)/likes", asyncHandler(async (req, res, next) => {
+    const storyId = parseInt(req.params.id, 10);
+    const story = await db.Story.findByPk(storyId);
+
+    if (story) {
+        const {
+            userId,
+            storyId
+        } = req.body;
+
+        const storyLike = await db.StoryLike.create({
+            userId,
+            storyId
+        });
+
+        res.json({ storyLike });
+    } else {
+        next(storyNotFoundError(storyId));
+    }
+
+
+}));
+
+router.delete("/:storyId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, res, next) => {
+    const storyId = parseInt(req.params.storyId, 10);
+    const userId = parseInt(req.params.userId, 10);
+    const storyLike = await db.StoryLike.findOne({
+
+        where: {
+            storyId, userId
+        }
+
+    })
+
+    if (storyLike) {
+        await storyLike.destroy();
+
+        res.end();
+    } else {
+        next(storyLikeNotFoundError(storyId));
+    }
+
+
+}));
 module.exports = router;

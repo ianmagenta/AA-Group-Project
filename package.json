@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "express-bearer-token": "^2.4.0",
     "express-validator": "^6.4.0",
+    "gregorian": "^5.0.2",
     "jsonwebtoken": "^8.5.1",
     "markdown-editor": "^1.0.1",
     "morgan": "^1.10.0",

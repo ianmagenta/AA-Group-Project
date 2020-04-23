@@ -1,5 +1,6 @@
 import { handleErrors } from "./utils.js";
 
+
 document.addEventListener("DOMContentLoaded", async () => {
   const userId = localStorage.getItem("RARE_USER_ID");
   const userName = document.querySelector('.username');
@@ -16,7 +17,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     if (res.ok) {
-      let newJoinTime = user.createdAt.split("T")[0];
+      let newJoinTime = new Date(user.createdAt.replace("T", " ")).toDateString();
+
       userName.innerHTML = `${user.userName}`;
       memberSince.innerHTML = `${newJoinTime}`;
       bio.innerHTML = `${user.bio}`;

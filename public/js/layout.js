@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // console.log('this runs');
   try {
     // if (userId) {
-    const res = await fetch(`http://localhost:8080/users/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`http://localhost:8080/user/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     // console.log(data);
     const { user } = data;

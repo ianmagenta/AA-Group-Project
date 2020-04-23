@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   const memberSince = document.querySelector('.member-since');
   const bio = document.querySelector('.bio');
   try {
-    const res = await fetch(`http://localhost:8080/users/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`http://localhost:8080/user/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { user } = data;
     console.log(user);
     if (res.status >= 401) {
-      window.location.href = "./login";
+      window.location.href = "/login";
       return;
     }
 

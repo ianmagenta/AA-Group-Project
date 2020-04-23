@@ -59,7 +59,7 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 router.get("/:searchTerm", asyncHandler(async (req, res) => {
     const searchTerm = '%' + req.params.searchTerm + '%';
 
-    const stories = await db.Story.findAll({
+    let stories = await db.Story.findAll({
 
         where: {
             [Op.or]: [
@@ -70,8 +70,12 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
         },
         include: [db.User, db.StoryCategory],
     });
-
-    res.json({ stories });
+    let readTimes = [];
+    stories.forEach(story => {
+        readTimes.push(readingTime(story.body));
+    });
+    console.log(readTimes);
+    res.json({ stories, readTimes });
 }));
 
 router.post('/', storyValidators, asyncHandler(async (req, res) => {

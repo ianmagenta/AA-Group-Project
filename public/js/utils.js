@@ -1,5 +1,10 @@
-export function generateArticleHtml(articleArr, readTimeArr) {
+export function generateArticleHtml(articleArr, readTimeArr = null) {
     let articlesHTML = "";
+
+    if (articleArr.length < 1) {
+        articlesHTML = `<div class="article-container text-style2"><a class="article-title">No stories found.</div>`;
+        return articlesHTML;
+    }
 
     if (readTimeArr) {
         let readTimes = [];
@@ -19,6 +24,22 @@ export function generateArticleHtml(articleArr, readTimeArr) {
     }
 
     return articlesHTML;
+}
+
+export function generateUserHtml(users) {
+    let userHTML = '';
+
+    if (users.length < 1) {
+        userHTML = `<div class="article-container text-style2"><a class="article-title">No users found.</div>`;
+        return userHTML;
+    }
+
+    users.forEach(userObj => {
+        userHTML += `<div class="user-container text-style2"><a class="user-username" href="/profile/${userObj.id}">${userObj.userName}</a>
+        <div class="user-first-name">${userObj.firstName}</div><div class="user-last-name">${userObj.lastName}</div></div>`;
+    });
+
+    return userHTML;
 }
 
 export const handleErrors = async (err) => {

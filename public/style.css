@@ -7,6 +7,10 @@ a:visited {
   color: white;
 }
 
+a {
+  text-decoration: none;
+}
+
 .footer-container {
   background-color: rgb(20, 20, 20);
   display: flex;
@@ -41,13 +45,31 @@ body {
   max-width: 800px;
   display: grid;
   padding: 5px;
-  grid-template-areas: "logo . . . . . . . . . searchbar signin register";
+  grid-template-areas: "logo . . . . . . . . . search newstorybutton signin register";
 }
 
-.search-bar {
-  grid-area: searchbar;
+.search-bar-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.search-button {
+  grid-area: search;
+  color: white;
   justify-self: flex-end;
-  max-height: 10px;
+  text-align: right;
+  padding-top: 10px;
+}
+
+.new-story-button {
+  grid-area: newstorybutton;
+  justify-self: flex-end;
+  text-align: right;
+  padding-top: 10px;
 }
 
 .rare-logo.text-style1 {

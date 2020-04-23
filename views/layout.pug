@@ -1,14 +1,16 @@
 doctype html
 html(lang="en")
   head
+    title= title
     <link rel="shortcut icon" href="assets/rarefavicon.png" type="image/x-icon"/>
     link(rel="stylesheet" href="/style.css")
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway&display=swap" rel="stylesheet">
   body
     .top-bar
       .inner-top-bar
-        .rare-logo.text-style1 Rare
-        input.search-bar(name="searchBar" placeholder="search")
+        a.rare-logo.text-style1(href='/') Rare
+        a.search-button.text-style2(href='/search') Search
+        a.new-story-button.text-style2(href='/stories/new') New story
         .sign-in-top.text-style2 Sign in
         .register-top.text-style2 Register
 script(type="module" src="/js/layout.js")

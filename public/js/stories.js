@@ -22,13 +22,13 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         }
 
         // load comments
-        const res = await fetch(`http://localhost:8080/comment/storyId/${id}`);
-        if (!res.ok) {
-            console.log("no data!");
-        } else {
-            const data = await res.json();
-            console.log(data);
-        }
+        // const otherRes = await fetch(`http://localhost:8080/comment/storyId/${id}`);
+        // if (!otherRes.ok) {
+        //     console.log("no data!");
+        // } else {
+        //     const data = await otherRes.json();
+        //     console.log(data);
+        // }
 
     } catch (err) {
         handleErrors(err);

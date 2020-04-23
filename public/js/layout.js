@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch(`http://localhost:8080/users/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     // console.log(data);
-    debugger;
     const { user } = data;
     // console.log(user);
     if (res.status >= 401) {

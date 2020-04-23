@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             document.querySelector(".story-body").innerHTML += parsedBody;
             document.querySelector(".author-name").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
             document.querySelector(".author-bio").innerHTML = story.User.bio;
+            document.title = story.title;
         }
     } catch (err) {
         handleErrors(err);

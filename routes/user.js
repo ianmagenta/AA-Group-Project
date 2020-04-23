@@ -10,7 +10,7 @@ const router = express.Router();
 
 
 
-// router.use(requireAuth);
+router.use(requireAuth);
 
 const userNotFoundError = (id) => {
     const err = Error(`User with id of ${id} could not be found.`);
@@ -63,7 +63,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
 
 router.get("/:searchTerm", asyncHandler(async (req, res) => {
     const searchTerm = '%' + req.params.searchTerm + '%';
-    console.log(searchTerm)
+
     const users = await db.User.findAll({
 
         where: {
@@ -138,7 +138,7 @@ router.put("/:id(\\d+)", userValidators, asyncHandler(async (req, res, next) => 
 
 router.delete("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const userId = parseInt(req.params.id, 10);
-    console.log('this')
+
     const user = await db.User.findByPk(userId);
 
     if (user) {

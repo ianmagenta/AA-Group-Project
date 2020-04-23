@@ -8,7 +8,7 @@ const { asyncHandler, handleValidationErrors } = require("./utils");
 const readingTime = require('reading-time');
 const md = require('markdown-it')();
 
-//router.use(requireAuth);
+router.use(requireAuth);
 
 const storyNotFoundError = (id) => {
     const err = Error(`Story with id of ${id} could not be found.`);
@@ -58,7 +58,7 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 
 router.get("/:searchTerm", asyncHandler(async (req, res) => {
     const searchTerm = '%' + req.params.searchTerm + '%';
-    console.log(searchTerm)
+
     const stories = await db.Story.findAll({
         attributes: ['title'],
         where: {

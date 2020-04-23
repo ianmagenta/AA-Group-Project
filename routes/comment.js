@@ -5,7 +5,7 @@ const db = require("../db/models");
 const { check } = require('express-validator');
 const { asyncHandler, handleValidationErrors } = require("./utils");
 
-//router.use(requireAuth);
+router.use(requireAuth);
 
 const commentNotFoundError = (id) => {
     const err = Error(`Comment with id of ${id} could not be found.`);

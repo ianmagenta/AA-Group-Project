@@ -5,6 +5,8 @@ const { requireAuth } = require("../auth");
 const db = require("../db/models");
 const { check } = require('express-validator');
 const { asyncHandler, handleValidationErrors } = require("./utils");
+const readingTime = require('reading-time');
+const md = require('markdown-it')();
 
 //router.use(requireAuth);
 
@@ -45,7 +47,10 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await db.Story.findByPk(storyId);
     if (story) {
-        res.json({ story });
+        const story = await db.Story.findByPk(storyId, { include: [db.User] });
+        const readTime = readingTime(story.body);
+        const parsedBody = md.render(story.body);
+        res.json({ story, readTime, parsedBody });
     } else {
         next(storyNotFoundError(storyId));
     }
@@ -77,7 +82,6 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     } else {
         next(storyNotFoundError(storyId));
     }
-
 }));
 
 router.post('/', storyValidators, asyncHandler(async (req, res) => {

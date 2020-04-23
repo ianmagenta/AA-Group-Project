@@ -15,11 +15,13 @@
     "express-validator": "^6.4.0",
     "jsonwebtoken": "^8.5.1",
     "markdown-editor": "^1.0.1",
+    "markdown-it": "^10.0.0",
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.0",
     "per-env": "^1.0.2",
     "pg": "^8.0.0",
     "pug": "^2.0.4",
+    "reading-time": "^1.2.0",
     "sequelize": "^5.21.6"
   },
   "devDependencies": {

@@ -1,3 +1,16 @@
+export function generateArticleHtml(articleArr) {
+    let articlesHTML = "";
+    articleArr.forEach(articleObj => {
+        //refactor later?
+
+        articlesHTML += `<div class="article-container text-style2"><div class="article-title text-style1">${articleObj.title}</div><div class="article-subheader">${articleObj.subHeading}</div>
+        <div class="article-author">${articleObj.User.userId} in ${articleObj.categoryId}</div><div class="article-date">${new Date(articleObj.createdAt.replace("T", " ")).toDateString()}</div>
+        <div class="article-time">5 min read</div><div class="article-likes">Likes</div></div>`
+    });
+
+    return articlesHTML;
+}
+
 export const handleErrors = async (err) => {
     if (err.status >= 400 && err.status < 600) {
         const errorJSON = await err.json();

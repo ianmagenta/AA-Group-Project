@@ -67,6 +67,7 @@ body {
   max-width: 400px;
   align-items: center;
   margin: 10px auto;
+  padding: 10px;
 }
 
 .search-button {
@@ -246,7 +247,7 @@ body {
   justify-content: center;
 }
 
-.category {
+.category, .likes {
   padding: 5px;
 }
 

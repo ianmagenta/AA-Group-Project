@@ -67,8 +67,8 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
                 { subHeading: { [Op.iLike]: searchTerm } },
                 { body: { [Op.iLike]: searchTerm } }
             ]
-
-        }, include: [db.User]
+        },
+        include: [db.User, db.StoryCategory],
     });
 
     res.json({ stories });

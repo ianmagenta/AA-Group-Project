@@ -44,6 +44,9 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 router.get("/storyId/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.id, 10);
     const comment = await db.Comment.findAll({ where: { storyId }, include: [db.User] });
+    for (const key in comment) {
+        comment[key].body = md.render(comment[key].body);
+    }
     if (comment) {
         res.json({ comment });
     } else {

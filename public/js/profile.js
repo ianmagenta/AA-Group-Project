@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   const userName = document.querySelector('.username');
   const memberSince = document.querySelector('.member-since');
   const bio = document.querySelector('.bio');
+  const url = window.location.pathname;
+  const id = url.substring(url.lastIndexOf('/') + 1);
   try {
-    const res = await fetch(`http://localhost:8080/user/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`http://localhost:8080/user/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { user } = data;
     console.log(user);

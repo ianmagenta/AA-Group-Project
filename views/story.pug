@@ -2,19 +2,15 @@ extends layout.pug
 block content
   .total-story-container
     .story-container.text-style2
-      .story-title.text-style1 Title
-      .story-subheader Subheader
-      .story-author Author
-      .story-date Jan 1, 2020
-      .story-read-time 5 min read
+      .story-title.text-style1.story-container-text Title
+      .story-subheader.story-container-text Subheader
+      .story-author.story-container-text Author
+      .story-date.story-container-text Jan 1, 2020
+      .story-read-time.story-container-text 5 min read
+      .story-category.story-container-text Category 1
+      .story-likes.story-container-text Likes
       button.site-button.edit-story-button.edit-story-button-hidden(type="submit") Edit your story
     .story-body.text-style2
-      .sidebar-positioner
-        .sidebar-container
-          .category-container
-            .category Category 1
-          .likes-container
-            .likes Likes
     .author-info-container.text-style2
       .author-text Written by
       .author-name Author name
@@ -35,5 +31,5 @@ block content
         .comment-date Jan 1, 2020
         .comment-body Comment body here
         .comment-likes Likes
-    include footer.pug
+  include footer.pug
   script(type='module' src='/js/stories.js')

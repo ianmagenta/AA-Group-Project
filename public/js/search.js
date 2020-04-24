@@ -1,4 +1,4 @@
-import { handleErrors, generateArticleHtml, generateUserHtml } from "./utils.js";
+import { handleErrors, generateArticleHtml, generateUserHtml, api } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", async (e) => {
   const articlesSearchContainer = document.querySelector(".articles-search-container");
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
     try {
       mainSearchContainer.classList.remove("hidden");
-      const res = await fetch(`http://localhost:8080/story/${searchTerm}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+      const res = await fetch(`${api}story/${searchTerm}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
       const data = await res.json();
       const { stories } = data;
 
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
     //get users by search term
     try {
-      const res = await fetch(`http://localhost:8080/user/${searchTerm}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+      const res = await fetch(`${api}user/${searchTerm}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
       const data = await res.json();
       const { users } = data;
       usersSearchContainer.innerHTML = `<div class="heading-text text-style1">Found users</div>` + generateUserHtml(users);

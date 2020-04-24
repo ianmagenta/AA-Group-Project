@@ -15,7 +15,13 @@ const profileRoute = require('./routes/profile');
 
 const { ValidationError } = require("sequelize");
 const { environment } = require("./config");
+const { api } = require('./config');
 
+
+app.use((req, res, next) => {
+  res.locals.api = api;
+  next();
+});
 // const { check, validationResult } = require('express-validator');
 
 // function asyncHandler(routeHandler) {

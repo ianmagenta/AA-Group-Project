@@ -11,7 +11,7 @@ db.sequelize
   .then(() => {
     console.log("Database connection success! Sequelize is ready to use...");
     // Start listening for connections.
-    port = Number.parseInt(port, 10) || 80;
+    port = Number.parseInt(port, 10) || 8080;
     app.listen(port, () => console.log(`Listening on port ${port}...`));
   })
   .catch((err) => {

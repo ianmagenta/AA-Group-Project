@@ -1,4 +1,4 @@
-import { handleErrors, generateArticleHtml, generateUserHtml } from "./utils.js";
+import { handleErrors, generateArticleHtml, api } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", async (e) => {
   const topStoriesContainer = document.querySelector(".top-stories-container");
@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
   const mainStoriesRight = document.querySelector(".main-stories-right");
 
   try {
-    const res = await fetch(`http://localhost:8080/story`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`${api}story`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     if (!res.ok) {
       // console.log(user);
       window.location.href = "/splash";

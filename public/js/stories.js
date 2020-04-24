@@ -1,11 +1,11 @@
-import { handleErrors } from "./utils.js";
+import { handleErrors, api } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", async (e) => {
     const url = window.location.pathname;
     const id = url.substring(url.lastIndexOf('/') + 1);
     try {
         // load story
-        const res = await fetch(`http://localhost:8080/story/${id}`);
+        const res = await fetch(`${api}story/${id}`);
         if (!res.ok) {
             window.location.href = "/"
         } else {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         }
 
         // load comments
-        const otherRes = await fetch(`http://localhost:8080/comment/storyId/${id}`);
+        const otherRes = await fetch(`${api}comment/storyId/${id}`);
         if (!otherRes.ok) {
             throw otherRes;
         } else {

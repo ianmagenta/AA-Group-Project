@@ -10,7 +10,7 @@ registerForm.addEventListener("submit", async (e) => {
     const body = { userName, password };
 
     try {
-        console.log(api);
+        console.log(`${api}session`);
         const res = await fetch(`${api}session`, {
             method: "POST",
             body: JSON.stringify(body),

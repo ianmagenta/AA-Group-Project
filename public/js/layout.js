@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // console.log(data);
     const { user } = data;
     // console.log(user);
-    if (res.status >= 401) {
+    if (!res.ok) {
       window.location.href = "./login";
       return;
     }

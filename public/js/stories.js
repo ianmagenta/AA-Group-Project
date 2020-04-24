@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             document.title = story.title;
 
             if (story.userId === parseInt(localStorage.getItem("RARE_USER_ID"), 10)) {
-                console.log('if runs');
                 const editButton = document.querySelector(".edit-story-button");
                 editButton.classList.remove("edit-story-button-hidden");
                 editButton.addEventListener("click", (e) => {
@@ -39,7 +38,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             throw otherRes;
         } else {
             const { comment } = await otherRes.json();
-            console.log(comment);
             const commentContainer = document.querySelector(".comments-container");
             commentContainer.innerHTML = "";
             comment.forEach(comment => {

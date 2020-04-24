@@ -1,30 +1,16 @@
-export function generateArticleHtml(articleArr, readTimeArr, LikeArr) {
-    console.log(articleArr);
+export function generateArticleHtml(stories) {
     let articlesHTML = "";
 
-    if (articleArr.length < 1) {
+    if (stories.length < 1) {
         articlesHTML = `<div class="article-container text-style2"><a class="article-title">No stories found.</div>`;
         return articlesHTML;
     }
 
-    if (readTimeArr) {
-        let readTimes = [];
-        readTimeArr.forEach(obj => {
-            readTimes.push(obj.text);
-        });
-        let readCount = 0;
-
-        articleArr.forEach((articleObj, i) => {
-            console.log(i, LikeArr[i]);
-            articlesHTML += `<div class="article-container text-style2"><a class="article-title text-style1" href="/stories/${articleObj.id}">${articleObj.title}</a><div class="article-subheader">${articleObj.subHeading}</div>
-            <div class="article-author">${articleObj.User.firstName} ${articleObj.User.lastName} in ${articleObj.StoryCategory.categoryName}</div><div class="article-date">${new Date(articleObj.createdAt.replace("T", " ")).toDateString()}</div>
-            <div class="article-time">${readTimes[readCount]}`;
-            // </div><div class="article-likes">${LikeArr[i].Likes}</div></div>
-            readCount++;
-        });
-    } else {
-
-    }
+    stories.forEach((story) => {
+        articlesHTML += `<div class="article-container text-style2"><a class="article-title text-style1" href="/stories/${story.id}">${story.title}</a><div class="article-subheader">${story.subHeading}</div>
+            <div class="article-author">${story.User.firstName} ${story.User.lastName} in ${story.StoryCategory.categoryName}</div><div class="article-date">${new Date(story.createdAt.replace("T", " ")).toDateString()}</div>
+            <div class="article-time">${story.readTime.text}</div><div class="article-likes">Likes: ${story.storyLikes.length}</div></div>`
+    });
 
     return articlesHTML;
 }
@@ -39,10 +25,10 @@ export function generateUserHtml(users) {
 
     users.forEach(userObj => {
         userHTML += `
-        <div class="user-container text-style2">
-            <a class="user-fullname" href="profile/${userObj.id}">${userObj.firstName} ${userObj.lastName}</a>
-            <div class="user-bio">${userObj.bio}</div>
-        </div>`;
+            <div class="user-container text-style2">
+                <a class="user-fullname" href="profile/${userObj.id}">${userObj.firstName} ${userObj.lastName}</a>
+                <div class="user-bio">${userObj.bio}</div>
+        </div > `;
     });
 
     return userHTML;
@@ -54,19 +40,19 @@ export const handleErrors = async (err) => {
         const errorsContainer = document.querySelector(".errors-container");
         let errorsHtml = [
             `
-        <div class="alert alert-danger">
-            Something went wrong. Please try again.
-        </div>
-      `,
+            < div class="alert alert-danger" >
+                Something went wrong.Please try again.
+        </div >
+            `,
         ];
         const { errors } = errorJSON;
         if (errors && Array.isArray(errors)) {
             errorsHtml = errors.map(
                 (message) => `
-          <div class="alert alert-danger">
-              ${message}
-          </div>
-        `
+            < div class="alert alert-danger" >
+                ${ message}
+          </div >
+            `
             );
         }
         errorsContainer.innerHTML = errorsHtml.join("");

@@ -128,12 +128,10 @@ body {
 
 .register-button-container {
   /* border: 1px solid black; */
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 200px;
+  display: grid;
   justify-content: center;
-  align-content: center;
 }
 
 .site-description {
@@ -142,13 +140,16 @@ body {
   padding: 20px;
 }
 
-a.register-large {
+.comment {
+  border: 1px solid black;
+}
+
+.register-large {
   background-color: rgb(59, 128, 255);
-  margin: 10px auto;
   color: white;
   font-size: 32px;
   max-width: 100px;
-  padding: 50px;
+  padding: 50px 100px;
   border-radius: 5px;
 }
 
@@ -392,6 +393,14 @@ a.rare-logo-footer {
   border-radius: 3px;
 }
 
+.story-subheader {
+  font-size: larger;
+}
+
+.story-container-text {
+  padding: 5px;
+}
+
 .story-container, .author-info-container, .comments-container {
   max-width: 600px;
   padding: 20px;
@@ -404,6 +413,7 @@ a.rare-logo-footer {
 }
 
 .comment {
+  padding: 10px;
   margin: 10px;
 }
 
@@ -450,16 +460,16 @@ a.rare-logo-footer {
   margin: 10px auto;
 }
 
+button.edit-story-button {
+  margin: 10px;
+}
+
 .edit-story-button-hidden {
   display: none;
 }
 
-.author-name {
-  font-weight: bold;
-}
-
 input, select {
-  max-width: 600px;
+  max-width: 100%;
   padding: 5px;
   margin: 5px;
 }

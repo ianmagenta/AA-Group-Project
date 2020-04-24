@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             const comments = data.comment;
             comments.forEach(comment => {
                 let div = document.createElement("div");
-                div.classList.add("comment");
+                div.classList.add("comment")
                 div.innerHTML = `
                 <div class=.commenter-name>${comment.User.firstName} ${comment.User.lastName}<div>
                 <div class=.commenter-date>${new Date(comment.createdAt.replace(' ', 'T')).toDateString()}<div>

@@ -47,13 +47,13 @@ const userValidators = [
 ];
 
 router.get("/", asyncHandler(async (req, res) => {
-    const users = await db.User.findAll();
+    const users = await db.User.findAll({ attributes: ['userName', 'firstName', 'lastName', 'email', 'bio', 'isAdmin', 'createdAt', 'updatedAt'], });
     res.json({ users });
 }));
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const userId = parseInt(req.params.id, 10);
-    const user = await db.User.findByPk(userId);
+    const user = await db.User.findByPk(userId, { attributes: ['userName', 'firstName', 'lastName', 'email', 'bio', 'isAdmin', 'createdAt', 'updatedAt'], });
     if (user) {
         res.json({ user });
     } else {
@@ -66,7 +66,7 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
     const searchTerm = '%' + req.params.searchTerm + '%';
 
     const users = await db.User.findAll({
-
+        attributes: ['userName', 'firstName', 'lastName', 'email', 'bio', 'isAdmin', 'createdAt', 'updatedAt'],
         where: {
             [Op.or]: [
                 { lastName: { [Op.iLike]: searchTerm } },

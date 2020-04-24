@@ -5,6 +5,8 @@ const db = require("../db/models");
 const { check } = require('express-validator');
 const { asyncHandler, handleValidationErrors } = require("./utils");
 const md = require('markdown-it')();
+const sequelize = require('sequelize');
+const { Op } = require('sequelize');
 
 router.use(requireAuth);
 
@@ -50,11 +52,15 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 
 router.get("/storyId/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.id, 10);
-    const comment = await db.Comment.findAll({ where: { storyId }, include: [db.User, db.CommentLike] });
-    for (const key in comment) {
-        comment[key].body = md.render(comment[key].body);
-    }
+    const comment = await db.Comment.findAll({ where: { storyId }, include: [db.User] });
+    comment.forEach(element => {
+        element.body = md.render(element.body);
+    });
     if (comment) {
+        for (const key in comment) {
+            const commentLikes = await db.CommentLike.findAll({ where: { commentId: comment[key].id } });
+            comment[key].setDataValue('commentLikes', commentLikes);
+        }
         res.json({ comment });
     } else {
         next(commentNotFoundError(storyId));

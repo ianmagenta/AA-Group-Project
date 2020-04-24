@@ -8,16 +8,16 @@ document.addEventListener("DOMContentLoaded", async (e) => {
   const mainSearchContainer = document.querySelector(".main-search-container");
 
   searchButton.addEventListener("click", async (e) => {
+
     const searchTerm = searchBox.value;
-    console.log(searchTerm);
 
     try {
       mainSearchContainer.classList.remove("hidden");
       const res = await fetch(`http://localhost:8080/story/${searchTerm}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
       const data = await res.json();
       const { stories, readTimes } = data;
-      console.log(stories);
-      // console.log(readTimes);
+
+
       let articlesHTML = `<div class="heading-text text-style1">Found stories</div>` + generateArticleHtml(stories, readTimes);
       articlesSearchContainer.innerHTML = articlesHTML;
     } catch (e) {

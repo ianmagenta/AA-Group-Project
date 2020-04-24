@@ -35,6 +35,10 @@ a {
   /* box-shadow: 0 50vh 0 50vh rgb(20, 20, 20); */
 }
 
+.comments-label {
+  padding: 10px;
+}
+
 .footer-content{
   display: flex;
   justify-content: flex-start;
@@ -418,10 +422,6 @@ a.rare-logo-footer {
   background-color: white;
   margin: 10px auto;
 }
-
-/* .total-story-container, .total-index-container, .total-splash-container {
-  /* height: 100vh; */
-} */
 
 .comment {
   padding: 10px;

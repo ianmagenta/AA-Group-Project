@@ -295,6 +295,11 @@ a.user-fullname {
   "date date date time";
 }
 
+a.rare-logo-footer {
+  color:rgb(104, 104, 104);
+  padding: 30px;
+}
+
 .heading-text {
   color: white;
   background-color: rgb(59, 128, 255);
@@ -391,6 +396,10 @@ a.user-fullname {
   margin: 10px auto;
 }
 
+.total-story-container, .total-index-container, .total-splash-container {
+  height: 100vh;
+}
+
 .comment {
   margin: 10px;
 }
@@ -438,7 +447,15 @@ a.user-fullname {
   margin: 10px auto;
 }
 
-input {
+.edit-story-button-hidden {
+  display: none;
+}
+
+.author-name {
+  font-weight: bold;
+}
+
+input, select {
   max-width: 600px;
   padding: 5px;
   margin: 5px;

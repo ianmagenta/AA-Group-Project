@@ -19,6 +19,18 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             document.querySelector(".author-name").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
             document.querySelector(".author-bio").innerHTML = story.User.bio;
             document.title = story.title;
+
+            if (story.userId === parseInt(localStorage.getItem("RARE_USER_ID"), 10)) {
+                console.log('if runs');
+                const editButton = document.querySelector(".edit-story-button");
+                editButton.classList.remove("edit-story-button-hidden");
+                editButton.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    let storyId = window.location.href;
+                    storyId = storyId.split("stories/")[1];
+                    window.location.href = `/stories/${storyId}/edit`;
+                })
+            }
         }
 
         // load comments

@@ -7,9 +7,10 @@ storyForm.addEventListener("submit", async (e) => {
     const title = formData.get("title");
     const subHeading = formData.get("subHeading");
     const body = formData.get("body");
+    const categoryId = formData.get("categoryId");
     const userId = localStorage.getItem("RARE_USER_ID");
 
-    const jsonBody = { title, subHeading, body, userId, categoryId: 1 };
+    const jsonBody = { title, subHeading, body, userId, categoryId };
 
     try {
         const res = await fetch("http://localhost:8080/story", {

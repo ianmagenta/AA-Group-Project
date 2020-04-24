@@ -9,8 +9,9 @@ registerForm.addEventListener("submit", async (e) => {
   const userName = formData.get("userName");
   const firstName = formData.get("firstName");
   const lastName = formData.get("lastName");
+  const bio = formData.get("bio");
 
-  const body = { userName, password, firstName, lastName, email };
+  const body = { userName, password, firstName, lastName, email, bio };
 
   try {
     const res = await fetch("http://localhost:8080/user", {

@@ -1,4 +1,4 @@
-import { handleErrors } from "./utils.js";
+import { handleErrors, api } from "./utils.js";
 const storyForm = document.querySelector(".story-form");
 let easyMDE;
 
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const id = url.match(/\d+/)[0];
     // console.log('this runs');
     try {
-        const res = await fetch(`http://localhost:8080/story/${id}`);
+        const res = await fetch(`${api}story/${id}`);
         if (!res.ok) {
             throw res;
         } else {
@@ -43,7 +43,7 @@ storyForm.addEventListener("submit", async (e) => {
     const jsonBody = { title, subHeading, body, userId, categoryId };
     console.log(jsonBody)
     try {
-        const res = await fetch(`http://localhost:8080/story/${id}`, {
+        const res = await fetch(`${api}story/${id}`, {
             method: "PUT",
             body: JSON.stringify(jsonBody),
             headers: {

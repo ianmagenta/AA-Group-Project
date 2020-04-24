@@ -1,4 +1,4 @@
-import { handleErrors, generateArticleHtml, generateUserHtml, generateCategoriesHTML } from "./utils.js";
+import { handleErrors, generateArticleHtml, generateUserHtml, generateCategoriesHTML, api } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", async (e) => {
   const topStoriesContainer = document.querySelector(".top-stories-container");
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
   const categoryContainer = document.querySelector(".categories-container");
 
   try {
-    const res = await fetch(`http://localhost:8080/story`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`${api}story`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     if (!res.ok) {
       // console.log(user);
       window.location.href = "/splash";
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
   //get categories and place in top container
   try {
-    const res = await fetch(`http://localhost:8080/storycategories/`);
+    const res = await fetch(`${api}storycategories/`);
     const data = await res.json();
     const { categories } = data;
     let categories2 = categories.slice(0, 6);

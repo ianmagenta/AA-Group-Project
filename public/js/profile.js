@@ -1,4 +1,4 @@
-import { handleErrors, generateArticleHtml } from "./utils.js";
+import { handleErrors, generateArticleHtml, api } from "./utils.js";
 
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const url = window.location.pathname;
   const id = url.substring(url.lastIndexOf('/') + 1);
   try {
-    const res = await fetch(`http://localhost:8080/user/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`${api}user/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { user } = data;
     console.log(user);
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //load stories by user
   try {
-    const res = await fetch(`http://localhost:8080/story/by/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`${api}story/by/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { stories } = data;
     console.log(stories);

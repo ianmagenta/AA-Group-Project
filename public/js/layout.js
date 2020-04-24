@@ -1,4 +1,4 @@
-import { handleErrors } from "./utils.js";
+import { handleErrors, api } from "./utils.js";
 const signInOrUsername = document.querySelector(".sign-in-top");
 const RegisterOrLogout = document.querySelector(".register-top");
 signInOrUsername.innerHTML = `<a href="/login">Sign in</a>`;
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // console.log('this runs');
   try {
     // if (userId) {
-    const res = await fetch(`http://localhost:8080/user/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`${api}user/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     if (!res.ok) {
       // console.log(user);
       window.location.href = "/splash";

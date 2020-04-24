@@ -1,4 +1,4 @@
-import { handleErrors } from "./utils.js";
+import { handleErrors, api } from "./utils.js";
 const registerForm = document.querySelector(".register-form");
 
 registerForm.addEventListener("submit", async (e) => {
@@ -14,7 +14,7 @@ registerForm.addEventListener("submit", async (e) => {
   const body = { userName, password, firstName, lastName, email, bio };
 
   try {
-    const res = await fetch("http://localhost:8080/user", {
+    const res = await fetch(`${api}user`, {
       method: "POST",
       body: JSON.stringify(body),
       headers: {

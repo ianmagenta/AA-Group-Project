@@ -25,13 +25,13 @@ a {
 .footer-container {
   background-color: rgb(20, 20, 20);
   display: flex;
-  position: absolute;
+  /* position: absolute; */
   flex-direction: column;
   justify-content: flex-end;
   bottom: 0;
   width: 100%;
   /* height: fill; */
-  box-shadow: 0 50vh 0 50vh rgb(20, 20, 20);
+  /* box-shadow: 0 50vh 0 50vh rgb(20, 20, 20); */
 }
 
 .footer-content{

@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", async (e) => {
       mainSearchContainer.classList.remove("hidden");
       const res = await fetch(`http://localhost:8080/story/${searchTerm}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
       const data = await res.json();
-      const { stories, readTimes } = data;
+      const { stories, readTimes, storyLikes } = data;
 
 
-      let articlesHTML = `<div class="heading-text text-style1">Found stories</div>` + generateArticleHtml(stories, readTimes);
+      let articlesHTML = `<div class="heading-text text-style1">Found stories</div>` + generateArticleHtml(stories, readTimes, storyLikes);
       articlesSearchContainer.innerHTML = articlesHTML;
     } catch (e) {
       handleErrors(e);

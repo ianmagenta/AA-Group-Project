@@ -259,6 +259,7 @@ a.user-fullname {
   grid-area: categories;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .category, .likes {

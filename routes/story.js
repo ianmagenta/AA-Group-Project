@@ -63,6 +63,19 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     }
 }));
 
+router.get("/by/:id(\\d+)", asyncHandler(async (req, res, next) => {
+    const userId = parseInt(req.params.id, 10);
+    const stories = await db.Story.findAll({ where: { userId } }, { include: [db.user, db.StoryCategory] });
+    for (const key in stories) {
+        const storyLikes = await db.StoryLike.findAll({ where: { storyId: stories[key].id } });
+        stories[key].setDataValue('storyLikes', storyLikes);
+        const readTime = readingTime(stories[key].body);
+        stories[key].setDataValue('readTime', readTime);
+    }
+    console.log(stories);
+    res.json({ stories });
+}));
+
 router.get("/:searchTerm", asyncHandler(async (req, res) => {
 
     const searchTerm = '%' + req.params.searchTerm + '%';

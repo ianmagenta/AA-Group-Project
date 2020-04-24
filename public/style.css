@@ -26,7 +26,7 @@ a {
 .footer-container {
   background-color: rgb(20, 20, 20);
   display: flex;
-  /* position: absolute; */
+  position: sticky;
   flex-direction: column;
   justify-content: flex-end;
   bottom: 0;
@@ -47,6 +47,13 @@ a {
 
 .top-bar {
   background-color: rgb(59, 128, 255);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.category-italics {
+  font-style: italic;
 }
 
 body {
@@ -412,9 +419,9 @@ a.rare-logo-footer {
   margin: 10px auto;
 }
 
-.total-story-container, .total-index-container, .total-splash-container {
-  height: 100vh;
-}
+/* .total-story-container, .total-index-container, .total-splash-container {
+  /* height: 100vh; */
+} */
 
 .comment {
   padding: 10px;

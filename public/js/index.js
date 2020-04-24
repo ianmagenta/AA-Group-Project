@@ -16,13 +16,13 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     topStoriesContainer.innerHTML = `${generateArticleHtml(firstThreeStories, firstThreeReadTimes)}`;
 
     //TODO rewrite after likes are working properly, these should be most liked
-    let nextThreeStories = stories.slice(3, 7);
-    let nextThreeReadTimes = readTimes.slice(3, 7);
+    let nextThreeStories = stories.slice(3, 6);
+    let nextThreeReadTimes = readTimes.slice(3, 6);
     mainStoriesRight.innerHTML = `<div class="heading-text text-style1">Popular Stories</div> ${generateArticleHtml(nextThreeStories, nextThreeReadTimes)}`;
 
     //capture the rest of the stories and put in left container
-    let restOfStories = stories.slice(7);
-    let restOfReadTimes = readTimes.slice(7);
+    let restOfStories = stories.slice(6);
+    let restOfReadTimes = readTimes.slice(6);
     mainStoriesLeft.innerHTML = `${generateArticleHtml(restOfStories, restOfReadTimes)}`;
   } catch (e) {
     handleErrors(e);

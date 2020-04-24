@@ -34,6 +34,14 @@ export function generateUserHtml(users) {
     return userHTML;
 }
 
+export function generateCategoriesHTML(categories) {
+    let categoriesHTML = '';
+    categories.forEach(categoryObj => {
+        categoriesHTML += `<div class="category-text">${categoryObj.categoryName}</div>`
+    });
+    return categoriesHTML;
+}
+
 export const handleErrors = async (err) => {
     if (err.status >= 400 && err.status < 600) {
         const errorJSON = await err.json();

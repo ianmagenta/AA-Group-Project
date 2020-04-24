@@ -19,6 +19,7 @@ a:visited {
 }
 
 a {
+  color: white;
   text-decoration: none;
 }
 
@@ -258,6 +259,7 @@ a.user-fullname {
   grid-area: categories;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .category, .likes {
@@ -280,9 +282,10 @@ a.user-fullname {
 .top-stories-container {
   background-color: white;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 1000px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  margin-top: 10px;
   grid-area: topstories;
 }
 
@@ -340,7 +343,7 @@ a.rare-logo-footer {
   background-color: white;
   display: grid;
   padding-top: 10px;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   grid-template-areas:
   "lefts lefts rights"
@@ -357,6 +360,7 @@ a.rare-logo-footer {
   padding-top: 10px;
   max-width: 800px;
   margin: 0 auto;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
   "leftsearch leftsearch rightsearch";
 }

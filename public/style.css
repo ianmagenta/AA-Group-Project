@@ -465,7 +465,7 @@ button.edit-story-button {
 }
 
 input, select {
-  max-width: 600px;
+  max-width: 100%;
   padding: 5px;
   margin: 5px;
 }

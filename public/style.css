@@ -393,6 +393,14 @@ a.rare-logo-footer {
   border-radius: 3px;
 }
 
+.story-subheader {
+  font-size: larger;
+}
+
+.story-container-text {
+  padding: 5px;
+}
+
 .story-container, .author-info-container, .comments-container {
   max-width: 600px;
   padding: 20px;
@@ -458,10 +466,6 @@ button.edit-story-button {
 
 .edit-story-button-hidden {
   display: none;
-}
-
-.author-name {
-  font-weight: bold;
 }
 
 input, select {

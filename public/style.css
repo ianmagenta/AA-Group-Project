@@ -244,6 +244,11 @@ a.article-title {
   color: black;
 }
 
+a.user-fullname {
+  font-weight: bold;
+  color: black;
+}
+
 .categories-container {
   padding: 10px;
   grid-area: categories;
@@ -331,6 +336,10 @@ a.article-title {
   grid-template-areas:
   "lefts lefts rights"
   "lefts lefts rights";
+}
+
+.main-search-container.hidden {
+  display: none;
 }
 
 .main-search-container {

@@ -40,8 +40,12 @@ const storyValidators = [
     handleValidationErrors
 ];
 router.get("/", asyncHandler(async (req, res) => {
-    const stories = await db.Story.findAll();
-    res.json({ stories });
+    const stories = await db.Story.findAll({ include: [db.User, db.StoryCategory] });
+    let readTimes = [];
+    stories.forEach(story => {
+        readTimes.push(readingTime(story.body));
+    });
+    res.json({ stories, readTimes });
 }));
 
 router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {

@@ -1,37 +1,39 @@
 extends layout.pug
 block content
-  .story-container.text-style2
-    .story-title.text-style1 Title
-    .story-subheader Subheader
-    .story-author Author
-    .story-date Jan 1, 2020
-    .story-read-time 5 min read
-  .story-body.text-style2
-    .sidebar-positioner
-      .sidebar-container
-        .category-container
-          .category Category 1
-        .likes-container
-          .likes Likes
-  .author-info-container.text-style2
-    .author-text Written by
-    .author-name Author name
-    .author-bio Author bio here
-  .comments-container.text-style2
-    .comment
-      .commenter-name Commenter name
-      .comment-date Jan 1, 2020
-      .comment-body Comment body here
-      .comment-likes Likes
-    .comment
-      .commenter-name Commenter name
-      .comment-date Jan 1, 2020
-      .comment-body Comment body here
-      .comment-likes Likes
-    .comment
-      .commenter-name Commenter name
-      .comment-date Jan 1, 2020
-      .comment-body Comment body here
-      .comment-likes Likes
+  .total-story-container
+    .story-container.text-style2
+      .story-title.text-style1 Title
+      .story-subheader Subheader
+      .story-author Author
+      .story-date Jan 1, 2020
+      .story-read-time 5 min read
+      button.site-button.edit-story-button.edit-story-button-hidden(type="submit") Edit your story
+    .story-body.text-style2
+      .sidebar-positioner
+        .sidebar-container
+          .category-container
+            .category Category 1
+          .likes-container
+            .likes Likes
+    .author-info-container.text-style2
+      .author-text Written by
+      .author-name Author name
+      .author-bio Author bio here
+    .comments-container.text-style2
+      .comment
+        .commenter-name Commenter name
+        .comment-date Jan 1, 2020
+        .comment-body Comment body here
+        .comment-likes Likes
+      .comment
+        .commenter-name Commenter name
+        .comment-date Jan 1, 2020
+        .comment-body Comment body here
+        .comment-likes Likes
+      .comment
+        .commenter-name Commenter name
+        .comment-date Jan 1, 2020
+        .comment-body Comment body here
+        .comment-likes Likes
   include footer.pug
   script(type='module' src='/js/stories.js')

@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 document.getElementById('markdown-title-editor').value = story.title;
                 document.getElementById('markdown-subheader-editor').value = story.subHeading;
                 document.getElementById('markdown-story-editor').value = story.body;
+                document.getElementById('category-select').value = story.categoryId;
                 easyMDE = new EasyMDE({ element: document.getElementById('markdown-story-editor') });
                 easyMDE.value(story.body);
             } else {
@@ -35,10 +36,11 @@ storyForm.addEventListener("submit", async (e) => {
     const formData = new FormData(storyForm);
     const title = formData.get("title");
     const subHeading = formData.get("subHeading");
+    const categoryId = formData.get("categoryId");
     const body = easyMDE.value();
     const userId = localStorage.getItem("RARE_USER_ID");
 
-    const jsonBody = { title, subHeading, body, userId, categoryId: 1 };
+    const jsonBody = { title, subHeading, body, userId, categoryId };
     console.log(jsonBody)
     try {
         const res = await fetch(`http://localhost:8080/story/${id}`, {

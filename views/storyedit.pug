@@ -7,6 +7,10 @@ block content
     input#markdown-title-editor(name="title")
     label.text-style2(for='markdown-subheader-editor') Subheader:
     input#markdown-subheader-editor(name="subHeading")
+    label.text-style2(for="categoryId") Choose a category:
+    select#category-select(name="categoryId")
+      each category in storyCategories
+        option(value=category.id)= category.categoryName
     label.text-style2(for='markdown-story-editor') Story:
     textarea#markdown-story-editor.text-style2(name="body")
     button(type="submit") Submit Story

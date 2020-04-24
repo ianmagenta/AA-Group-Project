@@ -1,4 +1,5 @@
 const express = require('express');
+const sequelize = require('sequelize');
 const { Op } = require('sequelize');
 const router = express.Router();
 const { requireAuth } = require("../auth");
@@ -61,11 +62,13 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 }));
 
 router.get("/:searchTerm", asyncHandler(async (req, res) => {
+
     const searchTerm = '%' + req.params.searchTerm + '%';
 
     let stories = await db.Story.findAll({
 
         where: {
+
             [Op.or]: [
                 { title: { [Op.iLike]: searchTerm } },
                 { subHeading: { [Op.iLike]: searchTerm } },
@@ -74,11 +77,25 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
         },
         include: [db.User, db.StoryCategory],
     });
+
+    const storyIdArray = [];
+    stories.forEach(element => {
+        storyIdArray.push(element.dataValues.id)
+    });
+
+    let storyLikes = await db.StoryLike.findAll({
+
+        group: ["storyId"],
+        attributes: ["storyId", [sequelize.fn("count", "userId"), "Likes"]],
+        where: { storyId: { [Op.in]: storyIdArray } }
+    })
+
     let readTimes = [];
     stories.forEach(story => {
         readTimes.push(readingTime(story.body));
     });
-    res.json({ stories, readTimes });
+
+    res.json({ stories, readTimes, storyLikes });
 }));
 
 router.post('/', storyValidators, asyncHandler(async (req, res) => {

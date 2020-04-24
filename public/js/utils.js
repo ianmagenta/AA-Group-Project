@@ -8,7 +8,7 @@ export function generateArticleHtml(stories) {
 
     stories.forEach((story) => {
         articlesHTML += `<div class="article-container text-style2"><a class="article-title text-style1" href="/stories/${story.id}">${story.title}</a><div class="article-subheader">${story.subHeading}</div>
-            <div class="article-author">${story.User.firstName} ${story.User.lastName} in ${story.StoryCategory.categoryName}</div><div class="article-date">${new Date(story.createdAt.replace("T", " ")).toDateString()}</div>
+            <div class="article-author">${story.User.firstName} ${story.User.lastName} in <span class="category-italics">${story.StoryCategory.categoryName}</span></div><div class="article-date">${new Date(story.createdAt.replace("T", " ")).toDateString()}</div>
             <div class="article-time">${story.readTime.text}</div><div class="article-likes">Likes: ${story.storyLikes.length}</div></div>`
     });
 

@@ -39,15 +39,15 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         } else {
             const { comment } = await otherRes.json();
             const commentContainer = document.querySelector(".comments-container");
-            commentContainer.innerHTML = "";
+            commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
             comment.forEach(comment => {
                 let div = document.createElement("div");
                 div.classList.add("comment")
                 div.innerHTML = `
-                <div class=.commenter-name>${comment.User.firstName} ${comment.User.lastName}<div>
-                <div class=.commenter-date>${new Date(comment.createdAt.replace(' ', 'T')).toDateString()}<div>
-                <div class=.commenter-body>${comment.body}<div>
-                <div class=.commenter-likes>Likes: ${comment.commentLikes.length}<div>
+                <div class="commenter-name">${comment.User.firstName} ${comment.User.lastName}</div>
+                <div class="commenter-date">${new Date(comment.createdAt.replace(' ', 'T')).toDateString()}</div>
+                <div class="commenter-body">${comment.body}</div>
+                <div class="commenter-likes">Likes: ${comment.commentLikes.length}</div>
                 `
                 commentContainer.appendChild(div);
             });

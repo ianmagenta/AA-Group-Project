@@ -128,10 +128,12 @@ body {
 
 .register-button-container {
   /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
-  max-width: 200px;
-  display: grid;
+  max-width: 800px;
   justify-content: center;
+  align-content: center;
 }
 
 .site-description {
@@ -140,12 +142,13 @@ body {
   padding: 20px;
 }
 
-.register-large {
+a.register-large {
   background-color: rgb(59, 128, 255);
+  margin: 10px auto;
   color: white;
   font-size: 32px;
   max-width: 100px;
-  padding: 50px 100px;
+  padding: 50px;
   border-radius: 5px;
 }
 

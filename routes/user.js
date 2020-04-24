@@ -86,7 +86,8 @@ router.post('/', userValidators, asyncHandler(async (req, res) => {
         password,
         firstName,
         lastName,
-        email
+        email,
+        bio
     } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await db.User.create({
@@ -95,7 +96,7 @@ router.post('/', userValidators, asyncHandler(async (req, res) => {
         firstName,
         lastName,
         email,
-        bio: "",
+        bio,
         isAdmin: false
     });
 

@@ -12,6 +12,7 @@ const commentRoute = require('./routes/comment');
 const storiesRoute = require('./routes/stories');
 const sessionRoute = require('./routes/session');
 const profileRoute = require('./routes/profile');
+const storyCategoryRoute = require('./routes/storycategories');
 
 const { ValidationError } = require("sequelize");
 const { environment } = require("./config");
@@ -49,6 +50,7 @@ app.use('/comment', commentRoute);
 app.use('/user', userRoute);
 app.use('/session', sessionRoute)
 app.use('/profile', profileRoute);
+app.use('/storycategories', storyCategoryRoute);
 app.use('/', indexRoute);
 
 // Catch unhandled requests and forward to error handler.

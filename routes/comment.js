@@ -21,13 +21,20 @@ const commentValidators = [
         .withMessage('Please provide a comment'),
     handleValidationErrors
 ];
+
+// let commentLikes = await db.CommentLike.findAll({
+
+//     group: ["storyId"],
+//     attributes: ["storyId", [sequelize.fn("count", "userId"), "Likes"]],
+
+// })
+
 router.get("/", asyncHandler(async (req, res) => {
-    //console.log('this')
+
     const comments = await db.Comment.findAll();
-    //console.log(comments)
-    //const parsedBody = md.render(story.body);
-    //res.json({ comments });
-    return { comments };
+
+    res.json({ comments });
+
 }));
 
 router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {

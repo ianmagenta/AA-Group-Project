@@ -1,17 +1,17 @@
-export function generateArticleHtml(articleArr, readTimeArr) {
+export function generateArticleHtml(articleArr, readTimeArr, LikeArr) {
     let articlesHTML = "";
-
     if (readTimeArr) {
         let readTimes = [];
         readTimeArr.map(obj => {
             readTimes.push(obj.text);
         });
-        console.log(readTimes);
+
         let readCount = 0;
-        articleArr.forEach(articleObj => {
+
+        articleArr.forEach((articleObj, i) => {
             articlesHTML += `<div class="article-container text-style2"><a class="article-title text-style1" href="/stories/${articleObj.id}">${articleObj.title}</a><div class="article-subheader">${articleObj.subHeading}</div>
             <div class="article-author">${articleObj.User.firstName} ${articleObj.User.lastName} in ${articleObj.StoryCategory.categoryName}</div><div class="article-date">${new Date(articleObj.createdAt.replace("T", " ")).toDateString()}</div>
-            <div class="article-time">${readTimes[readCount]}</div><div class="article-likes">Likes</div></div>`;
+            <div class="article-time">${readTimes[readCount]}</div><div class="article-likes">${LikeArr[i].dataValues.Likes}</div></div>`;
             readCount++;
         });
     } else {
@@ -45,7 +45,7 @@ export const handleErrors = async (err) => {
         errorsContainer.innerHTML = errorsHtml.join("");
     } else {
         alert(
-            "Something went wrong. Please check your internet connection and try again!"
+            'Something went wrong. Please check your internet connection and try again!'
         );
     }
 };

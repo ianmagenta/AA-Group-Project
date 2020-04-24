@@ -9,18 +9,25 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     const res = await fetch(`http://localhost:8080/story`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { stories } = data;
-
-    //TODO these stories should be the most recent?
-    let firstThreeStories = stories.slice(0, 3);
+    //Most recent stories
+    stories.sort((a, b) => {
+      return new Date(b.createdAt.replace(' ', 'T')) - new Date(a.createdAt.replace(' ', 'T'));
+    });
+    const firstThreeStories = stories.splice(0, 3)
     topStoriesContainer.innerHTML = `${generateArticleHtml(firstThreeStories)}`;
 
     //TODO rewrite after likes are working properly, these should be most liked
-    let nextThreeStories = stories.slice(3, 6);
+    stories.sort((a, b) => {
+      return b.storyLikes.length - a.storyLikes.length;
+    });
+    let nextThreeStories = stories.splice(0, 3);
     mainStoriesRight.innerHTML = `<div class="heading-text text-style1">Popular Stories</div> ${generateArticleHtml(nextThreeStories)}`;
 
     //capture the rest of the stories and put in left container
-    let restOfStories = stories.slice(6);
-    mainStoriesLeft.innerHTML = `${generateArticleHtml(restOfStories)}`;
+    stories.sort((a, b) => {
+      return new Date(b.createdAt.replace(' ', 'T')) - new Date(a.createdAt.replace(' ', 'T'));
+    });
+    mainStoriesLeft.innerHTML = `${generateArticleHtml(stories)}`;
   } catch (e) {
     handleErrors(e);
   }

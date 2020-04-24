@@ -1,1 +1,1 @@
-web: node ./bin/www
+web: npx nodemon -r dotenv/config ./bin/www

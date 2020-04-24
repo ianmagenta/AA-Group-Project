@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
   try {
     const res = await fetch(`http://localhost:8080/story`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    if (!res.ok) {
+      // console.log(user);
+      window.location.href = "/splash";
+      return;
+    }
     const data = await res.json();
     const { stories } = data;
     //Most recent stories

@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     // if (userId) {
     const res = await fetch(`http://localhost:8080/user/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    if (!res.ok) {
+      // console.log(user);
+      window.location.href = "/splash";
+      return;
+    }
     const data = await res.json();
     // console.log(data);
     const { user } = data;
-    // console.log(user);
-    if (!res.ok) {
-      window.location.href = "./login";
-      return;
-    }
 
     if (res.ok) {
       RegisterOrLogout.addEventListener("click", (e) => {

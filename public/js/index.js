@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
   //get categories and place in top container
   try {
-    const res = await fetch(`http://localhost:8080/storycategories/`);
+    const res = await fetch(`${api}storycategories/`);
     const data = await res.json();
     const { categories } = data;
     let categories2 = categories.slice(0, 6);

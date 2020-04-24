@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //load stories by user
   try {
-    const res = await fetch(`http://localhost:8080/story/by/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`${api}story/by/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { stories } = data;
     console.log(stories);

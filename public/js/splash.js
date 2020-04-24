@@ -1,4 +1,4 @@
-import { handleErrors, generateCategoriesHTML } from "./utils.js";
+import { handleErrors, generateCategoriesHTML, api } from "./utils.js";
 
 const signInOrUsername = document.querySelector(".sign-in-top");
 const RegisterOrLogout = document.querySelector(".register-top");
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // console.log('this runs');
     try {
 
-        const res = await fetch(`http://localhost:8080/storycategories/`);
+        const res = await fetch(`${api}storycategories/`);
         const data = await res.json();
         const { categories } = data;
 

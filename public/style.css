@@ -128,12 +128,10 @@ body {
 
 .register-button-container {
   /* border: 1px solid black; */
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 200px;
+  display: grid;
   justify-content: center;
-  align-content: center;
 }
 
 .site-description {
@@ -142,13 +140,16 @@ body {
   padding: 20px;
 }
 
-a.register-large {
+.comment {
+  border: 1px solid black;
+}
+
+.register-large {
   background-color: rgb(59, 128, 255);
-  margin: 10px auto;
   color: white;
   font-size: 32px;
   max-width: 100px;
-  padding: 50px;
+  padding: 50px 100px;
   border-radius: 5px;
 }
 
@@ -404,6 +405,7 @@ a.rare-logo-footer {
 }
 
 .comment {
+  padding: 10px;
   margin: 10px;
 }
 
@@ -448,6 +450,10 @@ a.rare-logo-footer {
 .guest-login-form, .guest-button {
   max-width: 400px;
   margin: 10px auto;
+}
+
+button.edit-story-button {
+  margin: 10px;
 }
 
 .edit-story-button-hidden {

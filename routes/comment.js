@@ -121,15 +121,13 @@ router.delete("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 
 }));
 
-router.post("/:id(\\d+)/likes", asyncHandler(async (req, res, next) => {
-    const commentId = parseInt(req.params.id, 10);
+router.post("/:commentId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, res, next) => {
+    const commentId = parseInt(req.params.commentId, 10);
+    const userId = parseInt(req.params.userId, 10);
     const comment = await db.Comment.findByPk(commentId);
 
     if (comment) {
-        const {
-            userId,
-            commentId
-        } = req.body;
+
 
         const commentLike = await db.CommentLike.create({
             userId,

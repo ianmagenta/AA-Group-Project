@@ -474,10 +474,20 @@ button.edit-story-button {
   margin: 10px;
 }
 
+
 .edit-story-button-hidden {
   display: none;
 }
 
+button.like-story-button {
+  margin: 10px;
+
+}
+
+button.like-comment-button {
+  margin: 10px;
+
+}
 input, select {
   max-width: 100%;
   padding: 5px;

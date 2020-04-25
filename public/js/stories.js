@@ -38,25 +38,60 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             throw otherRes;
         } else {
             const { comment } = await otherRes.json();
+
             const commentContainer = document.querySelector(".comments-container");
             commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
             comment.forEach(comment => {
                 let div = document.createElement("div");
+                div.setAttribute("id", `${comment.id}`)
                 div.classList.add("comment")
                 div.innerHTML = `
                 <div class="commenter-name">${comment.User.firstName} ${comment.User.lastName}</div>
                 <div class="commenter-date">${new Date(comment.createdAt.replace(' ', 'T')).toDateString()}</div>
                 <div class="commenter-body">${comment.body}</div>
                 <div class="commenter-likes">Likes: ${comment.commentLikes.length}</div>
+                <button type="button" class=like-comment-button id=${comment.id}>Like this comment</button>
                 `
                 commentContainer.appendChild(div);
             });
         }
+        const storyLikeButton = document.querySelector(".like-story-button");
+        storyLikeButton.addEventListener("click", async (e) => {
+            e.preventDefault();
+            let storyId = window.location.href;
+            storyId = storyId.split("stories/")[1];
+            const userId = localStorage.getItem("RARE_USER_ID");
+            const res = await fetch(`http://localhost:8080/story/${storyId}/likes/${userId}`, { method: 'POST' });
+
+            if (!res.ok) {
+
+            } else {
+
+            }
+        });
+
+        const commentLikeButton = document.querySelector(".like-comment-button");
+        commentLikeButton.addEventListener("click", async (e) => {
+
+            e.preventDefault();
+
+            let commentId = e.target.getAttribute('id');
+            const userId = localStorage.getItem("RARE_USER_ID");
+            const res = await fetch(`http://localhost:8080/comment/${commentId}/likes/${userId}`, { method: 'POST' });
+
+            if (!res.ok) {
+
+            } else {
+
+            }
+
+        })
 
     } catch (err) {
         handleErrors(err);
     }
 })
+
 
 document.addEventListener("DOMContentLoaded", (e) => {
 

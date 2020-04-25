@@ -316,7 +316,9 @@ a.user-fullname {
 
 .article-container {
   /* border-bottom: 1px solid black; */
-  box-shadow: 2px 3px black;
+  /* box-shadow: 2px 3px black; */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
   padding: 20px;
   margin: 20px;
   display: grid;

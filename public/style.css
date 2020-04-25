@@ -121,15 +121,17 @@ body {
   max-width: 400px;
   background-color: white;
   margin: 10px auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .mid-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  border: 1px solid black;
-  margin: 30px;
+  /* background-color: rgba(59, 128, 255, 0.1); */
+  border-radius: 10px;
+  /* border: 1px solid black; */
+  margin: 10px;
 }
 
 .category-text {
@@ -165,17 +167,30 @@ body {
 }
 
 .splash-container {
-  border: 1px solid black;
+  position: relative;
+  /* border: 1px solid black; */
   border-radius: 3px;
   background-color: white;
   margin: 10px auto;
   max-width: 800px;
 }
 
+.splash-image-text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 72px;
+  color:white;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 4, 22, 0.5);
+}
+
 .top-container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 3px;
-  margin: 50px;
+  margin: 10px;
 }
 
 .errors-container {
@@ -188,12 +203,12 @@ body {
 
 .top-container-text {
   text-align: center;
-  padding: 50px;
+  padding: 10px;
   font-size: 30px;
 }
 
 .profile-container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 3px;
   background-color: white;
   margin: 0 auto;
@@ -538,7 +553,7 @@ a.rare-logo-footer {
   max-width: 150px;
   position: absolute;
   background-color: white;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .form-top {

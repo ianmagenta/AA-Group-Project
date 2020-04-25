@@ -455,13 +455,55 @@ a.rare-logo-footer {
   border-radius: 3px;
 }
 
+.story-container {
+  display: grid;
+  grid-template-areas:
+  "title title title title"
+  "subheader subheader subheader subheader"
+  "author category . ."
+  "date time . ."
+  "editbutton . likebutton likes";
+}
+
+.edit-story-button {
+  grid-area: editbutton;
+}
+
+.like-story-button {
+  grid-area: likebutton;
+}
+
 .story-date, .story-read-time, .story-category {
   color: gray;
   font-size: smaller;
 }
 
+.story-date {
+  grid-area: date;
+}
+
+.story-read-time {
+  grid-area: time;
+}
+
+.story-category {
+  grid-area: category;
+}
+
+.story-author {
+  grid-area: author;
+}
+
+.story-likes {
+  grid-area: likes;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+}
+
 .story-subheader {
   font-size: larger;
+  grid-area: subheader;
 }
 
 .story-container-text {
@@ -474,6 +516,8 @@ a.rare-logo-footer {
   background-color: white;
   margin: 10px auto;
 }
+
+
 
 .comment {
   padding: 10px;
@@ -569,6 +613,7 @@ input, select {
 
 .story-title {
   font-size: 50px;
+  grid-area: title;
 }
 
 button:disabled {

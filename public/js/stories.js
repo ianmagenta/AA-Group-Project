@@ -112,20 +112,47 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             });
         }
 
-        // Add new comment once submitted.
-        // const res = await fetch(`${api}comment`, {
-        //     method: "POST",
-        //     body: JSON.stringify(jsonBody),
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     }
-        // });
-        // if (!res.ok) {
-        //     throw res;
-        // } else {
+        document.querySelector(".comment-form").addEventListener("submit", async (e) => {
+            // Add new comment once submitted.
+            e.preventDefault();
+            const jsonBody = { storyId: id, body: easyMDE.value(), userId }
+            const res = await fetch(`${api}comment`, {
+                method: "POST",
+                body: JSON.stringify(jsonBody),
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            });
+            if (!res.ok) {
+                throw res;
+            } else {
+                const { comment: newComment, user: newUser } = await res.json();
+                let div = document.createElement("div");
+                div.setAttribute("id", `${newComment.id}`)
+                div.classList.add("comment")
+                div.innerHTML = `
+                <div class="commenter-name">${newUser.firstName} ${newUser.lastName}</div>
+                <div class="commenter-date">${new Date(newComment.createdAt.replace(' ', 'T')).toDateString()}</div>
+                <div class="commenter-body">${newComment.body}</div>
+                <div class="commenter-likes" id=likes:${newComment.id}>Likes: 0</div>
+                <button type ="button" class="like-comment-button site-button" id=button:${newComment.id}><i class="fas fa-thumbs-up"></i></button>
+                `
+                commentContainer.appendChild(div);
+                easyMDE.value('')
+                const commentLikeButton = document.getElementById(`button:${newComment.id}`);
+                commentLikeButton.addEventListener("click", async (e) => {
+                    e.preventDefault();
+                    const commentRes = await fetch(`http://localhost:8080/comment/${newComment.id}/likes/${userId}`, { method: 'POST' });
+                    if (!commentRes.ok) {
+                        throw res;
+                    }
+                    document.getElementById(`likes:${newComment.id}`).innerHTML = `Likes: ${1}`;
+                    commentLikeButton.setAttribute("disabled", "");
+                    commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+                });
+            }
+        });
 
-        //     window.location.href = `/stories/${storyId}`
-        // }
 
         // const storyCommentButton = document.querySelector(".comment-story-button");
 

@@ -69,7 +69,6 @@ router.get("/storyId/:id(\\d+)", asyncHandler(async (req, res, next) => {
 }));
 
 router.post('/', commentValidators, asyncHandler(async (req, res) => {
-
     const {
         storyId,
         userId,
@@ -81,10 +80,18 @@ router.post('/', commentValidators, asyncHandler(async (req, res) => {
         userId,
         body
     });
-    res.json({ comment });
+
+    comment.body = md.render(comment.body);
+
+    const user = await db.User.findOne({
+        attributes: ['id', 'userName', 'firstName', 'lastName', 'email', 'bio', 'isAdmin', 'createdAt', 'updatedAt'],
+        where: { id: userId }
+    });
+
+    res.json({ comment, user });
 }));
 
-router.put("/:storyId(\\d+)/:id(\\d+)", commentValidators, asyncHandler(async (req, res, next) => {
+router.put("/:id(\\d+)", commentValidators, asyncHandler(async (req, res, next) => {
     const commentId = parseInt(req.params.id, 10);
     const comment = await db.Comment.findByPk(commentId);
     if (comment) {
@@ -108,7 +115,7 @@ router.put("/:storyId(\\d+)/:id(\\d+)", commentValidators, asyncHandler(async (r
 
 }));
 
-router.delete("/:storyId(\\d+)/:id(\\d+)", asyncHandler(async (req, res, next) => {
+router.delete("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const commentId = parseInt(req.params.id, 10);
     const comment = await db.Comment.findByPk(commentId);
     if (comment) {

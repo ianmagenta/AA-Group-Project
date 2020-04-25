@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         } else {
             storyLikeButton.addEventListener("click", async (e) => {
                 e.preventDefault();
-                const likeRes = await fetch(`http://localhost:8080/story/${id}/likes/${userId}`, { method: 'POST' });
+                const likeRes = await fetch(`${api}story/${id}/likes/${userId}`, { method: 'POST' });
                 if (!likeRes.ok) {
                     throw likeRes;
                 }

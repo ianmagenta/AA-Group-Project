@@ -5,27 +5,28 @@ module.exports = {
     return queryInterface.bulkInsert('Comments', [
       {
         storyId: 1, userId: 1,
-        body: "So dark! So brooding!",
+        body: "So **dark**! So **brooding**!",
         createdAt: new Date(), updatedAt: new Date()
       },
       {
         storyId: 1, userId: 5,
-        body: "I'm very proud of this one!",
+        body: "I'm *very* proud of this one!",
         createdAt: new Date(), updatedAt: new Date()
       },
       {
         storyId: 1, userId: 6,
-        body: "Keep on writing! Don't stop!",
+        body: "## Keep on writing! Don't stop!",
         createdAt: new Date(), updatedAt: new Date()
       },
       {
         storyId: 2, userId: 7,
-        body: "I don't like this at all.",
+        body: "I **don't** like this at all.",
         createdAt: new Date(), updatedAt: new Date()
       },
       {
         storyId: 2, userId: 8,
-        body: "This is my favorite piece of writing.",
+        body: `Everyone says:
+        > This is my favorite piece of writing.`,
         createdAt: new Date(), updatedAt: new Date()
       },
       {
@@ -50,12 +51,12 @@ module.exports = {
       },
       {
         storyId: 5, userId: 13,
-        body: "So funny! I laughed so hard!",
+        body: "So funny! I laughed **so** hard!",
         createdAt: new Date(), updatedAt: new Date()
       },
       {
         storyId: 5, userId: 14,
-        body: "I didn't find this THAT funny.",
+        body: "I didn't find this *THAT* funny.",
         createdAt: new Date(), updatedAt: new Date()
       },
       {
@@ -80,7 +81,10 @@ module.exports = {
       },
       {
         storyId: 8, userId: 20,
-        body: "This article is an artistic masterpiece!",
+        body:
+          `- This article is an artistic masterpiece!
+- Easily one of the greatest of all time!
+          `,
         createdAt: new Date(), updatedAt: new Date()
       },
       {

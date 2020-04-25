@@ -12,12 +12,13 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             return;
         }
         const { story, readTime, parsedBody, storyLikes } = await res.json();
-        // console.log(storyLikes);
+        console.log(story);
         document.querySelector(".story-title").innerHTML = story.title;
         document.querySelector(".story-subheader").innerHTML = story.subHeading;
         document.querySelector(".story-author").innerHTML = `By ${story.User.firstName} ${story.User.lastName}`;
         document.querySelector(".story-date").innerHTML = new Date(story.createdAt.replace(' ', 'T')).toDateString();
         document.querySelector(".story-read-time").innerHTML = readTime.text;
+        document.querySelector(".story-category").innerHTML = `Category: ${story.StoryCategory.categoryName}`;
         document.querySelector(".story-body").innerHTML += parsedBody;
         document.querySelector(".author-name").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
         document.querySelector(".author-bio").innerHTML = story.User.bio;
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         const { comment } = await otherRes.json();
 
         const commentContainer = document.querySelector(".comments-container");
-        commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
+        commentContainer.innerHTML = `<a class=comment-story-button style="color:#000000;" href='/comments/new/${id}'>Comment this story</a><div class="comments-label">Comments:</div>`;
         comment.forEach(comment => {
             // Add comment and button
             let div = document.createElement("div");
@@ -109,6 +110,22 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 storyLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
             });
         }
+
+        const storyCommentButton = document.querySelector(".comment-story-button");
+
+        // storyCommentButton.addEventListener("click", async (e) => {
+        //     e.preventDefault();
+        //     const commentRes = await fetch(`${api}comments/${id}/new`);
+        //     if (!commentRes.ok) {
+        //         throw likeRes;
+        //     }
+        //     // const newComment = await commentRes.json();
+        //     // storyLikes[storyLikes.length] = newLike
+        //     // document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
+        //     // storyLikeButton.setAttribute("disabled", "");
+        //     // storyLikeButton.innerHTML = `Story Liked`
+        // });
+
 
     } catch (err) {
         handleErrors(err);

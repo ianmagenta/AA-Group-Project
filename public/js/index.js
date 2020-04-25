@@ -27,10 +27,20 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     topStoriesContainer.innerHTML = `${generateArticleHtml(firstThreeStories)}`;
 
     //TODO rewrite after likes are working properly, these should be most liked
-    stories.sort((a, b) => {
-      return b.storyLikes.length - a.storyLikes.length;
+    let popStories = [];
+    stories.forEach(element => {
+      if (element.storyLikes.length > 0) {
+        popStories.push(element)
+      }
+
     });
-    let nextThreeStories = stories.splice(0, 3);
+    console.log(popStories[0].storyLikes)
+    popStories.sort((a, b) => {
+      return new Date(b.storyLikes[0].createdAt.replace(' ', 'T')) - new Date(a.storyLikes[0].createdAt.replace(' ', 'T'));
+      //return b.storyLikes.length - a.storyLikes.length;
+    });
+    console.log(popStories[0].storyLikes)
+    let nextThreeStories = popStories.splice(0, 3);
     mainStoriesRight.innerHTML = `<div class="heading-text text-style1">Popular Stories</div> ${generateArticleHtml(nextThreeStories)}`;
 
     //capture the rest of the stories and put in left container

@@ -8,28 +8,31 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         const res = await fetch(`${api}story/${id}`);
         if (!res.ok) {
             window.location.href = "/"
-        } else {
-            const { story, readTime, parsedBody } = await res.json();
-            document.querySelector(".story-title").innerHTML = story.title;
-            document.querySelector(".story-subheader").innerHTML = story.subHeading;
-            document.querySelector(".story-author").innerHTML = `By ${story.User.firstName} ${story.User.lastName}`;
-            document.querySelector(".story-date").innerHTML = new Date(story.createdAt.replace(' ', 'T')).toDateString();
-            document.querySelector(".story-read-time").innerHTML = readTime.text;
-            document.querySelector(".story-body").innerHTML += parsedBody;
-            document.querySelector(".author-name").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
-            document.querySelector(".author-bio").innerHTML = story.User.bio;
-            document.title = story.title;
+            return;
+        }
+        const { story, readTime, parsedBody, storyLikes } = await res.json();
+        // console.log(storyLikes);
+        document.querySelector(".story-title").innerHTML = story.title;
+        document.querySelector(".story-subheader").innerHTML = story.subHeading;
+        document.querySelector(".story-author").innerHTML = `By ${story.User.firstName} ${story.User.lastName}`;
+        document.querySelector(".story-date").innerHTML = new Date(story.createdAt.replace(' ', 'T')).toDateString();
+        document.querySelector(".story-read-time").innerHTML = readTime.text;
+        document.querySelector(".story-body").innerHTML += parsedBody;
+        document.querySelector(".author-name").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
+        document.querySelector(".author-bio").innerHTML = story.User.bio;
+        document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
+        document.title = story.title;
 
-            if (story.userId === parseInt(localStorage.getItem("RARE_USER_ID"), 10)) {
-                const editButton = document.querySelector(".edit-story-button");
-                editButton.classList.remove("edit-story-button-hidden");
-                editButton.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    let storyId = window.location.href;
-                    storyId = storyId.split("stories/")[1];
-                    window.location.href = `/stories/${storyId}/edit`;
-                })
-            }
+        // Edit story
+        if (story.userId === parseInt(localStorage.getItem("RARE_USER_ID"), 10)) {
+            const editButton = document.querySelector(".edit-story-button");
+            editButton.classList.remove("edit-story-button-hidden");
+            editButton.addEventListener("click", (e) => {
+                e.preventDefault();
+                let storyId = window.location.href;
+                storyId = storyId.split("stories/")[1];
+                window.location.href = `/stories/${storyId}/edit`;
+            })
         }
 
         // load comments
@@ -55,37 +58,46 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 commentContainer.appendChild(div);
             });
         }
+
+        // Story Like Button
         const storyLikeButton = document.querySelector(".like-story-button");
-        storyLikeButton.addEventListener("click", async (e) => {
-            e.preventDefault();
-            let storyId = window.location.href;
-            storyId = storyId.split("stories/")[1];
-            const userId = localStorage.getItem("RARE_USER_ID");
-            const res = await fetch(`http://localhost:8080/story/${storyId}/likes/${userId}`, { method: 'POST' });
-
-            if (!res.ok) {
-
-            } else {
-
+        let storyLiked = false;
+        const userId = localStorage.getItem("RARE_USER_ID");
+        storyLikes.forEach(element => {
+            if (element.userId == userId) {
+                storyLiked = true;
             }
         });
+        if (storyLiked) {
+            storyLikeButton.setAttribute("disabled", "");
+            storyLikeButton.innerHTML = `Story Liked`
+        } else {
+            storyLikeButton.addEventListener("click", async (e) => {
+                e.preventDefault();
+                const likeRes = await fetch(`http://localhost:8080/story/${id}/likes/${userId}`, { method: 'POST' });
+                const newLike = await likeRes.json();
+                storyLikes[storyLikes.length] = newLike
+                document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
+                storyLikeButton.setAttribute("disabled", "");
+                storyLikeButton.innerHTML = `Story Liked`
+            });
+        }
+        // const commentLikeButton = document.querySelector(".like-comment-button");
+        // commentLikeButton.addEventListener("click", async (e) => {
 
-        const commentLikeButton = document.querySelector(".like-comment-button");
-        commentLikeButton.addEventListener("click", async (e) => {
+        //     e.preventDefault();
 
-            e.preventDefault();
+        //     let commentId = e.target.getAttribute('id');
+        //     const userId = localStorage.getItem("RARE_USER_ID");
+        //     const res = await fetch(`http://localhost:8080/comment/${commentId}/likes/${userId}`, { method: 'POST' });
 
-            let commentId = e.target.getAttribute('id');
-            const userId = localStorage.getItem("RARE_USER_ID");
-            const res = await fetch(`http://localhost:8080/comment/${commentId}/likes/${userId}`, { method: 'POST' });
+        //     if (!res.ok) {
 
-            if (!res.ok) {
+        //     } else {
 
-            } else {
+        //     }
 
-            }
-
-        })
+        // })
 
     } catch (err) {
         handleErrors(err);

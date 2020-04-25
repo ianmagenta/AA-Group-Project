@@ -66,7 +66,7 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
     const searchTerm = '%' + req.params.searchTerm + '%';
 
     const users = await db.User.findAll({
-        attributes: ['userName', 'firstName', 'lastName', 'email', 'bio', 'isAdmin', 'createdAt', 'updatedAt'],
+        attributes: ['id', 'userName', 'firstName', 'lastName', 'email', 'bio', 'isAdmin', 'createdAt', 'updatedAt'],
         where: {
             [Op.or]: [
                 { lastName: { [Op.iLike]: searchTerm } },

@@ -57,7 +57,8 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
         const story = await db.Story.findByPk(storyId, { include: [db.User] });
         const readTime = readingTime(story.body);
         const parsedBody = md.render(story.body);
-        res.json({ story, readTime, parsedBody });
+        const storyLikes = await db.StoryLike.findAll({ where: { storyId: story.id } });
+        res.json({ story, readTime, parsedBody, storyLikes });
     } else {
         next(storyNotFoundError(storyId));
     }
@@ -172,7 +173,6 @@ router.post("/:storyId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, res,
     const story = await db.Story.findByPk(storyId);
 
     if (story) {
-
 
         const storyLike = await db.StoryLike.create({
             userId,

@@ -517,3 +517,8 @@ input, select {
 .story-title {
   font-size: 50px;
 }
+
+button:disabled {
+  pointer-events: none;
+  background-color: grey
+}

@@ -28,7 +28,7 @@ export function generateUserHtml(users) {
             <div class="user-container text-style2">
                 <a class="user-fullname" href="profile/${userObj.id}">${userObj.firstName} ${userObj.lastName}</a>
                 <div class="user-bio">${userObj.bio}</div>
-        </div > `;
+            </div>`;
     });
 
     return userHTML;

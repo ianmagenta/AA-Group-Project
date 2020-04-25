@@ -11,9 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const id = url.substring(url.lastIndexOf('/') + 1);
   try {
     const res = await fetch(`${api}user/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
-    const data = await res.json();
-    const { user } = data;
-    // console.log(user);
+    const { user } = await res.json();
     if (res.status >= 401) {
       window.location.href = "/login";
       return;
@@ -57,14 +55,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     stories.forEach(story => {
       const { storyLikes } = story;
       storyLikes.forEach(like => {
-        console.log('LIKE', like);
+        // console.log('LIKE', like);
         if (like.userId === parseInt(id, 10)) {
-          console.log('STORY', story);
+          // console.log('STORY', story);
           storiesLiked.push(stories[like.storyId]);
         }
       })
     });
-    console.log(storiesLiked);
+    // console.log(storiesLiked);
     likedStoriesHTML += generateArticleHtml(storiesLiked);
     const likedStoriesContainer = document.querySelector(".likes-container");
     likedStoriesContainer.innerHTML = likedStoriesHTML;

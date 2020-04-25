@@ -16,6 +16,10 @@ block content
       .author-text Written by
       .author-name Author name
       .author-bio Author bio here
+    .add-comment-container.text-style2
+      form.story-form
+        textarea#markdown-story-editor.text-style2(name="body")
+        button.site-button.add-comment(type="submit") Add Comment
     .comments-container.text-style2
       .comment
         .commenter-name Commenter name
@@ -33,4 +37,6 @@ block content
         .comment-body Comment body here
         .comment-likes Likes
     //- include footer.pug
+  <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+  <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
   script(type='module' src='/js/stories.js')

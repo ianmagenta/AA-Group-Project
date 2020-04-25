@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     const url = window.location.pathname;
     const id = url.substring(url.lastIndexOf('/') + 1);
     const userId = localStorage.getItem("RARE_USER_ID");
+    const easyMDE = new EasyMDE({ element: document.getElementById('markdown-story-editor') });
     try {
         // load story
         const res = await fetch(`${api}story/${id}`);
@@ -46,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         const { comment } = await otherRes.json();
 
         const commentContainer = document.querySelector(".comments-container");
-        commentContainer.innerHTML = `<a class=comment-story-button href='/comments/new/${id}'>Add a Comment</a><div class="comments-label">Comments:</div>`;
+        commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
         comment.forEach(comment => {
 
             // Add existing comments and button
@@ -111,7 +112,22 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             });
         }
 
-        const storyCommentButton = document.querySelector(".comment-story-button");
+        // Add new comment once submitted.
+        // const res = await fetch(`${api}comment`, {
+        //     method: "POST",
+        //     body: JSON.stringify(jsonBody),
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     }
+        // });
+        // if (!res.ok) {
+        //     throw res;
+        // } else {
+
+        //     window.location.href = `/stories/${storyId}`
+        // }
+
+        // const storyCommentButton = document.querySelector(".comment-story-button");
 
         // storyCommentButton.addEventListener("click", async (e) => {
         //     e.preventDefault();

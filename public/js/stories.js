@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
         // Story Like Button
         const storyLikeButton = document.querySelector(".like-story-button");
+        storyLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
         let storyLiked = false;
         storyLikes.forEach(element => {
             if (element.userId == userId) {
@@ -96,7 +97,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         });
         if (storyLiked) {
             storyLikeButton.setAttribute("disabled", "");
-            storyLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
         } else {
             storyLikeButton.addEventListener("click", async (e) => {
                 e.preventDefault();
@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 storyLikes[storyLikes.length] = newLike
                 document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
                 storyLikeButton.setAttribute("disabled", "");
-                storyLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
             });
         }
 

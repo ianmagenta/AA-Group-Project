@@ -1,4 +1,4 @@
-import { handleErrors } from "./utils.js";
+import { handleErrors, api } from "./utils.js";
 const storyForm = document.querySelector(".story-form");
 
 storyForm.addEventListener("submit", async (e) => {
@@ -13,7 +13,7 @@ storyForm.addEventListener("submit", async (e) => {
     const jsonBody = { title, subHeading, body, userId, categoryId };
 
     try {
-        const res = await fetch("http://localhost:8080/story", {
+        const res = await fetch(`${api}story`, {
             method: "POST",
             body: JSON.stringify(jsonBody),
             headers: {

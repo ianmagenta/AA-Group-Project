@@ -1,11 +1,11 @@
-import { handleErrors } from "./utils.js";
+import { handleErrors, api } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", async (e) => {
     const url = window.location.pathname;
     const id = url.substring(url.lastIndexOf('/') + 1);
     try {
         // load story
-        const res = await fetch(`http://localhost:8080/story/${id}`);
+        const res = await fetch(`${api}story/${id}`);
         if (!res.ok) {
             window.location.href = "/"
         } else {
@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             document.title = story.title;
 
             if (story.userId === parseInt(localStorage.getItem("RARE_USER_ID"), 10)) {
-                console.log('if runs');
                 const editButton = document.querySelector(".edit-story-button");
                 editButton.classList.remove("edit-story-button-hidden");
                 editButton.addEventListener("click", (e) => {
@@ -34,23 +33,23 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         }
 
         // load comments
-        const otherRes = await fetch(`http://localhost:8080/comment/storyId/${id}`);
+        const otherRes = await fetch(`${api}comment/storyId/${id}`);
         if (!otherRes.ok) {
             throw otherRes;
         } else {
             const { comment } = await otherRes.json();
 
             const commentContainer = document.querySelector(".comments-container");
-            commentContainer.innerHTML = "";
+            commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
             comment.forEach(comment => {
                 let div = document.createElement("div");
                 div.setAttribute("id", `${comment.id}`)
                 div.classList.add("comment")
                 div.innerHTML = `
-                <div class=.commenter-name>${comment.User.firstName} ${comment.User.lastName}<div>
-                <div class=.commenter-date>${new Date(comment.createdAt.replace(' ', 'T')).toDateString()}<div>
-                <div class=.commenter-body>${comment.body}<div>
-                <div class=.commenter-likes>Likes: ${comment.commentLikes.length}<div>
+                <div class="commenter-name">${comment.User.firstName} ${comment.User.lastName}</div>
+                <div class="commenter-date">${new Date(comment.createdAt.replace(' ', 'T')).toDateString()}</div>
+                <div class="commenter-body">${comment.body}</div>
+                <div class="commenter-likes">Likes: ${comment.commentLikes.length}</div>
                 <button type="button" class=like-comment-button id=${comment.id}>Like this comment</button>
                 `
                 commentContainer.appendChild(div);

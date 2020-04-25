@@ -1,1 +1,1 @@
-web: node ./bin/www
+web: node -r dotenv/config ./bin/www

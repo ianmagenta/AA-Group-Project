@@ -41,11 +41,13 @@ const storyValidators = [
 ];
 router.get("/", asyncHandler(async (req, res) => {
     const stories = await db.Story.findAll({ include: [db.User, db.StoryCategory] });
-    let readTimes = [];
-    stories.forEach(story => {
-        readTimes.push(readingTime(story.body));
-    });
-    res.json({ stories, readTimes });
+    for (const key in stories) {
+        const storyLikes = await db.StoryLike.findAll({ where: { storyId: stories[key].id } });
+        stories[key].setDataValue('storyLikes', storyLikes);
+        const readTime = readingTime(stories[key].body);
+        stories[key].setDataValue('readTime', readTime);
+    }
+    res.json({ stories });
 }));
 
 router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
@@ -59,6 +61,19 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     } else {
         next(storyNotFoundError(storyId));
     }
+}));
+
+router.get("/by/:id(\\d+)", asyncHandler(async (req, res, next) => {
+    const userId = parseInt(req.params.id, 10);
+    const stories = await db.Story.findAll({ where: { userId: userId }, include: [db.User, db.StoryCategory] },
+        { include: [db.user, db.StoryCategory] });
+    for (const key in stories) {
+        const storyLikes = await db.StoryLike.findAll({ where: { storyId: stories[key].id } });
+        stories[key].setDataValue('storyLikes', storyLikes);
+        const readTime = readingTime(stories[key].body);
+        stories[key].setDataValue('readTime', readTime);
+    }
+    res.json({ stories });
 }));
 
 router.get("/:searchTerm", asyncHandler(async (req, res) => {
@@ -80,26 +95,14 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
         //raw: true
     });
 
-    const storyIdArray = [];
-    stories.forEach(element => {
-        storyIdArray.push(element.dataValues.id)
-    });
+    for (const key in stories) {
+        const storyLikes = await db.StoryLike.findAll({ where: { storyId: stories[key].id } });
+        stories[key].setDataValue('storyLikes', storyLikes);
+        const readTime = readingTime(stories[key].body);
+        stories[key].setDataValue('readTime', readTime);
+    }
 
-    let storyLikes = await db.StoryLike.findAll({
-
-        group: ["storyId"],
-        attributes: ["storyId", [sequelize.fn("count", "userId"), "Likes"]],
-        where: { storyId: { [Op.in]: storyIdArray } },
-        order: ["storyId"],
-
-    })
-
-    let readTimes = [];
-    stories.forEach(story => {
-        readTimes.push(readingTime(story.body));
-    });
-
-    res.json({ stories, readTimes, storyLikes });
+    res.json({ stories });
 }));
 
 router.post('/', storyValidators, asyncHandler(async (req, res) => {

@@ -520,5 +520,6 @@ input, select {
 
 button:disabled {
   pointer-events: none;
-  background-color: grey
+  background-color: grey;
+  color: white;
 }

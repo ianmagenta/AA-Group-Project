@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //load liked stories by user
   try {
-    console.log('log here');
+    // console.log('log here');
     const res = await fetch(`${api}story/`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { stories } = data;
@@ -62,7 +62,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       })
     });
-    // console.log(storiesLiked);
+
+    // filters out undefined variables from storiesLiked (which can occasionally appear)
+    storiesLiked = storiesLiked.filter(function (el) {
+      return el != null;
+    });
+
     likedStoriesHTML += generateArticleHtml(storiesLiked);
     const likedStoriesContainer = document.querySelector(".likes-container");
     likedStoriesContainer.innerHTML = likedStoriesHTML;

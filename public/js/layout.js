@@ -3,9 +3,18 @@ const signInOrUsername = document.querySelector(".sign-in-top");
 const RegisterOrLogout = document.querySelector(".register-top");
 signInOrUsername.innerHTML = `<a href="/login">Sign in</a>`;
 RegisterOrLogout.innerHTML = `<a href="/register">Register</a>`;
+let perfEntries = performance.getEntriesByType("navigation");
+
+if (perfEntries[0].type === "back_forward") {
+  location.reload(true);
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
   const userId = localStorage.getItem("RARE_USER_ID");
+  if (!userId) {
+    window.location.href = "/splash";
+    return;
+  }
   // console.log('this runs');
   try {
     // if (userId) {

@@ -3,6 +3,7 @@ import { handleErrors, api } from "./utils.js";
 document.addEventListener("DOMContentLoaded", async (e) => {
     const url = window.location.pathname;
     const id = url.substring(url.lastIndexOf('/') + 1);
+    const userId = localStorage.getItem("RARE_USER_ID");
     try {
         // load story
         const res = await fetch(`${api}story/${id}`);
@@ -46,6 +47,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         const commentContainer = document.querySelector(".comments-container");
         commentContainer.innerHTML = `<a class=comment-story-button style="color:#000000;" href='/comments/new/${id}'>Comment this story</a><div class="comments-label">Comments:</div>`;
         comment.forEach(comment => {
+            // Add comment and button
             let div = document.createElement("div");
             div.setAttribute("id", `${comment.id}`)
             div.classList.add("comment")
@@ -53,16 +55,36 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 <div class="commenter-name">${comment.User.firstName} ${comment.User.lastName}</div>
                 <div class="commenter-date">${new Date(comment.createdAt.replace(' ', 'T')).toDateString()}</div>
                 <div class="commenter-body">${comment.body}</div>
-                <div class="commenter-likes">Likes: ${comment.commentLikes.length}</div>
-                <button type="button" class=like-comment-button>Like this comment</button>
+                <div class="commenter-likes" id=likes:${comment.id}>Likes: ${comment.commentLikes.length}</div>
                 `
+            let alreadyLikedComment = false
+            comment.commentLikes.forEach(like => {
+                if (like.userId == userId) {
+                    alreadyLikedComment = true;
+                }
+            });
+            if (alreadyLikedComment) {
+                div.innerHTML += `<button type="button" class="like-comment-button site-button" disabled id=button:${comment.id}>Comment Liked</button>`
+            } else {
+                div.innerHTML += `<button type="button" class="like-comment-button site-button" id=button:${comment.id}>Like this comment</button>`
+            }
             commentContainer.appendChild(div);
-
-
+          
+            // Comment like button behavior
+            const commentLikeButton = document.getElementById(`button:${comment.id}`);
+            commentLikeButton.addEventListener("click", async (e) => {
+                e.preventDefault();
+                const commentRes = await fetch(`http://localhost:8080/comment/${comment.id}/likes/${userId}`, { method: 'POST' });
+                if (!commentRes.ok) {
+                    throw res;
+                }
+                document.getElementById(`likes:${comment.id}`).innerHTML = `Likes: ${comment.commentLikes.length + 1}`;
+                commentLikeButton.setAttribute("disabled", "");
+                commentLikeButton.innerHTML = `Comment Liked`
+            });
         });
 
         // Story Like Button
-        const userId = localStorage.getItem("RARE_USER_ID");
         const storyLikeButton = document.querySelector(".like-story-button");
         let storyLiked = false;
         storyLikes.forEach(element => {

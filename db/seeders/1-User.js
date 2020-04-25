@@ -302,6 +302,19 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+
+      {
+        userName: 'GuestUser',
+        password: bcrypt.hashSync('P@ssw0rd', 10),
+        firstName: 'Guest',
+        lastName: 'User',
+        email: 'guest@user.com',
+        bio: "I am just looking around this website to see if I like it.",
+        isAdmin: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
     ], {});
   },
 

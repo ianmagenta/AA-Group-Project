@@ -289,6 +289,21 @@ a.user-fullname {
   max-width: 800px;
 }
 
+.top-stories-and-header-container {
+  background-color: white;
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 1000px;
+  /* display: flex; */
+  justify-content: space-evenly;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.top-stories-header {
+  margin: 100px;
+}
+
 .top-stories-container {
   background-color: white;
   margin: 0 auto;
@@ -300,16 +315,22 @@ a.user-fullname {
 }
 
 .article-container {
-  flex-grow: 1;
-  border: 1px solid black;
-  padding: 10px;
-  margin: 10px;
+  /* border-bottom: 1px solid black; */
+  /* box-shadow: 2px 3px black; */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 20px;
+  margin: 20px;
   display: grid;
   grid-template-areas:
   "title title title likes"
   "subheader subheader subheader subheader"
   "author author author author"
   "date date date time";
+}
+
+.article-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 a.rare-logo-footer {
@@ -322,31 +343,44 @@ a.rare-logo-footer {
   background-color: rgb(59, 128, 255);
   padding: 10px;
   margin: 10px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .article-title {
   grid-area: title;
+  font-size: large;
+  padding-bottom: 10px;
 }
 
 .article-subheader {
   grid-area: subheader;
+  color: gray;
+  padding-bottom: 8px;
 }
 
 .article-author {
   grid-area: author;
+  padding-bottom: 5px;
 }
 .article-date {
   grid-area: date;
+  color: gray;
+  font-size: smaller;
+  padding-bottom: 4px;
 }
 
 .article-time {
   grid-area: time;
   text-align: right;
+  color: gray;
+  font-size: smaller;
 }
 .article-likes {
   grid-area: likes;
   text-align: end;
+  padding-left: 50px;
+  color: gray;
+  font-size: smaller;
 }
 
 .main-stories-container {
@@ -377,11 +411,25 @@ a.rare-logo-footer {
 
 .user-container {
   flex-grow: 1;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  /* box-shadow: 2px 3px black; */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   padding: 10px;
   margin: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.user-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.not-found-container {
+  background-color: white;
+  max-width: fit-content;
+  margin: 50px;
+  padding: 50px;
+  border-radius: 3px;
 }
 
 .articles-search-container {

@@ -63,9 +63,9 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 }
             });
             if (alreadyLikedComment) {
-                div.innerHTML += `<button type="button" class=like-comment-button disabled id=button:${comment.id}>Comment Liked</button>`
+                div.innerHTML += `<button type="button" class="like-comment-button site-button" disabled id=button:${comment.id}>Comment Liked</button>`
             } else {
-                div.innerHTML += `<button type="button" class=like-comment-button id=button:${comment.id}>Like this comment</button>`
+                div.innerHTML += `<button type="button" class="like-comment-button site-button" id=button:${comment.id}>Like this comment</button>`
             }
             commentContainer.appendChild(div);
 

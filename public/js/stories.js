@@ -47,7 +47,8 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         const commentContainer = document.querySelector(".comments-container");
         commentContainer.innerHTML = `<a class=comment-story-button style="color:#000000;" href='/comments/new/${id}'>Comment this story</a><div class="comments-label">Comments:</div>`;
         comment.forEach(comment => {
-            // Add comment and button
+
+            // Add existing comments and button
             let div = document.createElement("div");
             div.setAttribute("id", `${comment.id}`)
             div.classList.add("comment")
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 div.innerHTML += `<button type="button" class="like-comment-button site-button" id=button:${comment.id}>Like this comment</button>`
             }
             commentContainer.appendChild(div);
-          
+
             // Comment like button behavior
             const commentLikeButton = document.getElementById(`button:${comment.id}`);
             commentLikeButton.addEventListener("click", async (e) => {

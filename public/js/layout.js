@@ -6,6 +6,10 @@ RegisterOrLogout.innerHTML = `<a href="/register">Register</a>`;
 
 document.addEventListener("DOMContentLoaded", async () => {
   const userId = localStorage.getItem("RARE_USER_ID");
+  if (!userId) {
+    window.location.href = "/splash";
+    return;
+  }
   // console.log('this runs');
   try {
     // if (userId) {

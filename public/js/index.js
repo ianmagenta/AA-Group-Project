@@ -5,7 +5,11 @@ document.addEventListener("DOMContentLoaded", async (e) => {
   const mainStoriesLeft = document.querySelector(".main-stories-left");
   const mainStoriesRight = document.querySelector(".main-stories-right");
   const categoryContainer = document.querySelector(".categories-container");
-
+  const userId = localStorage.getItem("RARE_USER_ID");
+  if (!userId) {
+    window.location.href = "/splash";
+    return;
+  }
   try {
     const res = await fetch(`${api}story`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     if (!res.ok) {

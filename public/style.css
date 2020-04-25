@@ -316,7 +316,9 @@ a.user-fullname {
 
 .article-container {
   /* border-bottom: 1px solid black; */
-  box-shadow: 2px 3px black;
+  /* box-shadow: 2px 3px black; */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
   padding: 20px;
   margin: 20px;
   display: grid;
@@ -325,6 +327,10 @@ a.user-fullname {
   "subheader subheader subheader subheader"
   "author author author author"
   "date date date time";
+}
+
+.article-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 a.rare-logo-footer {
@@ -406,11 +412,24 @@ a.rare-logo-footer {
 .user-container {
   flex-grow: 1;
   /* border: 1px solid black; */
-  box-shadow: 2px 3px black;
+  /* box-shadow: 2px 3px black; */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   padding: 10px;
   margin: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.user-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.not-found-container {
+  background-color: white;
+  max-width: fit-content;
+  margin: 50px;
+  padding: 50px;
+  border-radius: 3px;
 }
 
 .articles-search-container {

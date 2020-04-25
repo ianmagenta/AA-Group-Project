@@ -455,6 +455,11 @@ a.rare-logo-footer {
   border-radius: 3px;
 }
 
+.story-date, .story-read-time, .story-category {
+  color: gray;
+  font-size: smaller;
+}
+
 .story-subheader {
   font-size: larger;
 }

@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         const { comment } = await otherRes.json();
 
         const commentContainer = document.querySelector(".comments-container");
-        commentContainer.innerHTML = `<a class=comment-story-button style="color:#000000;" href='/comments/new/${id}'>Comment this story</a><div class="comments-label">Comments:</div>`;
+        commentContainer.innerHTML = `<a class=comment-story-button href='/comments/new/${id}'>Add a Comment</a><div class="comments-label">Comments:</div>`;
         comment.forEach(comment => {
 
             // Add existing comments and button

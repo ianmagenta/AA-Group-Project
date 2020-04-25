@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             return;
         }
         const { story, readTime, parsedBody, storyLikes } = await res.json();
-        // console.log(storyLikes);
+        // console.log(story);
         document.querySelector(".story-title").innerHTML = story.title;
         document.querySelector(".story-subheader").innerHTML = story.subHeading;
         document.querySelector(".story-author").innerHTML = `By ${story.User.firstName} ${story.User.lastName}`;
@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         document.querySelector(".story-body").innerHTML += parsedBody;
         document.querySelector(".author-name").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
         document.querySelector(".author-bio").innerHTML = story.User.bio;
+        document.querySelector(".story-category").innerHTML = `In category <span class="category-italics">${story.StoryCategory.categoryName}</span>`;
         document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
         document.title = story.title;
 

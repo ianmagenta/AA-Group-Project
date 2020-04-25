@@ -18,8 +18,7 @@ export function generateArticleHtml(articleArr, readTimeArr, LikeArr) {
             console.log(i, LikeArr[i]);
             articlesHTML += `<div class="article-container text-style2"><a class="article-title text-style1" href="/stories/${articleObj.id}">${articleObj.title}</a><div class="article-subheader">${articleObj.subHeading}</div>
             <div class="article-author">${articleObj.User.firstName} ${articleObj.User.lastName} in ${articleObj.StoryCategory.categoryName}</div><div class="article-date">${new Date(articleObj.createdAt.replace("T", " ")).toDateString()}</div>
-            <div class="article-time">${readTimes[readCount]}`;
-            // </div><div class="article-likes">${LikeArr[i].Likes}</div></div>
+            <div class="article-time">${readTimes[readCount]}</div><div class="article-likes">${LikeArr[i].Likes}</div>`;
             readCount++;
         });
     } else {

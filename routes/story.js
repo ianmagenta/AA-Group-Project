@@ -76,6 +76,8 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
             ]
         },
         include: [db.User, db.StoryCategory],
+        order: ["id"],
+        //raw: true
     });
 
     const storyIdArray = [];
@@ -87,7 +89,9 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
 
         group: ["storyId"],
         attributes: ["storyId", [sequelize.fn("count", "userId"), "Likes"]],
-        where: { storyId: { [Op.in]: storyIdArray } }
+        where: { storyId: { [Op.in]: storyIdArray } },
+        order: ["storyId"],
+
     })
 
     let readTimes = [];
@@ -159,15 +163,13 @@ router.delete("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 
 }));
 
-router.post("/:id(\\d+)/likes", asyncHandler(async (req, res, next) => {
-    const storyId = parseInt(req.params.id, 10);
+router.post("/:storyId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, res, next) => {
+    const storyId = parseInt(req.params.storyId, 10);
+    const userId = parseInt(req.params.userId, 10);
     const story = await db.Story.findByPk(storyId);
 
     if (story) {
-        const {
-            userId,
-            storyId
-        } = req.body;
+
 
         const storyLike = await db.StoryLike.create({
             userId,
@@ -182,9 +184,9 @@ router.post("/:id(\\d+)/likes", asyncHandler(async (req, res, next) => {
 
 }));
 
-router.delete("/:storyId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, res, next) => {
+router.delete("/:storyId(\\d+)/likes", asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.storyId, 10);
-    const userId = parseInt(req.params.userId, 10);
+    const userId = localStorage.getItem("RARE_USER_ID");
     const storyLike = await db.StoryLike.findOne({
 
         where: {

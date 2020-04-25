@@ -42,11 +42,13 @@ const storyValidators = [
 router.get("/", asyncHandler(async (req, res) => {
     const stories = await db.Story.findAll({ include: [db.User, db.StoryCategory] });
     for (const key in stories) {
-        const storyLikes = await db.StoryLike.findAll({ where: { storyId: stories[key].id } });
+        const storyLikes = await db.StoryLike.findAll({ where: { storyId: stories[key].id }, order: [["createdAt", 'DESC']] });
         stories[key].setDataValue('storyLikes', storyLikes);
         const readTime = readingTime(stories[key].body);
         stories[key].setDataValue('readTime', readTime);
+
     }
+
     res.json({ stories });
 }));
 
@@ -54,7 +56,7 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.id, 10);
     const story = await db.Story.findByPk(storyId);
     if (story) {
-        const story = await db.Story.findByPk(storyId, { include: [db.User] });
+        const story = await db.Story.findByPk(storyId, { include: [db.User, db.StoryCategory] });
         const readTime = readingTime(story.body);
         const parsedBody = md.render(story.body);
         const storyLikes = await db.StoryLike.findAll({ where: { storyId: story.id } });
@@ -73,6 +75,7 @@ router.get("/by/:id(\\d+)", asyncHandler(async (req, res, next) => {
         stories[key].setDataValue('storyLikes', storyLikes);
         const readTime = readingTime(stories[key].body);
         stories[key].setDataValue('readTime', readTime);
+
     }
     res.json({ stories });
 }));

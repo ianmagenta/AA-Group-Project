@@ -9,6 +9,7 @@ const indexRoute = require('./routes/index');
 const registerRoute = require('./routes/register');
 const storyRoute = require('./routes/story');
 const commentRoute = require('./routes/comment');
+const commentsRoute = require('./routes/comments');
 const storiesRoute = require('./routes/stories');
 const sessionRoute = require('./routes/session');
 const profileRoute = require('./routes/profile');
@@ -45,6 +46,7 @@ app.set('view engine', 'pug');
 
 app.use('/register', registerRoute);
 app.use('/stories', storiesRoute);
+app.use('/comments', commentsRoute);
 app.use('/story', storyRoute);
 app.use('/comment', commentRoute);
 app.use('/user', userRoute);

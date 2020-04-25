@@ -1,16 +1,13 @@
 extends layout.pug
 
 block content
-  form.story-form
-    label.text-style1(for='markdown-title-editor') Title:
-    input#markdown-title-editor(name="title")
-    label.text-style2(for='markdown-subheader-editor') Subheader:
-    input#markdown-subheader-editor(name="subHeading")
-    label.text-style2(for='markdown-story-editor') Story:
+  form.comment-form
+
+    label.text-style2(for='markdown-story-editor') Comment:
     textarea#markdown-story-editor.text-style2(name="body")
-    button.site-button(type="submit") Submit Story
+    button.site-button(type="submit") Submit Comment
   <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
   <script src="https://unpkg.com/easymde/dist/easymde.min.js">var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});</script>
   script(type='application/javascript' src='/js/md.js')
-  script(type='module' src='/js/newstory.js')
+  script(type='module' src='/js/newcomment.js')
   //- add publish button that will move down the page

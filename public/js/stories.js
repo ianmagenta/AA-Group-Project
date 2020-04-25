@@ -63,9 +63,9 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 }
             });
             if (alreadyLikedComment) {
-                div.innerHTML += `<button type="button" class=like-comment-button disabled id=button:${comment.id}>Comment Liked</button>`
+                div.innerHTML += `<button type="button" class="like-comment-button site-button" disabled id=button:${comment.id}><i class="fas fa-thumbs-up"></i></button>`
             } else {
-                div.innerHTML += `<button type="button" class=like-comment-button id=button:${comment.id}>Like this comment</button>`
+                div.innerHTML += `<button type="button" class="like-comment-button site-button" id=button:${comment.id}><i class="fas fa-thumbs-up"></i></button>`
             }
             commentContainer.appendChild(div);
 
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 }
                 document.getElementById(`likes:${comment.id}`).innerHTML = `Likes: ${comment.commentLikes.length + 1}`;
                 commentLikeButton.setAttribute("disabled", "");
-                commentLikeButton.innerHTML = `Comment Liked`
+                commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
             });
         });
 
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         });
         if (storyLiked) {
             storyLikeButton.setAttribute("disabled", "");
-            storyLikeButton.innerHTML = `Story Liked`
+            storyLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
         } else {
             storyLikeButton.addEventListener("click", async (e) => {
                 e.preventDefault();
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 storyLikes[storyLikes.length] = newLike
                 document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
                 storyLikeButton.setAttribute("disabled", "");
-                storyLikeButton.innerHTML = `Story Liked`
+                storyLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
             });
         }
 

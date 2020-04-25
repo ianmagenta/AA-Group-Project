@@ -4,14 +4,15 @@ html(lang="en")
     title= title
     <link rel="shortcut icon" href="/assets/rarefavicon.png" type="image/x-icon"/>
     link(rel="stylesheet" href="/style.css")
+    <script src="https://kit.fontawesome.com/957ab26b61.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway&display=swap" rel="stylesheet">
     link(rel="api", href=`${api}`)
   body
     .top-bar
       .inner-top-bar
         a.rare-logo.text-style1(href='/') Rare
-        a.search-button.text-style2(href='/search') Search
-        a.new-story-button.text-style2(href='/stories/new') New story
+        a.search-button.text-style2(href='/search' title='Search stories and users') <i class="fas fa-search"></i>
+        a.new-story-button.text-style2(href='/stories/new' title='Write a new story') <i class="fas fa-pencil-alt"></i>
         .sign-in-top.text-style2 Sign in
         .register-top.text-style2 Register
 script(type="module" src="/js/layout.js")

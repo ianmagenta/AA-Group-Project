@@ -48,18 +48,18 @@ export const handleErrors = async (err) => {
         const errorsContainer = document.querySelector(".errors-container");
         let errorsHtml = [
             `
-            < div class="alert alert-danger" >
+            <div class="alert alert-danger">
                 Something went wrong.Please try again.
-        </div >
+        </div>
             `,
         ];
         const { errors } = errorJSON;
         if (errors && Array.isArray(errors)) {
             errorsHtml = errors.map(
                 (message) => `
-            < div class="alert alert-danger" >
+            <div class="alert alert-danger">
                 ${ message}
-          </div >
+          </div>
             `
             );
         }

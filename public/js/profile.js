@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch(`${api}user/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { user } = data;
-    console.log(user);
+    // console.log(user);
     if (res.status >= 401) {
       window.location.href = "/login";
       return;
@@ -35,11 +35,39 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch(`${api}story/by/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { stories } = data;
-    console.log(stories);
+    // console.log(stories);
 
     let articlesHTML = generateArticleHtml(stories);
     articleContainer.innerHTML = articlesHTML;
 
+  } catch (err) {
+    handleErrors(err);
+  }
+
+  //load liked stories by user
+  try {
+    console.log('log here');
+    const res = await fetch(`${api}story/`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const data = await res.json();
+    const { stories } = data;
+    // console.log(stories);
+
+    let likedStoriesHTML = `<div class="heading-text text-style1">Liked Stories</div>`;
+    let storiesLiked = [];
+    stories.forEach(story => {
+      const { storyLikes } = story;
+      storyLikes.forEach(like => {
+        console.log('LIKE', like);
+        if (like.userId === parseInt(id, 10)) {
+          console.log('STORY', story);
+          storiesLiked.push(stories[like.storyId]);
+        }
+      })
+    });
+    console.log(storiesLiked);
+    likedStoriesHTML += generateArticleHtml(storiesLiked);
+    const likedStoriesContainer = document.querySelector(".likes-container");
+    likedStoriesContainer.innerHTML = likedStoriesHTML;
   } catch (err) {
     handleErrors(err);
   }

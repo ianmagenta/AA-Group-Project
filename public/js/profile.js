@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const { stories } = data;
     // console.log(stories);
 
-    let articlesHTML = generateArticleHtml(stories);
+    let articlesHTML = `<div class="heading-text text-style1">Authored Stories</div>` + generateArticleHtml(stories);
     articleContainer.innerHTML = articlesHTML;
 
   } catch (err) {

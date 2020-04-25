@@ -78,7 +78,8 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   const isProduction = environment === "production";
   console.log(err);
-  res.json({
+
+  res.render('404', {
     title: err.title || "Server Error",
     errors: err.errors,
     stack: isProduction ? null : err.stack,

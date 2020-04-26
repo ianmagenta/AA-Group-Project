@@ -52,13 +52,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let likedStoriesHTML = `<div class="heading-text text-style1">Liked Stories</div>`;
     let storiesLiked = [];
+    console.log("STORIES", stories);
     stories.forEach(story => {
       const { storyLikes } = story;
       storyLikes.forEach(like => {
         // console.log('LIKE', like);
         if (like.userId === parseInt(id, 10)) {
           // console.log('STORY', story);
-          storiesLiked.push(stories[like.storyId]);
+          storiesLiked.push(story);
         }
       })
     });

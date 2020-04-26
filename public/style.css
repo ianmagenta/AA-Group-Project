@@ -131,7 +131,7 @@ body {
   justify-content: space-around;
   /* background-color: rgba(59, 128, 255, 0.1); */
   border-radius: 10px;
-  /* border: 1px solid black; */
+  border: 1px solid black;
   margin: 10px;
 }
 

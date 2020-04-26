@@ -24,6 +24,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: rgb(206, 245, 255);
+}
+
 .footer-container {
   background-color: rgb(20, 20, 20);
   display: flex;
@@ -638,6 +642,11 @@ input, select {
   padding: 10px;
   max-width: 100px;
   cursor: pointer;
+}
+
+.site-button:hover {
+  background-color: rgb(130, 205, 255);
+  color: white;
 }
 
 .story-title {

@@ -256,7 +256,8 @@ body {
   display: flex;
   flex-direction: column;
   background-color: white;
-  max-width: 800px;
+  max-width: 600px;
+  box-sizing: border-box;
   padding: 10px;
 }
 
@@ -275,6 +276,7 @@ body {
   background-color: white;
   display: grid;
   margin: 0 auto;
+  margin-top: 10px;
   max-width: 800px;
   /* height: 500px; */
   grid-template-areas:
@@ -289,6 +291,7 @@ body {
 
 a.article-title {
   color: black;
+  font-weight: bold;
 }
 
 a.user-fullname {
@@ -489,6 +492,8 @@ a.rare-logo-footer {
 }
 
 .story-container {
+  max-width: 600px;
+  box-sizing: border-box;
   display: grid;
   grid-template-areas:
   "title title title title"
@@ -545,6 +550,7 @@ a.rare-logo-footer {
 
 .story-container, .author-info-container, .comments-container {
   max-width: 600px;
+  box-sizing: border-box;
   padding: 20px;
   background-color: white;
   margin: 10px auto;
@@ -559,6 +565,7 @@ a.rare-logo-footer {
 
 .story-body {
   position: relative;
+  box-sizing: border-box;
   max-width: 800px;
   padding: 20px;
   background-color: white;
@@ -661,7 +668,7 @@ button:disabled {
 }
 
 div.scrollmenu {
-  background-color: #333;
+  background-color: rgb(59, 128, 255);
   overflow: auto;
   white-space: nowrap;
 }
@@ -675,7 +682,7 @@ div.scrollmenu a {
 }
 
 div.scrollmenu a:hover {
-  background-color: #777;
+  color: rgb(206, 245, 255);
 }
 
 .guest-login-form {

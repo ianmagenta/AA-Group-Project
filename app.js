@@ -83,11 +83,17 @@ app.use((err, req, res, next) => {
   const isProduction = environment === "production";
   console.log(err);
 
-  res.render('404', {
+
+  res.json({
     title: err.title || "Server Error",
     errors: err.errors,
     stack: isProduction ? null : err.stack,
   });
+  // res.render('404', {
+  //   title: err.title || "Server Error",
+  //   errors: err.errors,
+  //   stack: isProduction ? null : err.stack,
+  // });
 });
 
 

@@ -52,7 +52,7 @@ router.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 
 router.get("/storyId/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.id, 10);
-    const comment = await db.Comment.findAll({ where: { storyId }, include: [db.User] });
+    const comment = await db.Comment.findAll({ where: { storyId }, include: [db.User], order: [["createdAt", "ASC"]] });
     comment.forEach(element => {
         element.body = md.render(element.body);
     });

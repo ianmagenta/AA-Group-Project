@@ -58,14 +58,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       storyLikes.forEach(like => {
         //console.log('LIKE', like);
         if (like.userId === parseInt(id, 10)) {
-<<<<<<< HEAD
-          // console.log('STORY', story);
-          storiesLiked.push(story);
-=======
           //console.log('STORY', story);
           storiesLiked.push(story);
           //storiesLiked.push(stories[like.storyId]);
->>>>>>> bfecafda1a6be61b3f43b881dd68ed47641b5bae
         }
       })
     });

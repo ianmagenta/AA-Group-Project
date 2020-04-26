@@ -5,22 +5,21 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     const url = window.location.pathname;
-    const id = url.substring(url.lastIndexOf('/') + 1);
+    let id = url.substring(url.lastIndexOf('/') + 1);
+    id = decodeURI(id)
 
     try {
 
         const res = await fetch(`${api}story/`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
         const data = await res.json();
         const { stories } = data;
-        console.log(stories);
+
 
         let articleStoriesHTML = `<div class="heading-text text-style1">Further ${id} Stories</div>`;
         let storiesInCategory = [];
         stories.forEach(story => {
             const { StoryCategory } = story;
 
-            console.log('LIKE', StoryCategory.categoryName);
-            console.log(id)
             if (StoryCategory.categoryName === id) {
 
                 storiesInCategory.push(story);

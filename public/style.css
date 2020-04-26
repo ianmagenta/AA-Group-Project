@@ -219,6 +219,18 @@ body {
   "leftprofile leftprofile rightprofile";
 }
 
+.furtherstories-container {
+  /* border: 1px solid black; */
+  border-radius: 3px;
+  background-color: white;
+  margin: 0 auto;
+  max-width: 800px;
+  display: grid;
+  justify-content: space-around;
+  grid-template-areas:
+  "leftprofile leftprofile leftprofile";
+}
+
 .articles-container {
   display: flex;
   flex-direction: column;

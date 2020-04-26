@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch(`${api}story/`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { stories } = data;
-    // console.log(stories);
+    //console.log(stories);
 
     let likedStoriesHTML = `<div class="heading-text text-style1">Liked Stories</div>`;
     let storiesLiked = [];
@@ -56,10 +56,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     stories.forEach(story => {
       const { storyLikes } = story;
       storyLikes.forEach(like => {
-        // console.log('LIKE', like);
+        //console.log('LIKE', like);
         if (like.userId === parseInt(id, 10)) {
+<<<<<<< HEAD
           // console.log('STORY', story);
           storiesLiked.push(story);
+=======
+          //console.log('STORY', story);
+          storiesLiked.push(story);
+          //storiesLiked.push(stories[like.storyId]);
+>>>>>>> bfecafda1a6be61b3f43b881dd68ed47641b5bae
         }
       })
     });
@@ -69,7 +75,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       return el != null;
     });
 
-    likedStoriesHTML += generateArticleHtml(storiesLiked);
+    let popStories = [];
+    storiesLiked.forEach(element => {
+      if (element.storyLikes.length > 0) {
+        popStories.push(element)
+      }
+
+    });
+    popStories.sort((a, b) => {
+      return new Date(b.storyLikes[0].createdAt.replace(' ', 'T')) - new Date(a.storyLikes[0].createdAt.replace(' ', 'T'));
+    });
+
+    likedStoriesHTML += generateArticleHtml(popStories);
     const likedStoriesContainer = document.querySelector(".likes-container");
     likedStoriesContainer.innerHTML = likedStoriesHTML;
   } catch (err) {

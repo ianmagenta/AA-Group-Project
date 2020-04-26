@@ -336,6 +336,7 @@ a.user-fullname {
   transition: 0.3s;
   padding: 20px;
   margin: 20px;
+  min-width: 250px;
   display: grid;
   grid-template-areas:
   "title title title likes"

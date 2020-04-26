@@ -92,6 +92,7 @@ body {
   justify-self: flex-end;
   text-align: right;
   padding-top: 10px;
+  outline:none;
 }
 
 .new-story-button {
@@ -99,6 +100,7 @@ body {
   justify-self: flex-end;
   text-align: right;
   padding-top: 10px;
+  outline:none;
 }
 
 .rare-logo.text-style1 {
@@ -505,10 +507,12 @@ a.rare-logo-footer {
 
 .edit-story-button {
   grid-area: editbutton;
+  outline:none;
 }
 
 .like-story-button {
   grid-area: likebutton;
+  outline:none;
 }
 
 .story-date, .story-read-time, .story-category {
@@ -605,25 +609,28 @@ a.rare-logo-footer {
 .guest-login-form, .guest-button {
   max-width: 400px;
   margin: 10px auto;
+  outline:none;
 }
 
 button.edit-story-button {
   margin: 10px;
+  outline:none;
 }
 
 
 .edit-story-button-hidden {
   display: none;
+  outline:none;
 }
 
 button.like-story-button {
   margin: 10px;
-
+  outline:none;
 }
 
 button.like-comment-button {
   margin: 10px;
-
+  outline:none;
 }
 input, select {
   max-width: 100%;
@@ -636,6 +643,7 @@ input, select {
   color: white;
   text-align: right;
   grid-area: exitbutton;
+  outline:none;
 }
 
 .site-button {
@@ -649,11 +657,13 @@ input, select {
   padding: 10px;
   max-width: 100px;
   cursor: pointer;
+  outline:none;
 }
 
 .site-button:hover {
   background-color: rgb(130, 205, 255);
   color: white;
+  outline:none;
 }
 
 .story-title {
@@ -665,6 +675,7 @@ input, select {
   /* pointer-events: none; */
   background-color: grey;
   color: white;
+  outline:none;
 }
 
 div.scrollmenu {

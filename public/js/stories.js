@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 }
             });
             if (alreadyLikedComment) {
-                div.innerHTML += `<button type="button" class="like-comment-button site-button" disabled id=button:${comment.id}><i class="fas fa-thumbs-up"></i></button>`
+                div.innerHTML += `<button type="button" class="like-comment-button site-button button-disabled" id=button:${comment.id}><i class="fas fa-thumbs-up"></i></button>`
             } else {
                 div.innerHTML += `<button type="button" class="like-comment-button site-button" id=button:${comment.id}><i class="fas fa-thumbs-up"></i></button>`
             }
@@ -77,13 +77,28 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             const commentLikeButton = document.getElementById(`button:${comment.id}`);
             commentLikeButton.addEventListener("click", async (e) => {
                 e.preventDefault();
-                const commentRes = await fetch(`http://localhost:8080/comment/${comment.id}/likes/${userId}`, { method: 'POST' });
-                if (!commentRes.ok) {
-                    throw res;
+                if (alreadyLikedComment) {
+                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`, { method: 'DELETE' });
+                    if (!commentRes.ok) {
+                        throw res;
+                    }
+                    comment.commentLikes.pop();
+                    document.getElementById(`likes:${comment.id}`).innerHTML = `Likes: ${comment.commentLikes.length}`;
+                    commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+                    commentLikeButton.classList.remove("button-disabled");
+                    alreadyLikedComment = false;
+                } else {
+                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`, { method: 'POST' });
+                    if (!commentRes.ok) {
+                        throw res;
+                    }
+                    comment.commentLikes[comment.commentLikes.length] = {}
+                    document.getElementById(`likes:${comment.id}`).innerHTML = `Likes: ${comment.commentLikes.length}`;
+                    commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+                    commentLikeButton.classList.add("button-disabled");
+                    alreadyLikedComment = true;
                 }
-                document.getElementById(`likes:${comment.id}`).innerHTML = `Likes: ${comment.commentLikes.length + 1}`;
-                commentLikeButton.setAttribute("disabled", "");
-                commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+
             });
         });
 
@@ -153,7 +168,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 const commentLikeButton = document.getElementById(`button:${newComment.id}`);
                 commentLikeButton.addEventListener("click", async (e) => {
                     e.preventDefault();
-                    const commentRes = await fetch(`http://localhost:8080/comment/${newComment.id}/likes/${userId}`, { method: 'POST' });
+                    const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: 'POST' });
                     if (!commentRes.ok) {
                         throw res;
                     }

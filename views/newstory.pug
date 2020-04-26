@@ -7,7 +7,7 @@ block content
     label.text-style2(for='markdown-subheader-editor') Subheader:
     input#markdown-subheader-editor(name="subHeading")
     label.text-style2(for="categoryId") Choose a category:
-    select.category-select(name="categoryId")
+    select.category-select#categoryId(name="categoryId")
       each category in storyCategories
         option(value=category.id)= category.categoryName
     label.text-style2(for='markdown-story-editor') Story:

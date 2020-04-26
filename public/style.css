@@ -256,7 +256,8 @@ body {
   display: flex;
   flex-direction: column;
   background-color: white;
-  max-width: 800px;
+  max-width: 600px;
+  box-sizing: border-box;
   padding: 10px;
 }
 
@@ -489,6 +490,8 @@ a.rare-logo-footer {
 }
 
 .story-container {
+  max-width: 600px;
+  box-sizing: border-box;
   display: grid;
   grid-template-areas:
   "title title title title"
@@ -545,6 +548,7 @@ a.rare-logo-footer {
 
 .story-container, .author-info-container, .comments-container {
   max-width: 600px;
+  box-sizing: border-box;
   padding: 20px;
   background-color: white;
   margin: 10px auto;
@@ -559,6 +563,7 @@ a.rare-logo-footer {
 
 .story-body {
   position: relative;
+  box-sizing: border-box;
   max-width: 800px;
   padding: 20px;
   background-color: white;

@@ -509,6 +509,7 @@ a.rare-logo-footer {
   grid-area: editbutton;
   outline:none;
   width: 50px;
+  justify-self: left;
   /* height: 30px; */
 }
 
@@ -516,6 +517,7 @@ a.rare-logo-footer {
   grid-area: likebutton;
   outline:none;
   width: 50px;
+  justify-self: right;
   /* height: 30px; */
 }
 

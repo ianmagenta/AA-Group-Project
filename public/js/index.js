@@ -51,9 +51,12 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     const res = await fetch(`${api}storycategories/`);
     const data = await res.json();
     const { categories } = data;
-    let categories2 = categories.slice(0, 6);
+    categoryContainer.innerHTML = ``;
+    categoryContainer.classList.add("scrollmenu");
     if (res.ok) {
-      categoryContainer.innerHTML = generateCategoriesHTML(categories2);
+      categories.forEach(category => {
+        categoryContainer.innerHTML += `<a href='/categoryStories/${category.categoryName}'>${category.categoryName}</a>`;
+      });
     }
   } catch (e) {
     handleErrors(e);

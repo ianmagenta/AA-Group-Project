@@ -155,20 +155,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         });
 
 
-        // const storyCommentButton = document.querySelector(".comment-story-button");
 
-        // storyCommentButton.addEventListener("click", async (e) => {
-        //     e.preventDefault();
-        //     const commentRes = await fetch(`${api}comments/${id}/new`);
-        //     if (!commentRes.ok) {
-        //         throw likeRes;
-        //     }
-        //     // const newComment = await commentRes.json();
-        //     // storyLikes[storyLikes.length] = newLike
-        //     // document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
-        //     // storyLikeButton.setAttribute("disabled", "");
-        //     // storyLikeButton.innerHTML = `Story Liked`
-        // });
 
 
     } catch (err) {

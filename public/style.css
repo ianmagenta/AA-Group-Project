@@ -576,7 +576,7 @@ a.rare-logo-footer {
 
 .form-top {
   display: grid;
-  border-radius: 3px;
+  border-radius: 2px;
   background-color: rgb(59, 128, 255);
   grid-template-areas: ". . . . . . . . . . exitbutton";
 }

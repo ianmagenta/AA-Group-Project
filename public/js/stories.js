@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         document.querySelector(".story-author").innerHTML = `By ${story.User.firstName} ${story.User.lastName}`;
         document.querySelector(".story-date").innerHTML = new Date(story.createdAt.replace(' ', 'T')).toDateString();
         document.querySelector(".story-read-time").innerHTML = readTime.text;
-        document.querySelector(".story-category").innerHTML = `Category: ${story.StoryCategory.categoryName}`;
+        document.querySelector(".story-category").innerHTML += ` <a name="searchButton" class="category-italics" style="color:#000000;" href='/categoryStories/${story.StoryCategory.categoryName}'>${story.StoryCategory.categoryName}<\a>`;
         document.querySelector(".story-body").innerHTML += parsedBody;
         document.querySelector(".author-name").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
         document.querySelector(".author-bio").innerHTML = story.User.bio;
-        document.querySelector(".story-category").innerHTML = `In category <span class="category-italics">${story.StoryCategory.categoryName}</span>`;
+        //document.querySelector(".story-category").innerHTML = `In category <span class="category-italics">${story.StoryCategory.categoryName}</span>`;
         document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
         document.title = story.title;
 

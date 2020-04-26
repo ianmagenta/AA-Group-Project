@@ -13,6 +13,7 @@ const commentsRoute = require('./routes/comments');
 const storiesRoute = require('./routes/stories');
 const sessionRoute = require('./routes/session');
 const profileRoute = require('./routes/profile');
+const categoryStoriesRoute = require('./routes/categoryStories');
 const storyCategoryRoute = require('./routes/storycategories');
 
 const { ValidationError } = require("sequelize");
@@ -52,6 +53,7 @@ app.use('/comment', commentRoute);
 app.use('/user', userRoute);
 app.use('/session', sessionRoute)
 app.use('/profile', profileRoute);
+app.use('/categoryStories', categoryStoriesRoute);
 app.use('/storycategories', storyCategoryRoute);
 app.use('/', indexRoute);
 

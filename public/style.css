@@ -661,8 +661,8 @@ input, select {
   grid-area: title;
 }
 
-button:disabled {
-  pointer-events: none;
+.button-disabled {
+  /* pointer-events: none; */
   background-color: grey;
   color: white;
 }

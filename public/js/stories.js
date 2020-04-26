@@ -97,20 +97,30 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             }
         });
         if (storyLiked) {
-            storyLikeButton.setAttribute("disabled", "");
-        } else {
-            storyLikeButton.addEventListener("click", async (e) => {
-                e.preventDefault();
+            storyLikeButton.classList.add("button-disabled");
+        }
+        storyLikeButton.addEventListener("click", async (e) => {
+            e.preventDefault();
+            if (storyLiked) {
+                const likeRes = await fetch(`${api}story/${id}/likes/${userId}`, { method: 'DELETE' });
+                if (!likeRes.ok) {
+                    throw likeRes;
+                }
+                storyLikes.pop()
+                document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
+                storyLikeButton.classList.remove("button-disabled");
+                storyLiked = false
+            } else {
                 const likeRes = await fetch(`${api}story/${id}/likes/${userId}`, { method: 'POST' });
                 if (!likeRes.ok) {
                     throw likeRes;
                 }
-                const newLike = await likeRes.json();
-                storyLikes[storyLikes.length] = newLike
+                storyLikes[storyLikes.length] = {}
                 document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
-                storyLikeButton.setAttribute("disabled", "");
-            });
-        }
+                storyLikeButton.classList.add("button-disabled");
+                storyLiked = true;
+            }
+        });
 
         document.querySelector(".comment-form").addEventListener("submit", async (e) => {
             // Add new comment once submitted.

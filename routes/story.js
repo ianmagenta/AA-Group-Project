@@ -71,7 +71,7 @@ router.get("/by/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const stories = await db.Story.findAll({ where: { userId: userId }, include: [db.User, db.StoryCategory] },
         { include: [db.user, db.StoryCategory] });
     for (const key in stories) {
-        const storyLikes = await db.StoryLike.findAll({ where: { storyId: stories[key].id } });
+        const storyLikes = await db.StoryLike.findAll({ where: { storyId: stories[key].id }, order: [["createdAt", 'DESC']] });
         stories[key].setDataValue('storyLikes', storyLikes);
         const readTime = readingTime(stories[key].body);
         stories[key].setDataValue('readTime', readTime);

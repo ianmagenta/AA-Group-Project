@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             return;
         }
         const { story, readTime, parsedBody, storyLikes } = await res.json();
-        console.log(story);
+        // console.log(story);
         document.querySelector(".story-title").innerHTML = story.title;
         document.querySelector(".story-subheader").innerHTML = story.subHeading;
         document.querySelector(".story-author").innerHTML = `By ${story.User.firstName} ${story.User.lastName}`;

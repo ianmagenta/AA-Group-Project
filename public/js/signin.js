@@ -11,7 +11,7 @@ registerForm.addEventListener("submit", async (e) => {
     const body = { userName, password };
 
     try {
-        console.log(`${api}session`);
+        // console.log(`${api}session`);
         const res = await fetch(`${api}session`, {
             method: "POST",
             body: JSON.stringify(body),
@@ -39,7 +39,7 @@ guestButton.addEventListener("click", async (e) => {
     const body = { userName, password };
 
     try {
-        console.log(`${api}session`);
+        // console.log(`${api}session`);
         const res = await fetch(`${api}session`, {
             method: "POST",
             body: JSON.stringify(body),

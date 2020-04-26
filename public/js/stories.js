@@ -138,6 +138,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 <button type ="button" class="like-comment-button site-button" id=button:${newComment.id}><i class="fas fa-thumbs-up"></i></button>
                 `
                 commentContainer.appendChild(div);
+                window.location.href = `${window.location.href}#${newComment.id}`;
                 easyMDE.value('')
                 const commentLikeButton = document.getElementById(`button:${newComment.id}`);
                 commentLikeButton.addEventListener("click", async (e) => {

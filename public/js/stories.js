@@ -166,15 +166,30 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 window.location.href = `${window.location.href.split('#')[0]}#${newComment.id}`;
                 easyMDE.value('')
                 const commentLikeButton = document.getElementById(`button:${newComment.id}`);
+                let alreadyLikedComment = false;
                 commentLikeButton.addEventListener("click", async (e) => {
+                    console.log()
                     e.preventDefault();
-                    const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: 'POST' });
-                    if (!commentRes.ok) {
-                        throw res;
+                    if (alreadyLikedComment) {
+                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: 'DELETE' });
+                        if (!commentRes.ok) {
+                            throw res;
+                        }
+                        document.getElementById(`likes:${newComment.id}`).innerHTML = `Likes: ${0}`;
+                        commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+                        commentLikeButton.classList.remove("button-disabled");
+                        alreadyLikedComment = false;
+                    } else {
+                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: 'POST' });
+                        if (!commentRes.ok) {
+                            throw res;
+                        }
+                        document.getElementById(`likes:${newComment.id}`).innerHTML = `Likes: ${1}`;
+                        commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+                        commentLikeButton.classList.add("button-disabled");
+                        alreadyLikedComment = true;
                     }
-                    document.getElementById(`likes:${newComment.id}`).innerHTML = `Likes: ${1}`;
-                    commentLikeButton.setAttribute("disabled", "");
-                    commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+
                 });
             }
         });

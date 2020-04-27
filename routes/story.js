@@ -211,4 +211,17 @@ router.delete("/:storyId(\\d+)/likes", asyncHandler(async (req, res, next) => {
 
 
 }));
+
+router.delete("/storyLikes/:storyId(\\d+)", asyncHandler(async (req, res, next) => {
+    const storyId = parseInt(req.params.storyId, 10);
+    await db.StoryLike.destroy({
+
+        where: {
+            storyId
+        }
+
+    })
+    res.end();
+
+}));
 module.exports = router;

@@ -24,13 +24,6 @@ const commentValidators = [
     handleValidationErrors
 ];
 
-// let commentLikes = await db.CommentLike.findAll({
-
-//     group: ["storyId"],
-//     attributes: ["storyId", [sequelize.fn("count", "userId"), "Likes"]],
-
-// })
-
 router.get("/", asyncHandler(async (req, res) => {
 
     const comments = await db.Comment.findAll();
@@ -61,6 +54,7 @@ router.get("/storyId/:id(\\d+)", asyncHandler(async (req, res, next) => {
             const commentLikes = await db.CommentLike.findAll({ where: { commentId: comment[key].id } });
             comment[key].setDataValue('commentLikes', commentLikes);
         }
+
         res.json({ comment });
     } else {
         next(commentNotFoundError(storyId));
@@ -129,6 +123,16 @@ router.delete("/:id(\\d+)", asyncHandler(async (req, res, next) => {
 
 }));
 
+router.delete("/story/:id(\\d+)", asyncHandler(async (req, res, next) => {
+    const storyId = parseInt(req.params.id, 10);
+    await db.Comment.destroy({
+        where: {
+            storyId
+        }
+    })
+    res.end();
+}));
+
 router.post("/:commentId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, res, next) => {
     const commentId = parseInt(req.params.commentId, 10);
     const userId = parseInt(req.params.userId, 10);
@@ -150,24 +154,35 @@ router.post("/:commentId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, re
 
 }));
 
-router.delete("/:commentId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, res, next) => {
+router.delete("/:commentId(\\d+)/likes", asyncHandler(async (req, res, next) => {
     const commentId = parseInt(req.params.commentId, 10);
-    const userId = parseInt(req.params.userId, 10);
-    const commentLike = await db.CommentLike.findOne({
+    await db.CommentLike.destroy({
 
         where: {
-            commentId, userId
+            commentId
         }
 
     })
+    res.end();
 
-    if (commentLike) {
-        await commentLike.destroy();
 
-        res.end();
-    } else {
-        next(commentLikeNotFoundError(commentId));
-    }
+
+}));
+
+router.delete("/likes", asyncHandler(async (req, res, next) => {
+    const commentIdArr = req.body
+
+    await db.CommentLike.destroy({
+
+        where: {
+            commentId: {
+                [Op.in]: commentIdArr
+            }
+        }
+
+    })
+    res.end();
+
 
 
 }));

@@ -78,7 +78,11 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             commentLikeButton.addEventListener("click", async (e) => {
                 e.preventDefault();
                 if (alreadyLikedComment) {
-                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`, { method: 'DELETE' });
+                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`,
+                        {
+                            method: 'DELETE'
+                        }
+                    );
                     if (!commentRes.ok) {
                         throw res;
                     }
@@ -88,7 +92,11 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                     commentLikeButton.classList.remove("button-disabled");
                     alreadyLikedComment = false;
                 } else {
-                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`, { method: 'POST' });
+                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`,
+                        {
+                            method: 'POST'
+                        }
+                    );
                     if (!commentRes.ok) {
                         throw res;
                     }

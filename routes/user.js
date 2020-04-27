@@ -5,13 +5,7 @@ const { check } = require('express-validator');
 const { asyncHandler, handleValidationErrors } = require("./utils");
 const { requireAuth, getUserToken } = require("../auth");
 const db = require('../db/models');
-
-
 const router = express.Router();
-
-
-
-router.use(requireAuth);
 
 const userNotFoundError = (id) => {
     const err = Error(`User with id of ${id} could not be found.`);
@@ -46,6 +40,37 @@ const userValidators = [
     handleValidationErrors
 ];
 
+router.post('/', userValidators, asyncHandler(async (req, res) => {
+    const {
+        userName,
+        password,
+        firstName,
+        lastName,
+        email,
+        bio
+    } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = await db.User.create({
+        userName,
+        password: hashedPassword,
+        firstName,
+        lastName,
+        email,
+        bio,
+        isAdmin: false
+    });
+
+    const token = getUserToken(user);
+    res.json({
+        user: { id: user.id },
+        token,
+    });
+
+}));
+
+
+router.use(requireAuth);
+
 router.get("/", asyncHandler(async (req, res) => {
     const users = await db.User.findAll({ attributes: ['userName', 'firstName', 'lastName', 'email', 'bio', 'isAdmin', 'createdAt', 'updatedAt'], });
     res.json({ users });
@@ -78,34 +103,6 @@ router.get("/:searchTerm", asyncHandler(async (req, res) => {
     });
 
     res.json({ users });
-}));
-
-router.post('/', userValidators, asyncHandler(async (req, res) => {
-    const {
-        userName,
-        password,
-        firstName,
-        lastName,
-        email,
-        bio
-    } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await db.User.create({
-        userName,
-        password: hashedPassword,
-        firstName,
-        lastName,
-        email,
-        bio,
-        isAdmin: false
-    });
-
-    const token = getUserToken(user);
-    res.json({
-        user: { id: user.id },
-        token,
-    });
-
 }));
 
 router.put("/:id(\\d+)", userValidators, asyncHandler(async (req, res, next) => {

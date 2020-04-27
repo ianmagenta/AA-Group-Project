@@ -1,20 +1,25 @@
 doctype html
-title= title
-link(rel="stylesheet" href="/style.css")
-<link rel="shortcut icon" href="assets/rarefavicon.png" type="image/x-icon"/>
-<script src="https://kit.fontawesome.com/957ab26b61.js" crossorigin="anonymous"></script>
-link(rel="api", href=`${api}`)
-.form-container.text-style2
-  .form-top
-    a.exit-button(href="/splash"): <i class="fas fa-times"></i>
-  .form-inner-container
-    .register-text Sign in
-    .register-instructions-text Enter your username and password
-    .errors-container
-    form.register-form(action="" method="")
-      //- input(type="hidden" name="_csrf" value=csrfToken)
-      input(type="text" name="userName" placeholder="enter username")
-      input(type="password" name="password" placeholder="enter password")
-      button.site-button(type="submit") Sign in
-      button.guest-button.site-button(type="button") Guest sign in
-script(type="module" src='js/signin.js')
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel="stylesheet" href="/style.css")
+    link(rel="shortcut icon" href="assets/rarefavicon.png" type="image/x-icon")
+    link(rel="api", href=`${api}`)
+    script(src="https://kit.fontawesome.com/957ab26b61.js" crossorigin="anonymous")
+  body
+    .form-container.text-style2
+      .form-top
+        a.exit-button(href="/splash")
+          i.fas.fa-times
+      .form-inner-container
+        .register-text Sign in
+        .register-instructions-text Enter your username and password
+        .errors-container
+        form.register-form(action="" method="")
+          input(type="text" name="userName" placeholder="enter username")
+          input(type="password" name="password" placeholder="enter password")
+          button.site-button(type="submit") Sign in
+          button.guest-button.site-button(type="button") Guest sign in
+    script(type="module" src='js/signin.js')

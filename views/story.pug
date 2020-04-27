@@ -10,7 +10,8 @@ block content
       .story-category.story-container-text In Category:
       .story-likes.story-container-text Likes
       button.site-button.like-story-button(type="submit")
-      button.site-button.edit-story-button.edit-story-button-hidden(type="submit" title="Edit your story") <i class="fas fa-cog"></i>
+      button.site-button.edit-story-button.edit-story-button-hidden(type="submit" title="Edit your story")
+        i.fas.fa-cog
     .story-body.text-style2
     .author-info-container.text-style2
       .author-text Written by
@@ -36,7 +37,6 @@ block content
         .comment-date Jan 1, 2020
         .comment-body Comment body here
         .comment-likes Likes
-    //- include footer.pug
-  <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
-  <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+  link(rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css")
+  script(src="https://unpkg.com/easymde/dist/easymde.min.js")
   script(type='module' src='/js/stories.js')

@@ -1,30 +1,35 @@
 doctype html
-title= title
-link(rel="stylesheet" href="/style.css")
-<link rel="shortcut icon" href="assets/rarefavicon.png" type="image/x-icon"/>
-<script src="https://kit.fontawesome.com/957ab26b61.js" crossorigin="anonymous"></script>
-link(rel="api", href=`${api}`)
-.form-container.text-style2
-  .form-top
-    a.exit-button(href="/splash"): <i class="fas fa-times"></i>
-  .form-inner-container
-    .register-text Register
-    .register-instructions-text Enter your information to create an account
-    .errors-container
-    form.register-form(action="" method="")
-      //- input(type="hidden" name="_csrf" value=csrfToken)
-      label(for="email") Email:
-      input(type="email" name="email" placeholder="YourEmail@Domain.com")
-      label(for="userName") Username:
-      input(type="text" name="userName" placeholder="Enter your username here (required)")
-      label(for="firstName") First name:
-      input(type="text" name="firstName" placeholder="Enter your first name here (required)")
-      label(for="lastName") Last name:
-      input(type="text" name="lastName" placeholder="Enter your last name here (required)")
-      label(for="bio") User Bio:
-      input(type="text" name="bio" placeholder="Enter your user bio")
-      label(for="password") Password:
-      input(type="password" name="password" placeholder="Enter password")
-      input(type="password" name="confirmPassword" placeholder="Re-enter password")
-      button.site-button(type="submit") Register
-script(type="module" src='js/register.js')
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel="stylesheet" href="/style.css")
+    link(rel="shortcut icon" href="assets/rarefavicon.png" type="image/x-icon")
+    link(rel="api", href=`${api}`)
+    script(src="https://kit.fontawesome.com/957ab26b61.js" crossorigin="anonymous")
+  body
+    .form-container.text-style2
+    .form-top
+      a.exit-button(href="/splash")
+        i.fas.fa-times
+    .form-inner-container
+      .register-text Register
+      .register-instructions-text Enter your information to create an account
+      .errors-container
+      form.register-form(action="" method="")
+        label(for="email") Email:
+        input(type="email" name="email" placeholder="YourEmail@Domain.com")
+        label(for="userName") Username:
+        input(type="text" name="userName" placeholder="Enter your username here (required)")
+        label(for="firstName") First name:
+        input(type="text" name="firstName" placeholder="Enter your first name here (required)")
+        label(for="lastName") Last name:
+        input(type="text" name="lastName" placeholder="Enter your last name here (required)")
+        label(for="bio") User Bio:
+        input(type="text" name="bio" placeholder="Enter your user bio")
+        label(for="password") Password:
+        input(type="password" name="password" placeholder="Enter password")
+        input(type="password" name="confirmPassword" placeholder="Re-enter password")
+        button.site-button(type="submit") Register
+    script(type="module" src='js/register.js')

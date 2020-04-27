@@ -14,8 +14,6 @@ block content
     label.text-style2(for='markdown-story-editor') Story:
     textarea#markdown-story-editor.text-style2(name="body")
     button(type="submit" class="site-button") Submit Story Edits
-  <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
-  <script src="https://unpkg.com/easymde/dist/easymde.min.js">var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});</script>
+  link(rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css")
+  script(src="https://unpkg.com/easymde/dist/easymde.min.js") var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});
   script(type='module' src='/js/storyedit.js')
-  //- script(type='application/javascript' src='/js/md.js')
-  //- add publish button that will move down the page

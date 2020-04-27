@@ -7,7 +7,7 @@ const { asyncHandler, handleValidationErrors } = require("./utils");
 
 router.get("/new", async (req, res) => {
     const storyCategories = await db.StoryCategory.findAll({ attributes: ['id', 'categoryName'] });
-    res.render("newstory", { storyCategories });
+    res.render("newstory", { title: "New story", storyCategories });
 });
 
 router.get("/:id", asyncHandler(async (req, res) => {

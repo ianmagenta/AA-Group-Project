@@ -27,9 +27,7 @@ const restoreUser = (req, res, next) => {
     // token being parsed from request header by the bearerToken middleware
     // function in app.js:
     const { token } = req;
-    // console.log(req.token);
     if (!token) {
-        console.log("security error")
         return res.set("WWW-Authenticate", "Bearer").status(401).end();
     }
 

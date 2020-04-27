@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.location.href = "/splash";
     return;
   }
-  // console.log('this runs');
   try {
     // if (userId) {
     const res = await fetch(`${api}user/${userId}`,
@@ -27,12 +26,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     );
     if (!res.ok) {
-      // console.log(user);
       window.location.href = "/splash";
       return;
     }
     const data = await res.json();
-    // console.log(data);
     const { user } = data;
 
     if (res.ok) {

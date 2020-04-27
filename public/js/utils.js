@@ -66,10 +66,10 @@ export const handleErrors = async (err) => {
         }
         errorsContainer.innerHTML = errorsHtml.join("");
     } else {
-        console.log(err);
         console.log(
             'Something went wrong. Please check your internet connection and try again!'
         );
+        console.log(err);
     }
 };
 

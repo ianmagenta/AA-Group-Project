@@ -6,7 +6,67 @@ module.exports = {
       {
         title: "The Black Cat",
         subHeading: "",
-        body: "For the most wild, yet most homely narrative which I am about to pen, I neither expect nor solicit belief. Mad indeed would I be to expect it, in a case where my very senses reject their own evidence. Yet, mad am I not—and very surely do I not dream. But to-morrow I die, and to-day I would unburthen my soul. My immediate purpose is to place before the world, plainly, succinctly, and without comment, a series of mere household events. In their consequences, these events have terrified—have tortured—have destroyed me. Yet I will not attempt to expound them. To me, they have presented little but Horror—to many they will seem less terrible than barroques. Hereafter, perhaps, some intellect may be found which will reduce my phantasm to the common-place—some intellect more calm, more logical, and far less excitable than my own, which will perceive, in the circumstances I detail with awe, nothing more than an ordinary succession of very natural causes and effects. From my infancy I was noted for the docility and humanity of my disposition. My tenderness of heart was even so conspicuous as to make me the jest of my companions. I was especially fond of animals, and was indulged by my parents with a great variety of pets. With these I spent most of my time, and never was so happy as when feeding and caressing them. This peculiarity of character grew with my growth, and in my manhood, I derived from it one of my principal sources of pleasure. To those who have cherished an affection for a faithful and sagacious dog, I need hardly be at the trouble of explaining the nature or the intensity of the gratification thus derivable. There is something in the unselfish and self-sacrificing love of a brute, which goes directly to the heart of him who has had frequent occasion to test the paltry friendship and gossamer fidelity of mere Man.",
+        body: `![this is a black cat](https://upload.wikimedia.org/wikipedia/commons/3/3c/Poe_black_cat_byam_shaw.JPG)
+
+ FOR the most wild, yet most homely narrative which I am about to pen, I neither expect nor solicit belief. Mad indeed would I be to expect it, in a case where my very senses reject their own evidence. Yet, mad am I not—and very surely do I not dream. But to-morrow I die, and to-day I would unburthen my soul. My immediate purpose is to place before the world, plainly, succinctly, and without comment, a series of mere household events. In their consequences, these events have terrified—have tortured—have destroyed me. Yet I will not attempt to expound them. To me, they have presented little but Horror—to many they will seem less terrible than barroques. Hereafter, perhaps, some intellect may be found which will reduce my phantasm to the common-place—some intellect more calm, more logical, and far less excitable than my own, which will perceive, in the circumstances I detail with awe, nothing more than an ordinary succession of very natural causes and effects.
+
+From my infancy I was noted for the docility and humanity of my disposition. My tenderness of heart was even so conspicuous as to make me the jest of my companions. I was especially fond of animals, and was indulged by my parents with a great variety of pets. With these I spent most of my time, and never was so happy as when feeding and caressing them. This peculiarity of character grew with my growth, and in my manhood, I derived from it one of my principal sources of pleasure. To those who have cherished an affection for a faithful and sagacious dog, I need hardly be at the trouble of explaining the nature or the intensity of the gratification thus derivable. There is something in the unselfish and self-sacrificing love of a brute, which goes directly to the heart of him who has had frequent occasion to test the paltry friendship and gossamer fidelity of mere Man.
+
+I married early, and was happy to find in my wife a disposition not uncongenial with my own. Observing my partiality for domestic pets, she lost no opportunity of procuring those of the most agreeable kind. We had birds, gold-fish, a fine dog, rabbits, a small monkey, and a cat.
+
+This latter was a remarkably large and beautiful animal, entirely black, and sagacious to an astonishing degree. In speaking of his intelligence, my wife, who at heart was not a little tinctured with superstition, made frequent allusion to the ancient popular notion, which regarded all black cats as witches in disguise. Not that she was ever serious upon this point—and I mention the matter at all for no better reason than that it happens, just now, to be remembered.
+
+Pluto—this was the cat’s name—was my favorite pet and playmate. I alone fed him, and he attended me wherever I went about the house. It was even with difficulty that I could prevent him from following me through the streets.
+
+Our friendship lasted, in this manner, for several years, during which my general temperament and character—through the instrumentality of the Fiend Intemperance—had (I blush to confess it) experienced a radical alteration for the worse. I grew, day by day, more moody, more irritable, more regardless of the feelings of others. I suffered myself to use intemperate language to my wife. At length, I even offered her personal violence. My pets, of course, were made to feel the change in my disposition. I not only neglected, but ill-used them. For Pluto, however, I still retained sufficient regard to restrain me from maltreating him, as I made no scruple of maltreating the rabbits, the monkey, or even the dog, when by accident, or through affection, they came in my way. But my disease grew upon me—for what disease is like Alcohol!—and at length even Pluto, who was now becoming old, and consequently somewhat peevish—even Pluto began to experience the effects of my ill temper.
+
+One night, returning home, much intoxicated, from one of my haunts about town, I fancied that the cat avoided my presence. I seized him; when, in his fright at my violence, he inflicted a slight wound upon my hand with his teeth. The fury of a demon instantly possessed me. I knew myself no longer. My original soul seemed, at once, to take its flight from my body and a more than fiendish malevolence, gin-nurtured, thrilled every fibre of my frame. I took from my waistcoat-pocket a pen-knife, opened it, grasped the poor beast by the throat, and deliberately cut one of its eyes from the socket! I blush, I burn, I shudder, while I pen the damnable atrocity.
+
+When reason returned with the morning—when I had slept off the fumes of the night’s debauch—I experienced a sentiment half of horror, half of remorse, for the crime of which I had been guilty; but it was, at best, a feeble and equivocal feeling, and the soul remained untouched. I again plunged into excess, and soon drowned in wine all memory of the deed.
+
+In the meantime the cat slowly recovered. The socket of the lost eye presented, it is true, a frightful appearance, but he no longer appeared to suffer any pain. He went about the house as usual, but, as might be expected, fled in extreme terror at my approach. I had so much of my old heart left, as to be at first grieved by this evident dislike on the part of a creature which had once so loved me. But this feeling soon gave place to irritation. And then came, as if to my final and irrevocable overthrow, the spirit of PERVERSENESS. Of this spirit philosophy takes no account. Yet I am not more sure that my soul lives, than I am that perverseness is one of the primitive impulses of the human heart—one of the indivisible primary faculties, or sentiments, which give direction to the character of Man. Who has not, a hundred times, found himself committing a vile or a silly action, for no other reason than because he knows he should not? Have we not a perpetual inclination, in the teeth of our best judgment, to violate that which is Law, merely because we understand it to be such? This spirit of perverseness, I say, came to my final overthrow. It was this unfathomable longing of the soul to vex itself—to offer violence to its own nature—to do wrong for the wrong’s sake only—that urged me to continue and finally to consummate the injury I had inflicted upon the unoffending brute. One morning, in cool blood, I slipped a noose about its neck and hung it to the limb of a tree;—hung it with the tears streaming from my eyes, and with the bitterest remorse at my heart;—hung it because I knew that it had loved me, and because I felt it had given me no reason of offence;—hung it because I knew that in so doing I was committing a sin—a deadly sin that would so jeopardize my immortal soul as to place it—if such a thing wore possible—even beyond the reach of the infinite mercy of the Most Merciful and Most Terrible God.
+
+On the night of the day on which this cruel deed was done, I was aroused from sleep by the cry of fire. The curtains of my bed were in flames. The whole house was blazing. It was with great difficulty that my wife, a servant, and myself, made our escape from the conflagration. The destruction was complete. My entire worldly wealth was swallowed up, and I resigned myself thenceforward to despair.
+
+I am above the weakness of seeking to establish a sequence of cause and effect, between the disaster and the atrocity. But I am detailing a chain of facts—and wish not to leave even a possible 2148link imperfect. On the day succeeding the fire, I visited the ruins. The walls, with one exception, had fallen in. This exception was found in a compartment wall, not very thick, which stood about the middle of the house, and against which had rested the head of my bed. The plastering had here, in great measure, resisted the action of the fire—a fact which I attributed to its having been recently spread. About this wall a dense crowd were collected, and many persons seemed to be examining a particular portion of it with very minute and eager attention. The words “strange!” “singular!” and other similar expressions, excited my curiosity. I approached and saw, as if graven in bas relief upon the white surface, the figure of a gigantic cat. The impression was given with an accuracy truly marvellous. There was a rope about the animal’s neck.
+
+When I first beheld this apparition—for I could scarcely regard it as less—my wonder and my terror were extreme. But at length reflection came to my aid. The cat, I remembered, had been hung in a garden adjacent to the house. Upon the alarm of fire, this garden had been immediately filled by the crowd—by some one of whom the animal must have been cut from the tree and thrown, through an open window, into my chamber. This had probably been done with the view of arousing me from sleep. The falling of other walls had compressed the victim of my cruelty into the substance of the freshly-spread plaster; the lime of which, with the flames, and the ammonia from the carcass, had then accomplished the portraiture as I saw it.
+
+Although I thus readily accounted to my reason, if not altogether to my conscience, for the startling fact just detailed, it did not the less fail to make a deep impression upon my fancy. For months I could not rid myself of the phantasm of the cat; and, during this period, there came back into my spirit a half-sentiment that seemed, but was not, remorse. I went so far as to regret the loss of the animal, and to look about me, among the vile haunts which I now habitually frequented, for another pet of the same species, and of somewhat similar appearance, with which to supply its place.
+
+One night as I sat, half stupified, in a den of more than infamy, my attention was suddenly drawn to some black object, reposing upon the head of one of the immense hogsheads of Gin, or of Rum, which constituted the chief furniture of the apartment. I had been looking steadily at the top of this hogshead for some minutes, and what now caused me surprise was the fact that I had not sooner perceived the object thereupon. I approached it, and touched it with my hand. It was a black cat—a very large one—fully as large as Pluto, and closely resembling him in every respect but one. Pluto had not a white hair upon any portion of his body; but this cat had a large, although indefinite splotch of white, covering nearly the whole region of the breast. Upon my touching him, he immediately arose, purred loudly, rubbed against my hand, and appeared delighted with my notice. This, then, was the very creature of which I was in search. I at once offered to purchase it of the landlord; but this person made no claim to it—knew nothing of it—had never seen it before.
+
+I continued my caresses, and, when I prepared to go home, the animal evinced a disposition to accompany me. I permitted it to do so; occasionally stooping and patting it as I proceeded. When it reached the house it domesticated itself at once, and became immediately a great favorite with my wife.
+
+For my own part, I soon found a dislike to it arising within me. This was just the reverse of what I had anticipated; but—I know not how or why it was—its evident fondness for myself rather disgusted and annoyed. By slow degrees, these feelings of disgust and annoyance rose into the bitterness of hatred. I avoided the creature; a certain sense of shame, and the remembrance of my former deed of cruelty, preventing me from physically abusing it. I did not, for some weeks, strike, or otherwise violently ill use it; but gradually—very gradually—I came to look upon it with unutterable loathing, and to flee silently from its odious presence, as from the breath of a pestilence.
+
+What added, no doubt, to my hatred of the beast, was the discovery, on the morning after I brought it home, that, like Pluto, it also had been deprived of one of its eyes. This circumstance, however, only endeared it to my wife, who, as I have already said, possessed, in a high degree, that humanity of feeling which had once been my distinguishing trait, and the source of many of my simplest and purest pleasures.
+
+With my aversion to this cat, however, its partiality for myself seemed to increase. It followed my footsteps with a pertinacity which it would be difficult to make the reader comprehend. Whenever I sat, it would crouch beneath my chair, or spring upon my knees, covering me with its loathsome caresses. If I arose to walk it would get between my feet and thus nearly throw me down, or, fastening its long and sharp claws in my dress, clamber, in this manner, to my breast. At such times, although I longed to destroy it with a blow, I was yet withheld from so doing, partly by a memory of my former crime, but chiefly—let me confess it at once—by absolute dread of the beast.
+
+This dread was not exactly a dread of physical evil—and yet I should be at a loss how otherwise to define it. I am almost ashamed to own—yes, even in this felon’s cell, I am almost ashamed to own—that the terror and horror with which the animal inspired me, had been heightened by one of the merest chimaeras it would be possible to conceive. My wife had called my attention, more than once, to the character of the mark of white hair, of which I have spoken, and which constituted the sole visible difference between the strange beast and the one I had destroyed. The reader will remember that this mark, although large, had been originally very indefinite; but, by slow degrees—degrees nearly imperceptible, and which for a long time my Reason struggled to reject as fanciful—it had, at length, assumed a rigorous distinctness of outline. It was now the representation of an object that I shudder to name—and for this, above all, I loathed, and dreaded, and would have rid myself of the monster had I dared—it was now, I say, the image of a hideous—of a ghastly thing—of the GALLOWS!—oh, mournful and terrible engine of Horror and of Crime—of Agony and of Death!
+
+And now was I indeed wretched beyond the wretchedness of mere Humanity. And a brute beast —whose fellow I had contemptuously destroyed—a brute beast to work out for me—for me a man, fashioned in the image of the High God—so much of insufferable wo! Alas! neither by day nor by night knew I the blessing of Rest any more! During the former the creature left me no moment alone; and, in the latter, I started, hourly, from dreams of unutterable fear, to find the hot breath of the thing upon my face, and its vast weight—an incarnate Night-Mare that I had no power to shake off—incumbent eternally upon my heart!
+
+Beneath the pressure of torments such as these, the feeble remnant of the good within me succumbed. Evil thoughts became my sole intimates—the darkest and most evil of thoughts. The moodiness of my usual temper increased to hatred of all things and of all mankind; while, from the sudden, frequent, and ungovernable outbursts of a fury to which I now blindly abandoned myself, my uncomplaining wife, alas! was the most usual and the most patient of sufferers.
+
+One day she accompanied me, upon some household errand, into the cellar of the old building which our poverty compelled us to inhabit. The cat followed me down the steep stairs, and, nearly throwing me headlong, exasperated me to madness. Uplifting an axe, and forgetting, in my wrath, the childish dread which had hitherto stayed my hand, I aimed a blow at the animal which, of course, would have proved instantly fatal had it descended as I wished. But this blow was arrested by the hand of my wife. Goaded, by the interference, into a rage more than demoniacal, I withdrew my arm from her grasp and buried the axe in her brain. She fell dead upon the spot, without a groan.
+
+This hideous murder accomplished, I set myself forthwith, and with entire deliberation, to the task of concealing the body. I knew that I could not remove it from the house, either by day or by night, without the risk of being observed by the neighbors. Many projects entered my mind. At one period I thought of cutting the corpse into minute fragments, and destroying them by fire. At another, I resolved to dig a grave for it in the floor of the cellar. Again, I deliberated about casting it in the well in the yard—about packing it in a box, as if merchandize, with the usual arrangements, and so getting a porter to take it from the house. Finally I hit upon what I considered a far better expedient than either of these. I determined to wall it up in the cellar—as the monks of the middle ages are recorded to have walled up their victims.
+
+For a purpose such as this the cellar was well adapted. Its walls were loosely constructed, and had lately been plastered throughout with a rough plaster, which the dampness of the atmosphere had prevented from hardening. Moreover, in one of the walls was a projection, caused by a false chimney, or fireplace, that had been filled up, and made to resemble the red of the cellar. I made no doubt that I could readily displace the bricks at this point, insert the corpse, and wall the whole up as before, so that no eye could detect any thing suspicious. And in this calculation I was not deceived. By means of a crow-bar I easily dislodged the bricks, and, having carefully deposited the body against the inner wall, I propped it in that position, while, with little trouble, I re-laid the whole structure as it originally stood. Having procured mortar, sand, and hair, with every possible precaution, I prepared a plaster which could not be distinguished from the old, and with this I very carefully went over the new brickwork. When I had finished, I felt satisfied that all was right. The wall did not present the slightest appearance of having been disturbed. The rubbish on the floor was picked up with the minutest care. I looked around triumphantly, and said to myself—“Here at least, then, my labor has not been in vain.”
+
+My next step was to look for the beast which had been the cause of so much wretchedness; for I had, at length, firmly resolved to put it to death. Had I been able to meet with it, at the moment, there could have been no doubt of its fate; but it appeared that the crafty animal had been alarmed at the violence of my previous anger, and forebore to present itself in my present mood. It is impossible to describe, or to imagine, the deep, the blissful sense of relief which the absence of the detested creature occasioned in my bosom. It did not make its appearance during the night—and thus for one night at least, since its introduction into the house, I soundly and tranquilly slept; aye, slept even with the burden of murder upon my soul!
+
+The second and the third day passed, and still my tormentor came not. Once again I breathed as a freeman. The monster, in terror, had fled the premises forever! I should behold it no more! My happiness was supreme! The guilt of my dark deed disturbed me but little. Some few inquiries had been made, but these had been readily answered. Even a search had been instituted—but of course nothing was to be discovered. I looked upon my future felicity as secured.
+
+Upon the fourth day of the assassination, a party of the police came, very unexpectedly, into the house, and proceeded again to make rigorous investigation of the premises. Secure, however, in the inscrutability of my place of concealment, I felt no embarrassment whatever. The officers bade me accompany them in their search. They left no nook or corner unexplored. At length, for the third or fourth time, they descended into the cellar. I quivered not in a muscle. My heart beat calmly as that of one who slumbers in innocence. I walked the cellar from end to end. I folded my arms upon my bosom, and roamed easily to and fro. The police were thoroughly satisfied and prepared to depart. The glee at my heart was too strong to be restrained. I burned to say if but one word, by way of triumph, and to render doubly sure their assurance of my guiltlessness.
+
+“Gentlemen,” I said at last, as the party ascended the steps, “I delight to have allayed your suspicions. I wish you all health, and a little more courtesy. By the bye, gentlemen, this—this is a very well constructed house.” [In the rabid desire to say something easily, I scarcely knew what I uttered at all.]—“I may say an excellently well constructed house. These walls—are you going, gentlemen?—these walls are solidly put together;” and here, through the mere phrenzy of bravado, I rapped heavily, with a cane which I held in my hand, upon that very portion of the brick-work behind which stood the corpse of the wife of my bosom.
+
+But may God shield and deliver me from the fangs of the Arch-Fiend! No sooner had the reverberation of my blows sunk into silence, than I was answered by a voice from within the tomb!—by a cry, at first muffled and broken, like the sobbing of a child, and then quickly swelling into one long, loud, and continuous scream, utterly anomalous and inhuman—a howl—a wailing shriek, half of horror and half of triumph, such as might have arisen only out of hell, conjointly from the throats of the dammed in their agony and of the demons that exult in the damnation.
+
+Of my own thoughts it is folly to speak. Swooning, I staggered to the opposite wall. For one instant the party upon the stairs remained motionless, through extremity of terror and of awe. In the next, a dozen stout arms were toiling at the wall. It fell bodily. The corpse, already greatly decayed and clotted with gore, stood erect before the eyes of the spectators. Upon its head, with red extended mouth and solitary eye of fire, sat the hideous beast whose craft had seduced me into murder, and whose informing voice had consigned me to the hangman. I had walled the monster up within the tomb! `,
         userId: 5,
         categoryId: 37,
         createdAt: new Date(),
@@ -16,7 +76,43 @@ module.exports = {
       {
         title: "The Tell-Tale Heart",
         subHeading: "Another part of my classic works",
-        body: "TRUE!—nervous—very, very dreadfully nervous I had been and am; but why will you say that I am mad? The disease had sharpened my senses—not destroyed—not dulled them. Above all was the sense of hearing acute. I heard all things in the heaven and in the earth. I heard many things in hell. How, then, am I mad? Hearken! and observe how healthily—how calmly I can tell you the whole story. It is impossible to say how first the idea entered my brain; but once conceived, it haunted me day and night. Object there was none. Passion there was none. I loved the old man. He had never wronged me. He had never given me insult. For his gold I had no desire. I think it was his eye! yes, it was this! He had the eye of a vulture—a pale blue eye, with a film over it. Whenever it fell upon me, my blood ran cold; and so by degrees—very gradually—I made up my mind to take the life of the old man, and thus rid myself of the eye forever. Now this is the point. You fancy me mad. Madmen know nothing. But you should have seen me. You should have seen how wisely I proceeded—with what caution—with what foresight—with what dissimulation I went to work! I was never kinder to the old man than during the whole week before I killed him. And every night, about midnight, I turned the latch of his door and opened it—oh so gently! And then, when I had made an opening sufficient for my head, I put in a dark lantern, all closed, closed, that no light shone out, and then I thrust in my head. Oh, you would have laughed to see how cunningly I thrust it in! I moved it slowly—very, very slowly, so that I might not disturb the old man’s sleep. It took me an hour to place my whole head within the opening so far that I could see him as he lay upon his bed. Ha! would a madman have been so wise as this? And then, when my head was well in the room, I undid the lantern cautiously—oh, so cautiously—cautiously (for the hinges creaked)—I undid it just so much that a single thin ray fell upon the vulture eye. And this I did for seven long nights—every night just at midnight—but I found the eye always closed; and so it was impossible to do the work; for it was not the old man who vexed me, but his Evil Eye. And every morning, when the day broke, I went boldly into the chamber, and spoke courageously to him, calling him by name in a hearty tone, and inquiring how he has passed the night. So you see he would have been a very profound old man, indeed, to suspect that every night, just at twelve, I looked in upon him while he slept. ",
+        body: ` TRUE!—nervous—very, very dreadfully nervous I had been and am; but why will you say that I am mad? The disease had sharpened my senses—not destroyed—not dulled them. Above all was the sense of hearing acute. I heard all things in the heaven and in the earth. I heard many things in hell. How, then, am I mad? Hearken! and observe how healthily—how calmly I can tell you the whole story.
+
+It is impossible to say how first the idea entered my brain; but once conceived, it haunted me day and night. Object there was none. Passion there was none. I loved the old man. He had never wronged me. He had never given me insult. For his gold I had no desire. I think it was his eye! yes, it was this! He had the eye of a vulture—a pale blue eye, with a film over it. Whenever it fell upon me, my blood ran cold; and so by degrees—very gradually—I made up my mind to take the life of the old man, and thus rid myself of the eye forever.
+
+Now this is the point. You fancy me mad. Madmen know nothing. But you should have seen me. You should have seen how wisely I proceeded—with what caution—with what foresight—with what dissimulation I went to work! I was never kinder to the old man than during the whole week before I killed him. And every night, about midnight, I turned the latch of his door and opened it—oh so gently! And then, when I had made an opening sufficient for my head, I put in a dark lantern, all closed, closed, that no light shone out, and then I thrust in my head. Oh, you would have laughed to see how cunningly I thrust it in! I moved it slowly—very, very slowly, so that I might not disturb the old man’s sleep. It took me an hour to place my whole head within the opening so far that I could see him as he lay upon his bed. Ha! would a madman have been so wise as this? And then, when my head was well in the room, I undid the lantern cautiously—oh, so cautiously—cautiously (for the hinges creaked)—I undid it just so much that a single thin ray fell upon the vulture eye. And this I did for seven long nights—every night just at midnight—but I found the eye always closed; and so it was impossible to do the work; for it was not the old man who vexed me, but his Evil Eye. And every morning, when the day broke, I went boldly into the chamber, and spoke courageously to him, calling him by name in a hearty tone, and inquiring how he has passed the night. So you see he would have been a very profound old man, indeed, to suspect that every night, just at twelve, I looked in upon him while he slept.
+
+Upon the eighth night I was more than usually cautious in opening the door. A watch’s minute hand moves more quickly than did mine. Never before that night had I felt the extent of my own powers—of my sagacity. I could scarcely contain my feelings of triumph. To think that there I was, opening the door, little by little, and he not even to dream of my secret deeds or thoughts. I fairly chuckled at the idea; and perhaps he heard me; for he moved on the bed suddenly, as if startled. Now you may think that I drew back—but no. His room was as black as pitch with the thick darkness, (for the shutters were close fastened, through fear of robbers,) and so I knew that he could not see the opening of the door, and I kept pushing it on steadily, steadily.
+
+I had my head in, and was about to open the lantern, when my thumb slipped upon the tin fastening, and the old man sprang up in bed, crying out—“Who’s there?”
+
+I kept quite still and said nothing. For a whole hour I did not move a muscle, and in the meantime I did not hear him lie down. He was still sitting up in the bed listening;—just as I have done, night after night, hearkening to the death watches in the wall.
+
+Presently I heard a slight groan, and I knew it was the groan of mortal terror. It was not a groan of pain or of grief—oh, no!—it was the low stifled sound that arises from the bottom of the soul when overcharged with awe. I knew the sound well. Many a night, just at midnight, when all the world slept, it has welled up from my own bosom, deepening, with its dreadful echo, the terrors that distracted me. I say I knew it well. I knew what the old man felt, and pitied him, although I chuckled at heart. I knew that he had been lying awake ever since the first slight noise, when he had turned in the bed. His fears had been ever since growing upon him. He had been trying to fancy them causeless, but could not. He had been saying to himself—“It is nothing but the wind in the chimney—it is only a mouse crossing the floor,” or “It is merely a cricket which has made a single chirp.” Yes, he had been trying to comfort himself with these suppositions: but he had found all in vain. All in vain; because Death, in approaching him had stalked with his black shadow before him, and enveloped the victim. And it was the mournful influence of the unperceived shadow that caused him to feel—although he neither saw nor heard—to feel the presence of my head within the room.
+
+![Creepy Picture, huh?](https://upload.wikimedia.org/wikipedia/commons/4/43/Clarke-TellTaleHeart.jpeg)
+
+When I had waited a long time, very patiently, without hearing him lie down, I resolved to open a little—a very, very little crevice in the lantern. So I opened it—you cannot imagine how stealthily, stealthily—until, at length a simple dim ray, like the thread of the spider, shot from out the crevice and fell full upon the vulture eye.
+
+It was open—wide, wide open—and I grew furious as I gazed upon it. I saw it with perfect distinctness—all a dull blue, with a hideous veil over it that chilled the very marrow in my bones; but I could see nothing else of the old man’s face or person: for I had directed the ray as if by instinct, precisely upon the damned spot.
+
+And have I not told you that what you mistake for madness is but over-acuteness of the sense?—now, I say, there came to my ears a low, dull, quick sound, such as a watch makes when enveloped in cotton. I knew that sound well, too. It was the beating of the old man’s heart. It increased my fury, as the beating of a drum stimulates the soldier into courage.
+
+But even yet I refrained and kept still. I scarcely breathed. I held the lantern motionless. I tried how steadily I could maintain the ray upon the eve. Meantime the hellish tattoo of the heart increased. It grew quicker and quicker, and louder and louder every instant. The old man’s terror must have been extreme! It grew louder, I say, louder every moment!—do you mark me well I have told you that I am nervous: so I am. And now at the dead hour of the night, amid the dreadful silence of that old house, so strange a noise as this excited me to uncontrollable terror. Yet, for some minutes longer I refrained and stood still. But the beating grew louder, louder! I thought the heart must burst. And now a new anxiety seized me—the sound would be heard by a neighbour! The old man’s hour had come! With a loud yell, I threw open the lantern and leaped into the room. He shrieked once—once only. In an instant I dragged him to the floor, and pulled the heavy bed over him. I then smiled gaily, to find the deed so far done. But, for many minutes, the heart beat on with a muffled sound. This, however, did not vex me; it would not be heard through the wall. At length it ceased. The old man was dead. I removed the bed and examined the corpse. Yes, he was stone, stone dead. I placed my hand upon the heart and held it there many minutes. There was no pulsation. He was stone dead. His eye would trouble me no more.
+
+If still you think me mad, you will think so no longer when I describe the wise precautions I took for the concealment of the body. The night waned, and I worked hastily, but in silence. First of all I dismembered the corpse. I cut off the head and the arms and the legs.
+
+I then took up three planks from the flooring of the chamber, and deposited all between the scantlings. I then replaced the boards so cleverly, so cunningly, that no human eye—not even his—could have detected any thing wrong. There was nothing to wash out—no stain of any kind—no blood-spot whatever. I had been too wary for that. A tub had caught all—ha! ha!
+
+When I had made an end of these labors, it was four o’clock—still dark as midnight. As the bell sounded the hour, there came a knocking at the street door. I went down to open it with a light heart,—for what had I now to fear? There entered three men, who introduced themselves, with perfect suavity, as officers of the police. A shriek had been heard by a neighbour during the night; suspicion of foul play had been aroused; information had been lodged at the police office, and they (the officers) had been deputed to search the premises.
+
+I smiled,—for what had I to fear? I bade the gentlemen welcome. The shriek, I said, was my own in a dream. The old man, I mentioned, was absent in the country. I took my visitors all over the house. I bade them search—search well. I led them, at length, to his chamber. I showed them his treasures, secure, undisturbed. In the enthusiasm of my confidence, I brought chairs into the room, and desired them here to rest from their fatigues, while I myself, in the wild audacity of my perfect triumph, placed my own seat upon the very spot beneath which reposed the corpse of the victim.
+
+The officers were satisfied. My manner had convinced them. I was singularly at ease. They sat, and while I answered cheerily, they chatted of familiar things. But, ere long, I felt myself getting pale and wished them gone. My head ached, and I fancied a ringing in my ears: but still they sat and still chatted. The ringing became more distinct:—It continued and became more distinct: I talked more freely to get rid of the feeling: but it continued and gained definiteness—until, at length, I found that the noise was not within my ears.
+
+No doubt I now grew very pale;—but I talked more fluently, and with a heightened voice. Yet the sound increased—and what could I do? It was a low, dull, quick sound—much such a sound as a watch makes when enveloped in cotton. I gasped for breath—and yet the officers heard it not. I talked more quickly—more vehemently; but the noise steadily increased. I arose and argued about trifles, in a high key and with violent gesticulations; but the noise steadily increased. Why would they not be gone? I paced the floor to and fro with heavy strides, as if excited to fury by the observations of the men—but the noise steadily increased. Oh God! what could I do? I foamed—I raved—I swore! I swung the chair upon which I had been sitting, and grated it upon the boards, but the noise arose over all and continually increased. It grew louder—louder—louder! And still the men chatted pleasantly, and smiled. Was it possible they heard not? Almighty God!—no, no! They heard!—they suspected!—they knew!—they were making a mockery of my horror!-this I thought, and this I think. But anything was better than this agony! Anything was more tolerable than this derision! I could bear those hypocritical smiles no longer! I felt that I must scream or die! and now—again!—hark! louder! louder! louder! louder!
+
+“Villains!” I shrieked, “dissemble no more! I admit the deed!—tear up the planks! here, here!—It is the beating of his hideous heart!” `,
         userId: 5,
         categoryId: 37,
         createdAt: new Date(),
@@ -26,7 +122,135 @@ module.exports = {
       {
         title: "The Raven",
         subHeading: "Part of my classic poem",
-        body: "Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume of forgotten lore, While I nodded, nearly napping, suddenly there came a tapping, As of some one gently rapping, rapping at my chamber door. 'Tis some visiter,' I muttered, 'tapping at my chamber door— Only this, and nothing more.'",
+        body: ` ![Oh boy, a raven!](https://upload.wikimedia.org/wikipedia/commons/8/86/Tenniel-TheRaven.jpg)
+ Once upon a midnight dreary, while I pondered, weak and weary,
+ Over many a quaint and curious volume of forgotten lore,
+ While I nodded, nearly napping, suddenly there came a tapping,
+ As of some one gently rapping, rapping at my chamber door.
+ “‘Tis some visiter,” I muttered, “tapping at my chamber door—
+                          Only this, and nothing more.”
+
+ Ah, distinctly I remember it was in the bleak December,
+ And each separate dying ember wrought its ghost upon the floor.
+ Eagerly I wished the morrow;—vainly I had sought to borrow
+ From my books surcease of sorrow—sorrow for the lost Lenore—
+ For the rare and radiant maiden whom the angels name Lenore—
+                          Nameless here for evermore.
+
+ And the silken sad uncertain rustling of each purple curtain
+ Thrilled me—filled me with fantastic terrors never felt before;
+ So that now, to still the beating of my heart, I stood repeating
+ “‘Tis some visiter entreating entrance at my chamber door—
+ Some late visiter entreating entrance at my chamber door;—
+                          This it is, and nothing more.”
+
+ Presently my soul grew stronger; hesitating then no longer,
+ “Sir,” said I, “or Madam, truly your forgiveness I implore;
+ But the fact is I was napping, and so gently you came rapping,
+ And so faintly you came tapping, tapping at my chamber door,
+ That I scarce was sure I heard you “—here I opened wide the door;——
+                          Darkness there and nothing more.
+
+ Deep into that darkness peering, long I stood there wondering, fearing,
+ Doubting, dreaming dreams no mortal ever dared to dream before;
+ But the silence was unbroken, and the darkness gave no token,
+ And the only word there spoken was the whispered word, “Lenore!”
+  This I whispered, and an echo murmured back the word, “Lenore!”—
+                          Merely this, and nothing more.
+
+ Back into the chamber turning, all my soul within me burning,
+ Soon I heard again a tapping somewhat louder than before.
+ “Surely,” said I, “surely that is something at my window lattice;
+ Let me see, then, what thereat is, and this mystery explore—
+ Let my heart be still a moment and this mystery explore;—
+                          ‘Tis the wind and nothing more!”
+
+ Open here I flung the shutter, when, with many a flirt and flutter,
+ In there stepped a stately raven of the saintly days of yore;
+ Not the least obeisance made he; not an instant stopped or stayed he;
+ But, with mien of lord or lady, perched above my chamber door—
+ Perched upon a bust of Pallas just above my chamber door—
+                          Perched, and sat, and nothing more.
+
+ Then this ebony bird beguiling my sad fancy into smiling,
+ By the grave and stern decorum of the countenance it wore,
+ “Though thy crest be shorn and shaven, thou,” I said, “art sure no craven,
+ Ghastly grim and ancient raven wandering from the Nightly shore—
+ Tell me what thy lordly name is on the Night’s Plutonian shore!”
+                          Quoth the raven “Nevermore.”
+
+ Much I marvelled this ungainly fowl to hear discourse so plainly,
+ Though its answer little meaning—little relevancy bore;
+ For we cannot help agreeing that no living human being
+ Ever yet was blessed with seeing bird above his chamber door—
+ Bird or beast upon the sculptured bust above his chamber door,
+                         With such name as “Nevermore.”
+
+ But the raven, sitting lonely on the placid bust, spoke only
+ That one word, as if his soul in that one word he did outpour.
+ Nothing farther then he uttered—not a feather then he fluttered—
+ Till I scarcely more than muttered “Other friends have flown before—
+ On the morrow he will leave me, as my hopes have flown before.”
+                          Then the bird said “Nevermore.”
+
+ Startled at the stillness broken by reply so aptly spoken,
+ “Doubtless,” said I, “what it utters is its only stock and store
+ Caught from some unhappy master whom unmerciful Disaster
+ Followed fast and followed faster till his songs one burden bore—
+ Till the dirges of his Hope that melancholy burden bore
+                         Of “Never—nevermore.”
+
+![there goes that raven again!](https://upload.wikimedia.org/wikipedia/commons/6/62/Paul_Gustave_Dore_Raven14.jpg)
+
+ But the raven still beguiling all my sad soul into smiling,
+ Straight I wheeled a cushioned seat in front of bird, and bust and door;
+ Then, upon the velvet sinking, I betook myself to thinking
+ Fancy unto fancy, thinking what this ominous bird of yore—
+ What this grim, ungainly, ghastly, gaunt and ominous bird of yore
+                         Meant in croaking “Nevermore.”
+
+ This I sat engaged in guessing, but no syllable expressing
+ To the fowl whose fiery eyes now burned into my bosom’s core;
+ This and more I sat divining, with my head at ease reclining
+ On the cushion’s velvet lining that the lamplght gloated o’er,
+ But whose velvet violet lining with the lamplight gloating o’er,
+                          She shall press, ah, nevermore!
+
+ Then, methought, the air grew denser, perfumed from an unseen censer
+ Swung by Angels whose faint foot-falls tinkled on the tufted floor.
+ “Wretch,” I cried, “thy God hath lent thee—by these angels he hath sent
+ thee
+ Respite—respite and nepenthe from thy memories of Lenore;
+ Quaff, oh quaff this kind nepenthe and forget this lost Lenore!”
+                           Quoth the raven, “Nevermore.”
+
+ “Prophet!” said I, “thing of evil!—prophet still, if bird or devil!—
+ Whether Tempter sent, or whether tempest tossed thee here ashore,
+ Desolate yet all undaunted, on this desert land enchanted—
+ On this home by Horror haunted—tell me truly, I implore—
+ Is there—is there balm in Gilead?—tell me—tell me, I implore!”
+                           Quoth the raven, “Nevermore.”
+
+ “Prophet!” said I, “thing of evil—prophet still, if bird or devil!
+ By that Heaven that bends above us—by that God we both adore—
+ Tell this soul with sorrow laden if, within the distant Aidenn,
+ It shall clasp a sainted maiden whom the angels name Lenore—
+ Clasp a rare and radiant maiden whom the angels name Lenore.”
+                           Quoth the raven, “Nevermore.”
+
+ “Be that word our sign of parting, bird or fiend!” I shrieked, upstarting—
+ “Get thee back into the tempest and the Night’s Plutonian shore!
+ Leave no black plume as a token of that lie thy soul hath spoken!
+ Leave my loneliness unbroken!—quit the bust above my door!
+ Take thy beak from out my heart, and take thy form from off my door!”
+                          Quoth the raven, “Nevermore.”
+
+ And the raven, never flitting, still is sitting, still is sitting
+ On the pallid bust of Pallas just above my chamber door;
+ And his eyes have all the seeming of a demon’s that is dreaming,
+ And the lamp-light o’er him streaming throws his shadow on the floor;
+ And my soul from out that shadow that lies floating on the floor
+                          Shall be lifted—nevermore!`,
         userId: 5,
         categoryId: 37,
         createdAt: new Date(),
@@ -850,7 +1074,7 @@ Pellentesque ac pretium est, et laoreet nulla. Praesent fringilla tortor
  - tempor accumsan finibus. Ut non est sit amet eros gravida pharetra a
  - sed diam. Integer nec mauris et dolor commodo molestie.
 
- - [x] Praesent maximus tincidunt tincidunt. Suspendisse egestas
+ [x] Praesent maximus tincidunt tincidunt. Suspendisse egestas
        tincidunt mi eget auctor. Nunc ipsum metus, elementum eu ligula
        sit amet, vehicula rhoncus turpis. Sed eu enim tempus neque
        suscipit blandit. Etiam tincidunt velit mi. In a pretium odio. Ut

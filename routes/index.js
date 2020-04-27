@@ -18,4 +18,8 @@ router.get("/splash", (req, res) => {
     res.render("splash", { title: 'Rare' });
 })
 
+router.get(`/\*/`, (req, res) => {
+    res.render("404", { title: "Page Not Found" });
+})
+
 module.exports = router

@@ -28,6 +28,14 @@ a:hover {
   color: rgb(206, 245, 255);
 }
 
+.story-body a, .story-form a {
+  color: blue;
+}
+
+.story-body a:visited, .story-form a:visited {
+  color: darkblue;
+}
+
 .footer-container {
   background-color: rgb(20, 20, 20);
   display: flex;
@@ -92,6 +100,7 @@ body {
   justify-self: flex-end;
   text-align: right;
   padding-top: 10px;
+  outline:none;
 }
 
 .new-story-button {
@@ -99,6 +108,7 @@ body {
   justify-self: flex-end;
   text-align: right;
   padding-top: 10px;
+  outline:none;
 }
 
 .rare-logo.text-style1 {
@@ -256,7 +266,8 @@ body {
   display: flex;
   flex-direction: column;
   background-color: white;
-  max-width: 800px;
+  max-width: 600px;
+  box-sizing: border-box;
   padding: 10px;
 }
 
@@ -275,6 +286,7 @@ body {
   background-color: white;
   display: grid;
   margin: 0 auto;
+  margin-top: 10px;
   max-width: 800px;
   /* height: 500px; */
   grid-template-areas:
@@ -289,6 +301,7 @@ body {
 
 a.article-title {
   color: black;
+  font-weight: bold;
 }
 
 a.user-fullname {
@@ -489,6 +502,8 @@ a.rare-logo-footer {
 }
 
 .story-container {
+  max-width: 600px;
+  box-sizing: border-box;
   display: grid;
   grid-template-areas:
   "title title title title"
@@ -500,10 +515,18 @@ a.rare-logo-footer {
 
 .edit-story-button {
   grid-area: editbutton;
+  outline:none;
+  width: 50px;
+  justify-self: left;
+  /* height: 30px; */
 }
 
 .like-story-button {
   grid-area: likebutton;
+  outline:none;
+  width: 50px;
+  justify-self: right;
+  /* height: 30px; */
 }
 
 .delete-story-button {
@@ -549,6 +572,7 @@ a.rare-logo-footer {
 
 .story-container, .author-info-container, .comments-container {
   max-width: 600px;
+  box-sizing: border-box;
   padding: 20px;
   background-color: white;
   margin: 10px auto;
@@ -563,6 +587,7 @@ a.rare-logo-footer {
 
 .story-body {
   position: relative;
+  box-sizing: border-box;
   max-width: 800px;
   padding: 20px;
   background-color: white;
@@ -580,7 +605,7 @@ a.rare-logo-footer {
 
 .form-top {
   display: grid;
-  border-radius: 3px;
+  border-radius: 2px;
   background-color: rgb(59, 128, 255);
   grid-template-areas: ". . . . . . . . . . exitbutton";
 }
@@ -602,20 +627,23 @@ a.rare-logo-footer {
 .guest-login-form, .guest-button {
   max-width: 400px;
   margin: 10px auto;
+  outline:none;
 }
 
 button.edit-story-button {
   margin: 10px;
+  outline:none;
 }
 
 
 .edit-story-button-hidden {
   display: none;
+  outline:none;
 }
 
 button.like-story-button {
   margin: 10px;
-
+  outline:none;
 }
 
 button.delete-story-button {
@@ -625,7 +653,7 @@ button.delete-story-button {
 
 button.like-comment-button {
   margin: 10px;
-
+  outline:none;
 }
 input, select {
   max-width: 100%;
@@ -638,6 +666,7 @@ input, select {
   color: white;
   text-align: right;
   grid-area: exitbutton;
+  outline:none;
 }
 
 .site-button {
@@ -651,11 +680,13 @@ input, select {
   padding: 10px;
   max-width: 100px;
   cursor: pointer;
+  outline:none;
 }
 
 .site-button:hover {
   background-color: rgb(130, 205, 255);
   color: white;
+  outline:none;
 }
 
 .story-title {
@@ -663,14 +694,22 @@ input, select {
   grid-area: title;
 }
 
-button:disabled {
-  pointer-events: none;
+.button-disabled {
+  /* pointer-events: none; */
   background-color: grey;
   color: white;
+  outline:none;
+}
+
+.button-disabled:hover {
+  /* pointer-events: none; */
+  background-color: rgb(190, 190, 190);
+  color: white;
+  outline:none;
 }
 
 div.scrollmenu {
-  background-color: #333;
+  background-color: rgb(59, 128, 255);
   overflow: auto;
   white-space: nowrap;
 }
@@ -684,5 +723,13 @@ div.scrollmenu a {
 }
 
 div.scrollmenu a:hover {
-  background-color: #777;
+  color: rgb(206, 245, 255);
+}
+
+.guest-login-form {
+  display: inline-block;
+}
+
+.editor-title {
+  font-weight: bold;
 }

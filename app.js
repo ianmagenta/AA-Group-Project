@@ -53,7 +53,7 @@ app.use('/comment', commentRoute);
 app.use('/user', userRoute);
 app.use('/session', sessionRoute)
 app.use('/profile', profileRoute);
-app.use('/categoryStories', categoryStoriesRoute);
+app.use('/category', categoryStoriesRoute);
 app.use('/storycategories', storyCategoryRoute);
 app.use('/', indexRoute);
 
@@ -83,11 +83,17 @@ app.use((err, req, res, next) => {
   const isProduction = environment === "production";
   console.log(err);
 
-  res.render('404', {
+
+  res.json({
     title: err.title || "Server Error",
     errors: err.errors,
     stack: isProduction ? null : err.stack,
   });
+  // res.render('404', {
+  //   title: err.title || "Server Error",
+  //   errors: err.errors,
+  //   stack: isProduction ? null : err.stack,
+  // });
 });
 
 

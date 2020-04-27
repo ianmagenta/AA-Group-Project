@@ -2,12 +2,10 @@ extends layout.pug
 
 block content
   form.comment-form
-
     label.text-style2(for='markdown-story-editor') Comment:
     textarea#markdown-story-editor.text-style2(name="body")
     button.site-button(type="submit") Submit Comment
-  <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
-  <script src="https://unpkg.com/easymde/dist/easymde.min.js">var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});</script>
+  link(rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css")
+  script(src="https://unpkg.com/easymde/dist/easymde.min.js") var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});
   script(type='application/javascript' src='/js/md.js')
   script(type='module' src='/js/newcomment.js')
-  //- add publish button that will move down the page

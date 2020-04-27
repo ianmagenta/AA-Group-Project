@@ -41,7 +41,7 @@ storyForm.addEventListener("submit", async (e) => {
     const userId = localStorage.getItem("RARE_USER_ID");
 
     const jsonBody = { title, subHeading, body, userId, categoryId };
-    console.log(jsonBody)
+    // console.log(jsonBody)
     try {
         const res = await fetch(`${api}story/${id}`, {
             method: "PUT",

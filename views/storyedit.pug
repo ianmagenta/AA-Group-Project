@@ -1,9 +1,9 @@
 extends layout.pug
 
 block content
-  .errors-container
   form.story-form.text-style2
-    label.text-style1(for='markdown-title-editor') Title:
+    .errors-container
+    label.text-style2.editor-title(for='markdown-title-editor') Title:
     input#markdown-title-editor(name="title")
     label.text-style2(for='markdown-subheader-editor') Subheader:
     input#markdown-subheader-editor(name="subHeading")
@@ -13,9 +13,7 @@ block content
         option(value=category.id)= category.categoryName
     label.text-style2(for='markdown-story-editor') Story:
     textarea#markdown-story-editor.text-style2(name="body")
-    button(type="submit" class="site-button") Submit Story
-  <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
-  <script src="https://unpkg.com/easymde/dist/easymde.min.js">var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});</script>
+    button(type="submit" class="site-button") Submit Story Edits
+  link(rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css")
+  script(src="https://unpkg.com/easymde/dist/easymde.min.js") var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});
   script(type='module' src='/js/storyedit.js')
-  //- script(type='application/javascript' src='/js/md.js')
-  //- add publish button that will move down the page

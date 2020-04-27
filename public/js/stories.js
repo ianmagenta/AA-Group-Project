@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         document.querySelector(".story-author").innerHTML = `By ${story.User.firstName} ${story.User.lastName}`;
         document.querySelector(".story-date").innerHTML = new Date(story.createdAt.replace(' ', 'T')).toDateString();
         document.querySelector(".story-read-time").innerHTML = readTime.text;
-        document.querySelector(".story-category").innerHTML += ` <a name="searchButton" class="category-italics" style="color:#000000;" href='/categoryStories/${story.StoryCategory.categoryName}'>${story.StoryCategory.categoryName}<\a>`;
+        document.querySelector(".story-category").innerHTML += ` <a name="searchButton" class="category-italics" style="color:#000000;" href='/category/${story.StoryCategory.categoryName}'>${story.StoryCategory.categoryName}<\a>`;
         document.querySelector(".story-body").innerHTML += parsedBody;
         document.querySelector(".author-name").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
         document.querySelector(".author-bio").innerHTML = story.User.bio;
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 }
             });
             if (alreadyLikedComment) {
-                div.innerHTML += `<button type="button" class="like-comment-button site-button" disabled id=button:${comment.id}><i class="fas fa-thumbs-up"></i></button>`
+                div.innerHTML += `<button type="button" class="like-comment-button site-button button-disabled" id=button:${comment.id}><i class="fas fa-thumbs-up"></i></button>`
             } else {
                 div.innerHTML += `<button type="button" class="like-comment-button site-button" id=button:${comment.id}><i class="fas fa-thumbs-up"></i></button>`
             }
@@ -90,13 +90,28 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             const commentLikeButton = document.getElementById(`button:${comment.id}`);
             commentLikeButton.addEventListener("click", async (e) => {
                 e.preventDefault();
-                const commentRes = await fetch(`http://localhost:8080/comment/${comment.id}/likes/${userId}`, { method: 'POST' });
-                if (!commentRes.ok) {
-                    throw res;
+                if (alreadyLikedComment) {
+                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`, { method: 'DELETE' });
+                    if (!commentRes.ok) {
+                        throw res;
+                    }
+                    comment.commentLikes.pop();
+                    document.getElementById(`likes:${comment.id}`).innerHTML = `Likes: ${comment.commentLikes.length}`;
+                    commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+                    commentLikeButton.classList.remove("button-disabled");
+                    alreadyLikedComment = false;
+                } else {
+                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`, { method: 'POST' });
+                    if (!commentRes.ok) {
+                        throw res;
+                    }
+                    comment.commentLikes[comment.commentLikes.length] = {}
+                    document.getElementById(`likes:${comment.id}`).innerHTML = `Likes: ${comment.commentLikes.length}`;
+                    commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+                    commentLikeButton.classList.add("button-disabled");
+                    alreadyLikedComment = true;
                 }
-                document.getElementById(`likes:${comment.id}`).innerHTML = `Likes: ${comment.commentLikes.length + 1}`;
-                commentLikeButton.setAttribute("disabled", "");
-                commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+
             });
 
             // Comment delete button behavior
@@ -130,20 +145,30 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         });
 
         if (storyLiked) {
-            storyLikeButton.setAttribute("disabled", "");
-        } else {
-            storyLikeButton.addEventListener("click", async (e) => {
-                e.preventDefault();
+            storyLikeButton.classList.add("button-disabled");
+        }
+        storyLikeButton.addEventListener("click", async (e) => {
+            e.preventDefault();
+            if (storyLiked) {
+                const likeRes = await fetch(`${api}story/${id}/likes/${userId}`, { method: 'DELETE' });
+                if (!likeRes.ok) {
+                    throw likeRes;
+                }
+                storyLikes.pop()
+                document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
+                storyLikeButton.classList.remove("button-disabled");
+                storyLiked = false
+            } else {
                 const likeRes = await fetch(`${api}story/${id}/likes/${userId}`, { method: 'POST' });
                 if (!likeRes.ok) {
                     throw likeRes;
                 }
-                const newLike = await likeRes.json();
-                storyLikes[storyLikes.length] = newLike
+                storyLikes[storyLikes.length] = {}
                 document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
-                storyLikeButton.setAttribute("disabled", "");
-            });
-        }
+                storyLikeButton.classList.add("button-disabled");
+                storyLiked = true;
+            }
+        });
 
         const storyDeleteButton = document.querySelector(".delete-story-button");
         storyDeleteButton.innerHTML = `<i class="fas fa-trash"></i>`
@@ -225,19 +250,33 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 <button type ="button" class="delete-comment-button site-button" id=deletebutton:${newComment.id}><i class="fas fa-trash"></i></button>
                 `
                 commentContainer.appendChild(div);
-                window.location.href = `${window.location.href}#${newComment.id}`;
+                window.location.href = `${window.location.href.split('#')[0]}#${newComment.id}`;
                 easyMDE.value('')
                 const commentLikeButton = document.getElementById(`button:${newComment.id}`);
+                let alreadyLikedComment = false;
                 commentLikeButton.addEventListener("click", async (e) => {
+                    console.log()
                     e.preventDefault();
-
-                    const commentRes = await fetch(`http://localhost:8080/comment/${newComment.id}/likes/${userId}`, { method: 'POST' });
-                    if (!commentRes.ok) {
-                        throw res;
+                    if (alreadyLikedComment) {
+                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: 'DELETE' });
+                        if (!commentRes.ok) {
+                            throw res;
+                        }
+                        document.getElementById(`likes:${newComment.id}`).innerHTML = `Likes: ${0}`;
+                        commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+                        commentLikeButton.classList.remove("button-disabled");
+                        alreadyLikedComment = false;
+                    } else {
+                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: 'POST' });
+                        if (!commentRes.ok) {
+                            throw res;
+                        }
+                        document.getElementById(`likes:${newComment.id}`).innerHTML = `Likes: ${1}`;
+                        commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+                        commentLikeButton.classList.add("button-disabled");
+                        alreadyLikedComment = true;
                     }
-                    document.getElementById(`likes:${newComment.id}`).innerHTML = `Likes: ${1}`;
-                    commentLikeButton.setAttribute("disabled", "");
-                    commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up"></i>`
+
                 });
                 const commentDeleteButton = document.getElementById(`deletebutton:${newComment.id}`);
 

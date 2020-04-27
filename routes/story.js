@@ -190,9 +190,9 @@ router.post("/:storyId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, res,
 
 }));
 
-router.delete("/:storyId(\\d+)/likes", asyncHandler(async (req, res, next) => {
+router.delete("/:storyId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, res, next) => {
     const storyId = parseInt(req.params.storyId, 10);
-    const userId = localStorage.getItem("RARE_USER_ID");
+    const userId = parseInt(req.params.userId, 10);
     const storyLike = await db.StoryLike.findOne({
 
         where: {

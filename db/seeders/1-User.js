@@ -76,12 +76,12 @@ module.exports = {
       },
 
       {
-        userName: 'FirstLast',
-        password: bcrypt.hashSync('P@ssw0rdLast', 10),
-        firstName: 'First',
-        lastName: 'Last',
-        email: 'First@Last.com',
-        bio: "Hi there! My name is First. I really enjoy writing stories and I hope you take the time to read them!",
+        userName: 'FriskLunder',
+        password: bcrypt.hashSync('P@ssw0rdLunder', 10),
+        firstName: 'Frisk',
+        lastName: 'Lunder',
+        email: 'Frisk@Lunder.com',
+        bio: "Hi there! My name is Frisk. I really enjoy writing stories and I hope you take the time to read them!",
         isAdmin: false,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -198,7 +198,7 @@ module.exports = {
       {
         userName: 'CarlLorem',
         password: bcrypt.hashSync('P@ssw0rdLorem', 10),
-        firstName: 'First',
+        firstName: 'Carl',
         lastName: 'Lorem',
         email: 'First@Lorem.com',
         bio: "Hi there! My name is Carl. I don't enjoy writing that much so many of my articles may have filler in them. Sorry about that!",

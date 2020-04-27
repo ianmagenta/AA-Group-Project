@@ -1,6 +1,6 @@
 import { handleErrors, api } from "./utils.js";
 const registerForm = document.querySelector(".register-form");
-const guestForm = document.querySelector(".guest-login-form");
+const guestButton = document.querySelector(".guest-button");
 
 registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -11,7 +11,7 @@ registerForm.addEventListener("submit", async (e) => {
     const body = { userName, password };
 
     try {
-        console.log(`${api}session`);
+        // console.log(`${api}session`);
         const res = await fetch(`${api}session`, {
             method: "POST",
             body: JSON.stringify(body),
@@ -31,7 +31,7 @@ registerForm.addEventListener("submit", async (e) => {
     }
 });
 
-guestForm.addEventListener("submit", async (e) => {
+guestButton.addEventListener("click", async (e) => {
     e.preventDefault();
     const userName = "GuestUser";
     const password = "P@ssw0rd";
@@ -39,7 +39,7 @@ guestForm.addEventListener("submit", async (e) => {
     const body = { userName, password };
 
     try {
-        console.log(`${api}session`);
+        // console.log(`${api}session`);
         const res = await fetch(`${api}session`, {
             method: "POST",
             body: JSON.stringify(body),

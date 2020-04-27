@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let likedStoriesHTML = `<div class="heading-text text-style1">Liked Stories</div>`;
     let storiesLiked = [];
-    console.log("STORIES", stories);
+    // console.log("STORIES", stories);
     stories.forEach(story => {
       const { storyLikes } = story;
       storyLikes.forEach(like => {

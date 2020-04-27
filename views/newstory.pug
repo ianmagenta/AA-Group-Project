@@ -2,18 +2,19 @@ extends layout.pug
 
 block content
   form.story-form.text-style2
-    label.text-style1(for='markdown-title-editor') Title:
+    .errors-container
+    label.text-style2.editor-title(for='markdown-title-editor') Title:
     input#markdown-title-editor(name="title")
     label.text-style2(for='markdown-subheader-editor') Subheader:
     input#markdown-subheader-editor(name="subHeading")
     label.text-style2(for="categoryId") Choose a category:
-    select.category-select(name="categoryId")
+    select.category-select#categoryId(name="categoryId")
       each category in storyCategories
         option(value=category.id)= category.categoryName
     label.text-style2(for='markdown-story-editor') Story:
     textarea#markdown-story-editor.text-style2(name="body")
     button.site-button(type="submit") Submit Story
-  <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
-  <script src="https://unpkg.com/easymde/dist/easymde.min.js">var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});</script>
+  link(rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css")
+  script(src="https://unpkg.com/easymde/dist/easymde.min.js") var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});
   script(type='application/javascript' src='/js/md.js')
   script(type='module' src='/js/newstory.js')

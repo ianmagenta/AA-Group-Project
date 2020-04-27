@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     categoryContainer.classList.add("scrollmenu");
     if (res.ok) {
       categories.forEach(category => {
-        categoryContainer.innerHTML += `<a href='/categoryStories/${category.categoryName}'>${category.categoryName}</a>`;
+        categoryContainer.innerHTML += `<a href='/category/${category.categoryName}'>${category.categoryName}</a>`;
       });
     }
   } catch (e) {

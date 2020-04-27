@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
       return b.storyLikes.length - a.storyLikes.length;
     });
 
-    let nextThreeStories = stories.splice(0, 3);
+    let nextThreeStories = stories.splice(0, 6);
     mainStoriesRight.innerHTML = `<div class="heading-text text-style1">Popular Stories</div>
     ${generateArticleHtml(nextThreeStories)}`;
 

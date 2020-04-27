@@ -154,6 +154,22 @@ router.post("/:commentId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, re
 
 }));
 
+router.delete("/:commentId(\\d+)/likes/:userId(\\d+)", asyncHandler(async (req, res, next) => {
+    const commentId = parseInt(req.params.commentId, 10);
+    const userId = parseInt(req.params.userId, 10);
+    await db.CommentLike.destroy({
+        where: {
+            [Op.and]: [{ userId }, { commentId }]
+        }
+    });
+
+    res.end();
+
+
+
+
+}));
+
 router.delete("/:commentId(\\d+)/likes", asyncHandler(async (req, res, next) => {
     const commentId = parseInt(req.params.commentId, 10);
     await db.CommentLike.destroy({
@@ -170,6 +186,7 @@ router.delete("/:commentId(\\d+)/likes", asyncHandler(async (req, res, next) => 
 }));
 
 router.delete("/likes", asyncHandler(async (req, res, next) => {
+    console.log(req.body)
     const commentIdArr = req.body
 
     await db.CommentLike.destroy({

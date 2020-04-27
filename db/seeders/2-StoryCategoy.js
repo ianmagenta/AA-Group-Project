@@ -41,6 +41,7 @@ module.exports = {
       { categoryName: "Marketing", createdAt: new Date(), updatedAt: new Date() },
       { categoryName: "Drama", createdAt: new Date(), updatedAt: new Date() },
       { categoryName: "Horror", createdAt: new Date(), updatedAt: new Date() },
+      { categoryName: "Art", createdAt: new Date(), updatedAt: new Date() },
     ], {});
   },
 

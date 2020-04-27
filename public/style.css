@@ -9,6 +9,12 @@ img {
   max-width: 700px;
   margin: 0 auto;
 }
+
+.comment img {
+  display: block;
+  max-width: 500px;
+  margin: 0 auto;
+}
 .sidebar-positioner {
   width: 0px;
   height: 0px;

@@ -228,6 +228,7 @@ body {
   margin: 0 auto;
   max-width: 800px;
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
   "leftprofile leftprofile rightprofile";
 }

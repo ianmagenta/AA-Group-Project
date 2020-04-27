@@ -140,7 +140,7 @@ body {
 }
 
 .mid-container {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   justify-content: space-around;
   border-radius: 10px;

@@ -44,7 +44,11 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         const { comment } = await otherRes.json();
 
         const commentContainer = document.querySelector(".comments-container");
-        commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
+        if (comment.length > 0) {
+            commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
+        } else {
+            commentContainer.innerHTML = `<div class="comments-label">Be the first to comment!</div>`;
+        }
         comment.forEach(comment => {
 
             // Add existing comments and button
@@ -149,6 +153,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             if (!res.ok) {
                 throw res;
             } else {
+                commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
                 const { comment: newComment, user: newUser } = await res.json();
                 let div = document.createElement("div");
                 div.setAttribute("id", `${newComment.id}`)

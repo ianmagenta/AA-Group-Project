@@ -45,7 +45,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   //load liked stories by user
   try {
     // console.log('log here');
-    const res = await fetch(`${api}story/`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`${api}story/`,
+      {
+        headers:
+        {
+          Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
+        }
+      }
+    );
     const data = await res.json();
     const { stories } = data;
     //console.log(stories);

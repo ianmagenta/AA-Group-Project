@@ -11,9 +11,15 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     return;
   }
   try {
-    const res = await fetch(`${api}story`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`${api}story`,
+      {
+        headers:
+        {
+          Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
+        }
+      }
+    );
     if (!res.ok) {
-      // console.log(user);
       window.location.href = "/splash";
       return;
     }
@@ -26,16 +32,14 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     const firstThreeStories = stories.splice(0, 3)
     topStoriesContainer.innerHTML = `${generateArticleHtml(firstThreeStories)}`;
 
-    //TODO rewrite after likes are working properly, these should be most liked
-
-
+    //Most likes stories
     stories.sort((a, b) => {
-
       return b.storyLikes.length - a.storyLikes.length;
     });
 
     let nextThreeStories = stories.splice(0, 3);
-    mainStoriesRight.innerHTML = `<div class="heading-text text-style1">Popular Stories</div> ${generateArticleHtml(nextThreeStories)}`;
+    mainStoriesRight.innerHTML = `<div class="heading-text text-style1">Popular Stories</div>
+    ${generateArticleHtml(nextThreeStories)}`;
 
     //capture the rest of the stories and put in left container
     stories.sort((a, b) => {
@@ -55,7 +59,8 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     categoryContainer.classList.add("scrollmenu");
     if (res.ok) {
       categories.forEach(category => {
-        categoryContainer.innerHTML += `<a href='/category/${category.categoryName}'>${category.categoryName}</a>`;
+        categoryContainer.innerHTML += `<a href='/category/${category.categoryName}'>
+        ${category.categoryName}</a>`;
       });
     }
   } catch (e) {

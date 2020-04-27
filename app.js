@@ -53,7 +53,7 @@ app.use('/comment', commentRoute);
 app.use('/user', userRoute);
 app.use('/session', sessionRoute)
 app.use('/profile', profileRoute);
-app.use('/categoryStories', categoryStoriesRoute);
+app.use('/category', categoryStoriesRoute);
 app.use('/storycategories', storyCategoryRoute);
 app.use('/', indexRoute);
 

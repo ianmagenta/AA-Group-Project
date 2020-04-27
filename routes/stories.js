@@ -16,7 +16,7 @@ router.get("/:id", asyncHandler(async (req, res) => {
 
 router.get("/:id/edit", asyncHandler(async (req, res) => {
     const storyCategories = await db.StoryCategory.findAll({ attributes: ['id', 'categoryName'] });
-    res.render("storyedit", { storyCategories });
+    res.render("storyedit", { title: "Edit story", storyCategories });
 }));
 
 module.exports = router;

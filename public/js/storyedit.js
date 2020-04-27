@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const id = url.match(/\d+/)[0];
     // console.log('this runs');
     try {
-        const res = await fetch(`${api}story/${id}`);
+        const res = await fetch(`${api}story/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
         if (!res.ok) {
             throw res;
         } else {
@@ -48,6 +48,7 @@ storyForm.addEventListener("submit", async (e) => {
             body: JSON.stringify(jsonBody),
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
             }
         });
         if (!res.ok) {

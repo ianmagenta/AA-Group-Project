@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     const easyMDE = new EasyMDE({ element: document.getElementById('markdown-story-editor') });
     try {
         // load story
-        const res = await fetch(`${api}story/${id}`);
+        const res = await fetch(`${api}story/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
         if (!res.ok) {
             window.location.href = "/"
             return;
@@ -33,14 +33,12 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             editButton.classList.remove("edit-story-button-hidden");
             editButton.addEventListener("click", (e) => {
                 e.preventDefault();
-                let storyId = window.location.href;
-                storyId = storyId.split("stories/")[1];
-                window.location.href = `/stories/${storyId}/edit`;
+                window.location.href = `/stories/${id}/edit`;
             })
         }
 
         // load comments
-        const otherRes = await fetch(`${api}comment/storyId/${id}`);
+        const otherRes = await fetch(`${api}comment/storyId/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
         if (!otherRes.ok) {
             throw otherRes;
         }
@@ -78,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             commentLikeButton.addEventListener("click", async (e) => {
                 e.preventDefault();
                 if (alreadyLikedComment) {
-                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`, { method: 'DELETE' });
+                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`, { method: "DELETE", headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
                     if (!commentRes.ok) {
                         throw res;
                     }
@@ -88,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                     commentLikeButton.classList.remove("button-disabled");
                     alreadyLikedComment = false;
                 } else {
-                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`, { method: 'POST' });
+                    const commentRes = await fetch(`${api}comment/${comment.id}/likes/${userId}`, { method: "POST", headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
                     if (!commentRes.ok) {
                         throw res;
                     }
@@ -117,7 +115,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         storyLikeButton.addEventListener("click", async (e) => {
             e.preventDefault();
             if (storyLiked) {
-                const likeRes = await fetch(`${api}story/${id}/likes/${userId}`, { method: 'DELETE' });
+                const likeRes = await fetch(`${api}story/${id}/likes/${userId}`, { method: "DELETE", headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
                 if (!likeRes.ok) {
                     throw likeRes;
                 }
@@ -126,7 +124,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 storyLikeButton.classList.remove("button-disabled");
                 storyLiked = false
             } else {
-                const likeRes = await fetch(`${api}story/${id}/likes/${userId}`, { method: 'POST' });
+                const likeRes = await fetch(`${api}story/${id}/likes/${userId}`, { method: "POST", headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
                 if (!likeRes.ok) {
                     throw likeRes;
                 }
@@ -146,6 +144,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 body: JSON.stringify(jsonBody),
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
                 }
             });
             if (!res.ok) {
@@ -171,7 +170,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                     console.log()
                     e.preventDefault();
                     if (alreadyLikedComment) {
-                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: 'DELETE' });
+                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: "DELETE", headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
                         if (!commentRes.ok) {
                             throw res;
                         }
@@ -180,7 +179,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                         commentLikeButton.classList.remove("button-disabled");
                         alreadyLikedComment = false;
                     } else {
-                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: 'POST' });
+                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: "POST", headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
                         if (!commentRes.ok) {
                             throw res;
                         }

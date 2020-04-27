@@ -28,6 +28,14 @@ a:hover {
   color: rgb(206, 245, 255);
 }
 
+.story-body a, .story-form a {
+  color: blue;
+}
+
+.story-body a:visited, .story-form a:visited {
+  color: darkblue;
+}
+
 .footer-container {
   background-color: rgb(20, 20, 20);
   display: flex;

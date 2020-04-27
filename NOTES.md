@@ -34,6 +34,8 @@ already when presented in the view. Your proper use of RESTful endpoints with
 these interactions is a delight to behold, POST vs. DELETE, creating and
 removing. Nicely done. The API is also very nice.
 
+I want to write that I _enjoyed_ using your app. Thanks for building it.
+
 ## Source files
 
 Here is some stuff about the source files.

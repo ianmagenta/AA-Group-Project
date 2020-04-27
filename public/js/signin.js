@@ -11,12 +11,12 @@ registerForm.addEventListener("submit", async (e) => {
     const body = { userName, password };
 
     try {
-
         const res = await fetch(`${api}session`, {
             method: "POST",
             body: JSON.stringify(body),
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
             }
         });
         if (!res.ok) {
@@ -39,12 +39,12 @@ guestButton.addEventListener("click", async (e) => {
     const body = { userName, password };
 
     try {
-
         const res = await fetch(`${api}session`, {
             method: "POST",
             body: JSON.stringify(body),
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
             }
         });
         if (!res.ok) {

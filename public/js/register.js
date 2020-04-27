@@ -19,6 +19,7 @@ registerForm.addEventListener("submit", async (e) => {
       body: JSON.stringify(body),
       headers: {
         "Content-Type": "application/json",
+        // "Authorization": `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
       }
     });
 

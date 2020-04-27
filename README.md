@@ -4,7 +4,7 @@
 
 ## Overview
 
-Rare, found here: [replace with link to site](https://group-project-rare.herokuapp.com/) is a social journalism site that allows users to publish and share articles on any topic they find relevant.
+Rare, [found here](https://group-project-rare.herokuapp.com/), is a social journalism site that allows users to publish and share articles on any topic they find relevant.
 
 Social journalism is about empowering users by giving them the tools (and the audience) to make their stories expressive and impactful. And finding a site that does that well is...well, Rare.
 

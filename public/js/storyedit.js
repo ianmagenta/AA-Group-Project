@@ -6,9 +6,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const userId = localStorage.getItem("RARE_USER_ID");
     const url = window.location.pathname;
     const id = url.match(/\d+/)[0];
-
     try {
-        const res = await fetch(`${api}story/${id}`);
+        const res = await fetch(`${api}story/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
         if (!res.ok) {
             throw res;
         } else {
@@ -41,13 +40,13 @@ storyForm.addEventListener("submit", async (e) => {
     const userId = localStorage.getItem("RARE_USER_ID");
 
     const jsonBody = { title, subHeading, body, userId, categoryId };
-
     try {
         const res = await fetch(`${api}story/${id}`, {
             method: "PUT",
             body: JSON.stringify(jsonBody),
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
             }
         });
         if (!res.ok) {

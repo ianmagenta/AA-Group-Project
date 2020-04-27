@@ -18,6 +18,7 @@ storyForm.addEventListener("submit", async (e) => {
             body: JSON.stringify(jsonBody),
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
             }
         });
         if (!res.ok) {

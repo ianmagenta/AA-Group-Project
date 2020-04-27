@@ -43,23 +43,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //load liked stories by user
   try {
-
-    const res = await fetch(`${api}story/`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`${api}story/`,
+      {
+        headers:
+        {
+          Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
+        }
+      }
+    );
     const data = await res.json();
     const { stories } = data;
 
-
     let likedStoriesHTML = `<div class="heading-text text-style1">Liked Stories</div>`;
     let storiesLiked = [];
-
     stories.forEach(story => {
       const { storyLikes } = story;
       storyLikes.forEach(like => {
-
         if (like.userId === parseInt(id, 10)) {
-
           storiesLiked.push(story);
-
         }
       })
     });

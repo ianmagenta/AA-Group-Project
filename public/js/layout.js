@@ -15,17 +15,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.location.href = "/splash";
     return;
   }
-
   try {
 
-    const res = await fetch(`${api}user/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+    const res = await fetch(`${api}user/${userId}`,
+      {
+        headers:
+        {
+          Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
+        }
+      }
+    );
     if (!res.ok) {
-
       window.location.href = "/splash";
       return;
     }
     const data = await res.json();
-
     const { user } = data;
 
     if (res.ok) {

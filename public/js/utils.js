@@ -8,7 +8,7 @@ export function generateArticleHtml(stories) {
 
     stories.forEach((story) => {
         articlesHTML += `<div class="article-container text-style2"><a class="article-title text-style2" href="/stories/${story.id}">${story.title}</a><div class="article-subheader">${story.subHeading}</div>
-            <div class="article-author">${story.User.firstName} ${story.User.lastName} in <a name="searchButton" class="category-italics" style="color:#000000;" href='/category/${story.StoryCategory.categoryName}'>${story.StoryCategory.categoryName}</a></div>
+            <div class="article-author"><a class="article-author text-style2" href=/profile/${story.User.id}>${story.User.firstName} ${story.User.lastName}</a> in <a name="searchButton" class="category-italics" style="color:#000000;" href='/category/${story.StoryCategory.categoryName}'>${story.StoryCategory.categoryName}</a></div>
             <div class="article-date">${new Date(story.createdAt.replace("T", " ")).toDateString()}</div>
             <div class="article-time">${story.readTime.text}</div><div class="article-likes">Likes: ${story.storyLikes.length}</div></div>`
     });
@@ -66,10 +66,10 @@ export const handleErrors = async (err) => {
         }
         errorsContainer.innerHTML = errorsHtml.join("");
     } else {
-        console.log(err);
         console.log(
             'Something went wrong. Please check your internet connection and try again!'
         );
+        console.log(err);
     }
 };
 

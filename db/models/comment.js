@@ -8,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
   Comment.associate = function (models) {
     Comment.belongsTo(models.User, { foreignKey: 'userId' });
     Comment.belongsTo(models.Story, { foreignKey: 'storyId' });
-    // associations can be defined here
     const columnMap = {
       foreignKey: 'commentId',
       through: 'CommentLikes',

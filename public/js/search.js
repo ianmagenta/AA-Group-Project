@@ -13,7 +13,14 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
     try {
       mainSearchContainer.classList.remove("hidden");
-      const res = await fetch(`${api}story/${searchTerm}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+      const res = await fetch(`${api}story/${searchTerm}`,
+        {
+          headers:
+          {
+            Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
+          }
+        }
+      );
       const data = await res.json();
       const { stories } = data;
 
@@ -27,7 +34,14 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
     //get users by search term
     try {
-      const res = await fetch(`${api}user/${searchTerm}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+      const res = await fetch(`${api}user/${searchTerm}`,
+        {
+          headers:
+          {
+            Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}`
+          }
+        }
+      );
       const data = await res.json();
       const { users } = data;
       usersSearchContainer.innerHTML = `<div class="heading-text text-style1">Found users</div>` + generateUserHtml(users);

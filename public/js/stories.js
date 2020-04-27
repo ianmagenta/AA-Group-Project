@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         // console.log(story);
         document.querySelector(".story-title").innerHTML = story.title;
         document.querySelector(".story-subheader").innerHTML = story.subHeading;
-        document.querySelector(".story-author").innerHTML = `By ${story.User.firstName} ${story.User.lastName}`;
+        document.querySelector(".story-author").innerHTML = `<a class="article-author text-style2" href=/profile/${story.User.id}>By ${story.User.firstName} ${story.User.lastName}</a>`;
         document.querySelector(".story-date").innerHTML = new Date(story.createdAt.replace(' ', 'T')).toDateString();
         document.querySelector(".story-read-time").innerHTML = readTime.text;
         document.querySelector(".story-category").innerHTML += ` <a name="searchButton" class="category-italics" style="color:#000000;" href='/category/${story.StoryCategory.categoryName}'>${story.StoryCategory.categoryName}<\a>`;
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             div.setAttribute("id", `${comment.id}`)
             div.classList.add("comment")
             div.innerHTML = `
-                <div class="commenter-name">${comment.User.firstName} ${comment.User.lastName}</div>
+                <div class="commenter-name"><a class="article-author text-style2" href=/profile/${comment.User.id}>${comment.User.firstName} ${comment.User.lastName}</a></div>
                 <div class="commenter-date">${new Date(comment.createdAt.replace(' ', 'T')).toDateString()}</div>
                 <div class="commenter-body">${comment.body}</div>
                 <div class="commenter-likes" id=likes:${comment.id}>Likes: ${comment.commentLikes.length}</div>
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 div.setAttribute("id", `${newComment.id}`)
                 div.classList.add("comment")
                 div.innerHTML = `
-                <div class="commenter-name">${newUser.firstName} ${newUser.lastName}</div>
+                <div class="commenter-name"><a class="article-author text-style2" href=/profile/${newUser.id}>${newUser.firstName} ${newUser.lastName}</a></div>
                 <div class="commenter-date">${new Date(newComment.createdAt.replace(' ', 'T')).toDateString()}</div>
                 <div class="commenter-body">${newComment.body}</div>
                 <div class="commenter-likes" id=likes:${newComment.id}>Likes: 0</div>
@@ -192,10 +192,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 });
             }
         });
-
-
-
-
 
     } catch (err) {
         handleErrors(err);

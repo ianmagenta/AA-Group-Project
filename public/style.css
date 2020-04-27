@@ -303,6 +303,10 @@ a.article-title {
   font-weight: bold;
 }
 
+a.article-author {
+  color: black;
+}
+
 a.user-fullname {
   font-weight: bold;
   color: black;

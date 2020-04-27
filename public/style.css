@@ -136,14 +136,13 @@ body {
   max-width: 400px;
   background-color: white;
   margin: 10px auto;
-  /* border: 1px solid black; */
+  padding: 1px;
 }
 
 .mid-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  /* background-color: rgba(59, 128, 255, 0.1); */
   border-radius: 10px;
   border: 1px solid black;
   margin: 10px;

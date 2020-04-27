@@ -13,10 +13,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             return;
         }
         const { story, readTime, parsedBody, storyLikes } = await res.json();
-<<<<<<< HEAD
-
-=======
->>>>>>> 8b3dd053bbb9f6145c2b1fa74751fb25d99d6383
         document.querySelector(".story-title").innerHTML = story.title;
         document.querySelector(".story-subheader").innerHTML = story.subHeading;
         document.querySelector(".story-author").innerHTML = `<a class="article-author text-style2" href=/profile/${story.User.id}>By ${story.User.firstName} ${story.User.lastName}</a>`;
@@ -47,16 +43,11 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         const { comment } = await otherRes.json();
 
         const commentContainer = document.querySelector(".comments-container");
-<<<<<<< HEAD
-        commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
-
-=======
         if (comment.length > 0) {
             commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
         } else {
             commentContainer.innerHTML = `<div class="comments-label">Be the first to comment!</div>`;
         }
->>>>>>> 8b3dd053bbb9f6145c2b1fa74751fb25d99d6383
         comment.forEach(comment => {
 
             // Add existing comments and button

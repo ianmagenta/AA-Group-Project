@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
   try {
     const res = await fetch(`${api}story`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     if (!res.ok) {
-      // console.log(user);
+
       window.location.href = "/splash";
       return;
     }

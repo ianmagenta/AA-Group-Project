@@ -15,17 +15,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.location.href = "/splash";
     return;
   }
-  // console.log('this runs');
+
   try {
-    // if (userId) {
+
     const res = await fetch(`${api}user/${userId}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     if (!res.ok) {
-      // console.log(user);
+
       window.location.href = "/splash";
       return;
     }
     const data = await res.json();
-    // console.log(data);
+
     const { user } = data;
 
     if (res.ok) {
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       signInOrUsername.innerHTML = `<a href="/profile/${userId}">${user.userName}</a>`;
       RegisterOrLogout.innerHTML = `<a href="/splash">Logout</a>`;
     }
-    // }
+
   } catch (err) {
     handleErrors(err);
   }

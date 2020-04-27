@@ -28,12 +28,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     handleErrors(err);
   }
 
-  //load stories by user
+
   try {
     const res = await fetch(`${api}story/by/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { stories } = data;
-    // console.log(stories);
 
     let articlesHTML = `<div class="heading-text text-style1">Authored Stories</div>` + generateArticleHtml(stories);
     articleContainer.innerHTML = articlesHTML;
@@ -44,23 +43,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //load liked stories by user
   try {
-    // console.log('log here');
+
     const res = await fetch(`${api}story/`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();
     const { stories } = data;
-    //console.log(stories);
+
 
     let likedStoriesHTML = `<div class="heading-text text-style1">Liked Stories</div>`;
     let storiesLiked = [];
-    // console.log("STORIES", stories);
+
     stories.forEach(story => {
       const { storyLikes } = story;
       storyLikes.forEach(like => {
-        //console.log('LIKE', like);
+
         if (like.userId === parseInt(id, 10)) {
-          //console.log('STORY', story);
+
           storiesLiked.push(story);
-          //storiesLiked.push(stories[like.storyId]);
+
         }
       })
     });

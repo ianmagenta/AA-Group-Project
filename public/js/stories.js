@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         document.querySelector(".story-body").innerHTML += parsedBody;
         document.querySelector(".author-name").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
         document.querySelector(".author-bio").innerHTML = story.User.bio;
-        //document.querySelector(".story-category").innerHTML = `In category <span class="category-italics">${story.StoryCategory.categoryName}</span>`;
         document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
         document.title = story.title;
 
@@ -255,7 +254,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 const commentLikeButton = document.getElementById(`button:${newComment.id}`);
                 let alreadyLikedComment = false;
                 commentLikeButton.addEventListener("click", async (e) => {
-                    console.log()
+
                     e.preventDefault();
                     if (alreadyLikedComment) {
                         const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: 'DELETE' });

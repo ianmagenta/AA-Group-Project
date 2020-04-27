@@ -8,7 +8,7 @@ const categoryContainer = document.querySelector(".mid-container");
 
 document.addEventListener("DOMContentLoaded", async () => {
     const userId = localStorage.getItem("RARE_USER_ID");
-    // console.log('this runs');
+
     try {
 
         const res = await fetch(`${api}storycategories/`);

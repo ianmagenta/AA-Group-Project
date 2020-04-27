@@ -684,6 +684,13 @@ input, select {
   outline:none;
 }
 
+.button-disabled:hover {
+  /* pointer-events: none; */
+  background-color: rgb(190, 190, 190);
+  color: white;
+  outline:none;
+}
+
 div.scrollmenu {
   background-color: rgb(59, 128, 255);
   overflow: auto;
@@ -704,4 +711,8 @@ div.scrollmenu a:hover {
 
 .guest-login-form {
   display: inline-block;
+}
+
+.editor-title {
+  font-weight: bold;
 }

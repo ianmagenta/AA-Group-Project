@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         }
 
         if (!storyDelete) {
-            storyDeleteButton.setAttribute("disabled", "");
+            storyDeleteButton.classList.add("button-disabled");
         } else {
             storyDeleteButton.addEventListener("click", async (e) => {
                 e.preventDefault();
@@ -290,9 +290,12 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                         throw commentLikesRes;
                     }
 
+
+
                     window.location.href = `/stories/${id}`
 
                 });
+
             }
         });
 

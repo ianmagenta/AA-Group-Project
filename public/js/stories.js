@@ -117,17 +117,19 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
             const commentDeleteButton = document.getElementById(`deletebutton:${comment.id}`);
             commentDeleteButton.addEventListener("click", async (e) => {
-                e.preventDefault();
-                const commentLikesRes = await fetch(`${api}comment/${comment.id}/likes`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
-                if (!commentLikesRes.ok) {
-                    throw commentLikesRes;
-                }
-                const commentUserRes = await fetch(`${api}comment/${comment.id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
-                if (!commentUserRes.ok) {
-                    throw commentLikesRes;
-                }
+                if (userComment) {
+                    e.preventDefault();
+                    const commentLikesRes = await fetch(`${api}comment/${comment.id}/likes`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                    if (!commentLikesRes.ok) {
+                        throw commentLikesRes;
+                    }
+                    const commentUserRes = await fetch(`${api}comment/${comment.id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                    if (!commentUserRes.ok) {
+                        throw commentLikesRes;
+                    }
 
-                window.location.href = `/stories/${id}`
+                    window.location.href = `/stories/${id}`
+                }
 
             });
         });
@@ -236,7 +238,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             if (!res.ok) {
                 throw res;
             } else {
-                commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
+                //commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
                 const { comment: newComment, user: newUser } = await res.json();
                 let div = document.createElement("div");
                 div.setAttribute("id", `${newComment.id}`)

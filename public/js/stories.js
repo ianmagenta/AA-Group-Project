@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             if (userComment) {
                 div.innerHTML += `<button type="button" class="delete-comment-button site-button" id=deletebutton:${comment.id}><i class="fas fa-trash"></i></button>`
             } else {
-                div.innerHTML += `<button type="button" class="delete-comment-button site-button button-disabled" id=deletebutton:${comment.id}><i class="fas fa-trash"></i></button>`
+                //div.innerHTML += `<button type="button" class="delete-comment-button site-button button-disabled" id=deletebutton:${comment.id}><i class="fas fa-trash"></i></button>`
             }
             commentContainer.appendChild(div);
 
@@ -114,10 +114,10 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             });
 
             // Comment delete button behavior
+            if (userComment) {
+                const commentDeleteButton = document.getElementById(`deletebutton:${comment.id}`);
+                commentDeleteButton.addEventListener("click", async (e) => {
 
-            const commentDeleteButton = document.getElementById(`deletebutton:${comment.id}`);
-            commentDeleteButton.addEventListener("click", async (e) => {
-                if (userComment) {
                     e.preventDefault();
                     const commentLikesRes = await fetch(`${api}comment/${comment.id}/likes`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
                     if (!commentLikesRes.ok) {
@@ -129,9 +129,10 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                     }
 
                     window.location.href = `/stories/${id}`
-                }
 
-            });
+
+                })
+            };
         });
 
 
@@ -172,16 +173,16 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         });
 
         const storyDeleteButton = document.querySelector(".delete-story-button");
-        storyDeleteButton.innerHTML = `<i class="fas fa-trash"></i>`
+        //storyDeleteButton.innerHTML = `<i class="fas fa-trash"></i>`
         let storyDelete = false;
 
         if (story.userId == userId) {
             storyDelete = true;
         }
 
-        if (!storyDelete) {
-            storyDeleteButton.classList.add("button-disabled");
-        } else {
+        if (storyDelete) {
+            storyDeleteButton.classList.remove("delete-story-button-hidden");
+            //} else {
             storyDeleteButton.addEventListener("click", async (e) => {
                 e.preventDefault();
                 const storyDelRes = await fetch(`${api}comment/storyId/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
@@ -199,7 +200,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                     }
                 })
                 commentLikesToDelete = [... new Set(commentLikesToDelete)]
-                console.log(commentLikesToDelete)
+
                 const deleteCommentLikeRes = await fetch(`${api}comment/likes`, { method: 'DELETE', body: JSON.stringify(commentLikesToDelete), headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
                 if (!deleteCommentLikeRes.ok) {
                     throw deleteCommentLikeRes;

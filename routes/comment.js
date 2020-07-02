@@ -186,7 +186,7 @@ router.delete("/:commentId(\\d+)/likes", asyncHandler(async (req, res, next) => 
 }));
 
 router.delete("/likes", asyncHandler(async (req, res, next) => {
-    console.log(req.body)
+
     const commentIdArr = req.body
 
     await db.CommentLike.destroy({

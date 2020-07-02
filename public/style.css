@@ -541,6 +541,9 @@ a.rare-logo-footer {
 
 .delete-story-button {
   grid-area: deletebutton;
+  outline:none;
+  width: 50px;
+  justify-self: center;
 }
 
 .story-date, .story-read-time, .story-category {
@@ -647,6 +650,11 @@ button.edit-story-button {
 
 
 .edit-story-button-hidden {
+  display: none;
+  outline:none;
+}
+
+.delete-story-button-hidden {
   display: none;
   outline:none;
 }

@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         document.querySelector(".story-body").innerHTML += parsedBody;
         document.querySelector(".author-name").innerHTML = `${story.User.firstName} ${story.User.lastName}`;
         document.querySelector(".author-bio").innerHTML = story.User.bio;
-        //document.querySelector(".story-category").innerHTML = `In category <span class="category-italics">${story.StoryCategory.categoryName}</span>`;
         document.querySelector(".story-likes").innerHTML = `Likes: ${storyLikes.length}`;
         document.title = story.title;
 
@@ -72,6 +71,18 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             } else {
                 div.innerHTML += `<button type="button" class="like-comment-button site-button" id=button:${comment.id}><i class="fas fa-thumbs-up"></i></button>`
             }
+
+            let userComment = false
+
+            if (comment.userId == userId) {
+                userComment = true;
+            }
+
+            if (userComment) {
+                div.innerHTML += `<button type="button" class="delete-comment-button site-button" id=deletebutton:${comment.id}><i class="fas fa-trash"></i></button>`
+            } else {
+                //div.innerHTML += `<button type="button" class="delete-comment-button site-button button-disabled" id=deletebutton:${comment.id}><i class="fas fa-trash"></i></button>`
+            }
             commentContainer.appendChild(div);
 
             // Comment like button behavior
@@ -101,7 +112,29 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 }
 
             });
+
+            // Comment delete button behavior
+            if (userComment) {
+                const commentDeleteButton = document.getElementById(`deletebutton:${comment.id}`);
+                commentDeleteButton.addEventListener("click", async (e) => {
+
+                    e.preventDefault();
+                    const commentLikesRes = await fetch(`${api}comment/${comment.id}/likes`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                    if (!commentLikesRes.ok) {
+                        throw commentLikesRes;
+                    }
+                    const commentUserRes = await fetch(`${api}comment/${comment.id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                    if (!commentUserRes.ok) {
+                        throw commentLikesRes;
+                    }
+
+                    window.location.href = `/stories/${id}`
+
+
+                })
+            };
         });
+
 
         // Story Like Button
         const storyLikeButton = document.querySelector(".like-story-button");
@@ -112,6 +145,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 storyLiked = true;
             }
         });
+
         if (storyLiked) {
             storyLikeButton.classList.add("button-disabled");
         }
@@ -138,6 +172,58 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             }
         });
 
+        const storyDeleteButton = document.querySelector(".delete-story-button");
+        //storyDeleteButton.innerHTML = `<i class="fas fa-trash"></i>`
+        let storyDelete = false;
+
+        if (story.userId == userId) {
+            storyDelete = true;
+        }
+
+        if (storyDelete) {
+            storyDeleteButton.classList.remove("delete-story-button-hidden");
+            //} else {
+            storyDeleteButton.addEventListener("click", async (e) => {
+                e.preventDefault();
+                const storyDelRes = await fetch(`${api}comment/storyId/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                if (!storyDelRes.ok) {
+                    throw storyDelRes;
+                }
+                const { comment } = await storyDelRes.json();
+
+                let commentLikesToDelete = [];
+                comment.forEach(commentelem => {
+                    if (commentelem.commentLikes.length > 0) {
+
+                        commentLikesToDelete.push(commentelem.id)
+
+                    }
+                })
+                commentLikesToDelete = [... new Set(commentLikesToDelete)]
+
+                const deleteCommentLikeRes = await fetch(`${api}comment/likes`, { method: 'DELETE', body: JSON.stringify(commentLikesToDelete), headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                if (!deleteCommentLikeRes.ok) {
+                    throw deleteCommentLikeRes;
+                }
+                const deleteCommentRes = await fetch(`${api}comment/story/${id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                if (!deleteCommentRes.ok) {
+                    throw deleteCommentRes;
+                }
+
+                const deleteLikeRes = await fetch(`${api}story/storyLikes/${id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                if (!deleteLikeRes.ok) {
+                    throw deleteLikeRes;
+                }
+
+                const deleteStoryRes = await fetch(`${api}story/${id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                if (!deleteStoryRes.ok) {
+                    throw deleteStoryRes;
+                }
+                window.location.href = `/profile/${userId}`
+
+            });
+        }
+
         document.querySelector(".comment-form").addEventListener("submit", async (e) => {
             // Add new comment once submitted.
             e.preventDefault();
@@ -153,7 +239,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             if (!res.ok) {
                 throw res;
             } else {
-                commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
+                //commentContainer.innerHTML = `<div class="comments-label">Comments:</div>`;
                 const { comment: newComment, user: newUser } = await res.json();
                 let div = document.createElement("div");
                 div.setAttribute("id", `${newComment.id}`)
@@ -164,6 +250,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 <div class="commenter-body">${newComment.body}</div>
                 <div class="commenter-likes" id=likes:${newComment.id}>Likes: 0</div>
                 <button type ="button" class="like-comment-button site-button" id=button:${newComment.id}><i class="fas fa-thumbs-up"></i></button>
+                <button type ="button" class="delete-comment-button site-button" id=deletebutton:${newComment.id}><i class="fas fa-trash"></i></button>
                 `
                 commentContainer.appendChild(div);
                 window.location.href = `${window.location.href.split('#')[0]}#${newComment.id}`;
@@ -193,6 +280,23 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                     }
 
                 });
+                const commentDeleteButton = document.getElementById(`deletebutton:${newComment.id}`);
+
+                commentDeleteButton.addEventListener("click", async (e) => {
+                    e.preventDefault();
+                    const commentLikesRes = await fetch(`${api}comment/${newComment.id}/likes`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                    if (!commentLikesRes.ok) {
+                        throw commentLikesRes;
+                    }
+                    const commentUserRes = await fetch(`${api}comment/${newComment.id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                    if (!commentUserRes.ok) {
+                        throw commentLikesRes;
+                    }
+
+                    window.location.href = `/stories/${id}`
+
+                });
+
             }
         });
 

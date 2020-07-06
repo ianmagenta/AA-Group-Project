@@ -520,7 +520,7 @@ a.rare-logo-footer {
   "subheader subheader subheader subheader"
   "author category . ."
   "date time . ."
-  "editbutton . likebutton likes";
+  "editbutton deletebutton likebutton likes";
 }
 
 .edit-story-button {
@@ -537,6 +537,13 @@ a.rare-logo-footer {
   width: 50px;
   justify-self: right;
   /* height: 30px; */
+}
+
+.delete-story-button {
+  grid-area: deletebutton;
+  outline:none;
+  width: 50px;
+  justify-self: center;
 }
 
 .story-date, .story-read-time, .story-category {
@@ -647,9 +654,19 @@ button.edit-story-button {
   outline:none;
 }
 
+.delete-story-button-hidden {
+  display: none;
+  outline:none;
+}
+
 button.like-story-button {
   margin: 10px;
   outline:none;
+}
+
+button.delete-story-button {
+  margin: 10px;
+
 }
 
 button.like-comment-button {

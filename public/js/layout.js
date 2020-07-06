@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
   try {
-    // if (userId) {
+
     const res = await fetch(`${api}user/${userId}`,
       {
         headers:
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       signInOrUsername.innerHTML = `<a href="/profile/${userId}">${user.userName}</a>`;
       RegisterOrLogout.innerHTML = `<a href="/splash">Logout</a>`;
     }
-    // }
+
   } catch (err) {
     handleErrors(err);
   }

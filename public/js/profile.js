@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     handleErrors(err);
   }
 
-  //load stories by user
+
   try {
     const res = await fetch(`${api}story/by/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
     const data = await res.json();

@@ -1,4 +1,4 @@
-import { handleErrors, generateArticleHtml, generateUserHtml, generateCategoriesHTML, api } from "./utils.js";
+import { handleErrors, generateArticleHtml, api } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", async (e) => {
   const topStoriesContainer = document.querySelector(".top-stories-container");
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     stories.sort((a, b) => {
       return new Date(b.createdAt.replace(' ', 'T')) - new Date(a.createdAt.replace(' ', 'T'));
     });
-    const firstThreeStories = stories.splice(0, 3)
+    const firstThreeStories = stories.splice(0, 3);
     topStoriesContainer.innerHTML = `${generateArticleHtml(firstThreeStories)}`;
 
     //Most likes stories

@@ -11,8 +11,10 @@ html(lang="en")
     .top-bar
       .inner-top-bar
         a.rare-logo.text-style1(href='/') Rare
-        a.search-button.text-style2(href='/search' title='Search stories and users')
-          i.fas.fa-search
+        form.search-form(action='/search')
+          input.search-box(name='searchBox' placeholder='search')
+          button.search-button.text-style2(title='Search stories and users')
+            i.fas.fa-search
         a.new-story-button.text-style2(href='/stories/new' title='Write a new story')
           i.fas.fa-pencil-alt
         .sign-in-top.text-style2 Sign in

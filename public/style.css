@@ -87,7 +87,7 @@ body {
   max-width: 800px;
   display: grid;
   padding: 5px;
-  grid-template-areas: "logo . . . . . . . . . search newstorybutton signin register";
+  grid-template-areas: "logo . . . . . . . . . . . searchbox newstorybutton signin register";
 }
 
 .search-bar-container {
@@ -98,15 +98,28 @@ body {
   align-items: center;
   margin: 10px auto;
   padding: 10px;
+  cursor: pointer;
+}
+
+.search-form {
+  grid-area: searchbox;
 }
 
 .search-button {
   grid-area: search;
   color: white;
+  background-color: transparent;
+  border: 0px;
   justify-self: flex-end;
   text-align: right;
   padding-top: 10px;
+  outline: none;
+}
+
+.search-button:hover {
+  color: rgb(130, 205, 255);
   outline:none;
+  cursor: pointer;
 }
 
 .new-story-button {

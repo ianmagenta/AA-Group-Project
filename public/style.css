@@ -634,7 +634,7 @@ a.rare-logo-footer {
 .register-form {
   padding: 20px;
   display: flex;
-  margin: 0 auto;
+  margin: auto;
   width: 50%;
   flex-direction: column;
 }
@@ -707,6 +707,10 @@ input, select {
   background-color: rgb(130, 205, 255);
   color: white;
   outline:none;
+}
+
+.signin-button {
+  margin: 5px auto;
 }
 
 .story-title {

@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
   try {
-
     const res = await fetch(`${api}user/${userId}`,
       {
         headers:

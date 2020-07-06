@@ -4,7 +4,11 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     const url = window.location.pathname;
     const id = url.substring(url.lastIndexOf('/') + 1);
     const userId = localStorage.getItem("RARE_USER_ID");
-    const easyMDE = new EasyMDE({ element: document.getElementById('markdown-story-editor') });
+    const easyMDE = new EasyMDE({
+        element: document.getElementById('markdown-comment-editor'),
+        minHeight: "100px",
+        placeholder: "Leave a comment..."
+    });
     try {
         // load story
         const res = await fetch(`${api}story/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
@@ -260,7 +264,9 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 commentLikeButton.addEventListener("click", async (e) => {
                     e.preventDefault();
                     if (alreadyLikedComment) {
-                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: "DELETE", headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, {
+                            method: "DELETE", headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` }
+                        });
                         if (!commentRes.ok) {
                             throw res;
                         }
@@ -269,7 +275,9 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                         commentLikeButton.classList.remove("button-disabled");
                         alreadyLikedComment = false;
                     } else {
-                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, { method: "POST", headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` } });
+                        const commentRes = await fetch(`${api}comment/${newComment.id}/likes/${userId}`, {
+                            method: "POST", headers: { Authorization: `Bearer ${localStorage.getItem("RARE_ACCESS_TOKEN")}` }
+                        });
                         if (!commentRes.ok) {
                             throw res;
                         }
@@ -304,8 +312,3 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         handleErrors(err);
     }
 })
-
-
-document.addEventListener("DOMContentLoaded", (e) => {
-
-});

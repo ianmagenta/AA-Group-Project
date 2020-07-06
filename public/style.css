@@ -591,7 +591,9 @@ a.rare-logo-footer {
   margin: 10px auto;
 }
 
-
+.comment-form {
+  height: 250px auto;
+}
 
 .comment {
   padding: 10px;

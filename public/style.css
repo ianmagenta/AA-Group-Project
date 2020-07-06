@@ -98,6 +98,7 @@ body {
   align-items: center;
   margin: 10px auto;
   padding: 10px;
+  cursor: pointer;
 }
 
 .search-form {
@@ -113,6 +114,12 @@ body {
   text-align: right;
   padding-top: 10px;
   outline: none;
+}
+
+.search-button:hover {
+  color: rgb(130, 205, 255);
+  outline:none;
+  cursor: pointer;
 }
 
 .new-story-button {

@@ -25,6 +25,16 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     }
     const data = await res.json();
     const { stories } = data;
+    console.log(stories)
+
+    for (let i = 0; i < stories.length; i++) {
+      if (stories[i].isFeatured) {
+        stories.splice(i, i)
+        break
+      }
+    }
+    console.log(stories)
+
     //Most recent stories
     stories.sort((a, b) => {
       return new Date(b.createdAt.replace(' ', 'T')) - new Date(a.createdAt.replace(' ', 'T'));
@@ -67,4 +77,5 @@ document.addEventListener("DOMContentLoaded", async (e) => {
   } catch (e) {
     handleErrors(e);
   }
+  window.open('/featured', 'Featured Story', "width=400,height=400,left=-200,top=100")
 });

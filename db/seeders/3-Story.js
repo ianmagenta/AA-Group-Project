@@ -69,6 +69,7 @@ But may God shield and deliver me from the fangs of the Arch-Fiend! No sooner ha
 Of my own thoughts it is folly to speak. Swooning, I staggered to the opposite wall. For one instant the party upon the stairs remained motionless, through extremity of terror and of awe. In the next, a dozen stout arms were toiling at the wall. It fell bodily. The corpse, already greatly decayed and clotted with gore, stood erect before the eyes of the spectators. Upon its head, with red extended mouth and solitary eye of fire, sat the hideous beast whose craft had seduced me into murder, and whose informing voice had consigned me to the hangman. I had walled the monster up within the tomb! `,
         userId: 5,
         categoryId: 37,
+        isFeatured: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -115,6 +116,7 @@ No doubt I now grew very pale;—but I talked more fluently, and with a heighten
 “Villains!” I shrieked, “dissemble no more! I admit the deed!—tear up the planks! here, here!—It is the beating of his hideous heart!” `,
         userId: 5,
         categoryId: 37,
+        isFeatured: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -253,6 +255,7 @@ No doubt I now grew very pale;—but I talked more fluently, and with a heighten
                           Shall be lifted—nevermore!`,
         userId: 5,
         categoryId: 37,
+        isFeatured: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -329,6 +332,7 @@ This was invitation enough.
 Mr. Bennet was so odd a mixture of quick parts, sarcastic humour, reserve, and caprice, that the experience of three-and-twenty years had been insufficient to make his wife understand his character. Her mind was less difficult to develop. She was a woman of mean understanding, little information, and uncertain temper. When she was discontented, she fancied herself nervous. The business of her life was to get her daughters married; its solace was visiting and news. `,
         userId: 6,
         categoryId: 35,
+        isFeatured: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -982,6 +986,7 @@ ACT DROP
 `,
         userId: 8,
         categoryId: 20,
+        isFeatured: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -1016,6 +1021,7 @@ Everyone loved Elizabeth. The passionate and almost reverential attachment with 
 `,
         userId: 9,
         categoryId: 38,
+        isFeatured: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -1043,6 +1049,7 @@ Proin maximus, leo et venenatis iaculis, lectus quam lacinia odio, id tincidunt 
 `,
         userId: 17,
         categoryId: 7,
+        isFeatured: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -1087,6 +1094,18 @@ Pellentesque ac pretium est, et laoreet nulla. Praesent fringilla tortor
 `,
         userId: 18,
         categoryId: 1,
+        isFeatured: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      {
+        title: "Featured Story",
+        subHeading: "Subheading for featured story",
+        body: `This is our featured story.`,
+        userId: 3,
+        categoryId: 1,
+        isFeatured: true,
         createdAt: new Date(),
         updatedAt: new Date()
       },

@@ -30,6 +30,11 @@ module.exports = {
         references: { model: "StoryCategories" },
         defaultValue: 1
       },
+      isFeatured: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

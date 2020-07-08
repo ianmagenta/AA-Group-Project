@@ -1103,7 +1103,29 @@ Pellentesque ac pretium est, et laoreet nulla. Praesent fringilla tortor
         title: "Featured Story",
         subHeading: "Subheading for featured story",
         body: `This is our featured story.`,
+        userId: 2,
+        categoryId: 1,
+        isFeatured: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      {
+        title: "Featured Story2",
+        subHeading: "Subheading for featured story",
+        body: `This is our featured story 2.`,
         userId: 3,
+        categoryId: 1,
+        isFeatured: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      {
+        title: "Featured Story3",
+        subHeading: "Subheading for featured story",
+        body: `This is our featured story 3.`,
+        userId: 4,
         categoryId: 1,
         isFeatured: true,
         createdAt: new Date(),

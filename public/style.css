@@ -357,6 +357,30 @@ a.user-fullname {
   max-width: 800px;
 }
 
+.featured-stories-and-header-container {
+  background-color: white;
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 1000px;
+  /* display: flex; */
+  justify-content: space-evenly;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.featured-stories-header {
+  margin: 100px;
+}
+
+.featured-stories-container {
+  background-color: white;
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  grid-area: topstories;
+}
 .top-stories-and-header-container {
   background-color: white;
   margin: 10px auto;

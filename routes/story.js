@@ -48,7 +48,7 @@ router.get("/", asyncHandler(async (req, res) => {
         stories[key].setDataValue('readTime', readTime);
 
     }
-    console.log(stories.length)
+
     res.json({ stories });
 }));
 

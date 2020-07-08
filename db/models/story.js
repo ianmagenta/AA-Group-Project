@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     subHeading: DataTypes.STRING,
     body: DataTypes.TEXT,
     userId: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER
+    categoryId: DataTypes.INTEGER,
+    isFeatured: DataTypes.BOOLEAN
   }, {});
   Story.associate = function (models) {
     Story.belongsTo(models.User, { foreignKey: 'userId' });

@@ -1,6 +1,7 @@
 import { handleErrors, generateArticleHtml, api } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", async (e) => {
+  const featuredStoriesContainer = document.querySelector(".featured-stories-container");
   const topStoriesContainer = document.querySelector(".top-stories-container");
   const mainStoriesLeft = document.querySelector(".main-stories-left");
   const mainStoriesRight = document.querySelector(".main-stories-right");
@@ -25,11 +26,23 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     }
     const data = await res.json();
     const { stories } = data;
+
+    let featStories = []
+    for (let i = 0; i < stories.length; i++) {
+      if (stories[i].isFeatured) {
+        featStories.push(stories.splice(i, i + 1)[0]);
+        i = i - 1
+      }
+    }
+    featuredStoriesContainer.innerHTML = `${generateArticleHtml(featStories)}`;
+
+
     //Most recent stories
     stories.sort((a, b) => {
       return new Date(b.createdAt.replace(' ', 'T')) - new Date(a.createdAt.replace(' ', 'T'));
     });
     const firstThreeStories = stories.splice(0, 3);
+
     topStoriesContainer.innerHTML = `${generateArticleHtml(firstThreeStories)}`;
 
     //Most likes stories
@@ -39,6 +52,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
     const halfStories = Math.round(stories.length / 2);
     let nextThreeStories = stories.splice(0, halfStories);
+
     mainStoriesRight.innerHTML = `<div class="heading-text text-style1">Popular Stories</div>
     ${generateArticleHtml(nextThreeStories)}`;
 
@@ -67,4 +81,5 @@ document.addEventListener("DOMContentLoaded", async (e) => {
   } catch (e) {
     handleErrors(e);
   }
+
 });

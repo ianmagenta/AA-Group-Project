@@ -1,9 +1,9 @@
 const config = require("./index");
 
 const db = config.db;
-const username = db.username;
-const password = db.password;
-const database = db.database;
+const username = db.username;//'rare_user';
+const password = db.password;//'I27wtJmnFT366';
+const database = db.database;//'rare';
 const host = db.host;
 
 module.exports = {

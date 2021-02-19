@@ -50,7 +50,7 @@ The profile page displays a user's join date, bio, as well as their authored and
 Rare uses plain JavaScript with HTML, CSS, Pug, and Markdown for handling text.
 
 ### Pug
-Pug is an HTML template engine that allowed us to create a re-usable HTML-like base to then style with CSS and edit content with JavaScript.
+Pug is an HTML template engine that allowed us to create a re-usable HTML-like base. We then styled with CSS and edited for content with JavaScript.
 
 ```
   //story.pug

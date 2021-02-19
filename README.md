@@ -7,6 +7,7 @@
     - [Splash](#splash)
     - [Index](#index)
     - [Story page](#story-page)
+    - [Profile page](#profile-page)
   - [Front-end](#front-end)
     - [Pug](#pug)
     - [Markdown](#markdown)
@@ -39,6 +40,11 @@ The story page supports all the features that Markdown provides, such as headers
 The story page also uses a Markdown editor for comment support.
 
 ![](documentation/images/storyview2.png)
+
+### Profile page
+The profile page displays a user's join date, bio, as well as their authored and liked stories.
+
+![](documentation/images/profilepage.png)
 
 ## Front-end
 Rare uses plain JavaScript with HTML, CSS, Pug, and Markdown for handling text.

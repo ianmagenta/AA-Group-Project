@@ -64,7 +64,7 @@ Pug is an HTML template engine that allowed us to create a re-usable HTML-like b
 ### Markdown
 Markdown serves as a familiar and easy to use format for writers to post stories and comments. The specific editor we chose to use is [EasyMDE](https://github.com/Ionaru/easy-markdown-editor#readme).
 
-View of the editor:
+View of the new story editor:
 
 ![](documentation/images/markdown.png)
 

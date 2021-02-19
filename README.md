@@ -71,4 +71,4 @@ View of the editor:
 The back-end uses Node, an Express server, Sequelize, and a PostgreSQL database.
 
 ## Conclusion
-This project showed us that a lot can be done even with only vanilla JavaScript.
+This project showed us that a lot can be done even with only vanilla JavaScript, provided we are willing to dive into the CSS styling and changing site content.

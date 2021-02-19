@@ -32,7 +32,7 @@ Once logged in, users are directed to the index where they can view the latest a
 ![](documentation/images/index.png)
 
 ### Story page
-The story page supports all the features that Markdown provide, such as headers and other formatting, as well as linking to images.
+The story page supports all the features that Markdown provides, such as headers and other formatting, as well as displaying images.
 
 ![](documentation/images/storyview1.png)
 

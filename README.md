@@ -58,6 +58,7 @@ Pug is an HTML template engine that allowed us to create a re-usable HTML-like b
         const { story, readTime, parsedBody, storyLikes } = await res.json();
         document.querySelector(".story-title").innerHTML = story.title;
         document.querySelector(".story-subheader").innerHTML = story.subHeading;
+        // ...and so on
 ```
 
 ### Markdown

@@ -5,7 +5,6 @@
 - [Rare - A Medium Clone](#rare---a-medium-clone)
   - [Overview](#overview)
   - [Front-end](#front-end)
-    - [JavaScript, HTML, CSS](#javascript-html-css)
     - [Pug](#pug)
     - [Markdown](#markdown)
   - [Back-end](#back-end)
@@ -23,9 +22,6 @@ That's where we come in. Rare gives users access to a [Markdown](https://www.mar
 
 ## Front-end
 Rare uses plain JavaScript with HTML, CSS, Pug, and Markdown for handling text.
-
-### JavaScript, HTML, CSS
-
 
 ### Pug
 Pug is an HTML template engine that allowed us to create a re-usable HTML-like base to then edit with JavaScript.
@@ -45,6 +41,15 @@ Pug is an HTML template engine that allowed us to create a re-usable HTML-like b
 ```
 
 ### Markdown
+Markdown serves as a familiar and easy to use format for writers to post stories and comments. The specific editor we chose to use is [EasyMDE](https://github.com/Ionaru/easy-markdown-editor#readme).
+
+View of a story page:
+
+![](documentation/images/markdown2.png)
+
+View of the editor:
+
+![](documentation/images/markdown.png)
 
 ## Back-end
 

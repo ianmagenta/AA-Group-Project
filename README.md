@@ -75,7 +75,7 @@ View of the new story editor:
 ![](documentation/images/markdown.png)
 
 ## Back-end
-The back-end uses Node, an Express server, Sequelize, and a PostgreSQL database.
+The back-end uses Node, an Express server, Sequelize, and a PostgreSQL database to store all data.
 
 ## Conclusion
 This project showed us that a lot can be done even with only vanilla JavaScript, provided we are willing to dive into the CSS styling and changing site content.

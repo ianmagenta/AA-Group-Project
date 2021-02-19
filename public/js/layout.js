@@ -10,6 +10,7 @@ if (perfEntries[0].type === "back_forward") {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  const overlayBG = document.querySelector("#loading-overlay-layout");
   const userId = localStorage.getItem("RARE_USER_ID");
   if (!userId) {
     window.location.href = "/splash";
@@ -43,4 +44,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (err) {
     handleErrors(err);
   }
+
+
+
+  setTimeout(() => {
+    overlayBG.style.opacity = "0";
+  }, 1);
+
+  setTimeout(() => {
+    overlayBG.style.display = "none";
+  }, 1000);
+
 });

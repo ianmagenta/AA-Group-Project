@@ -10,7 +10,8 @@ img {
   margin: 0 auto;
 }
 
-#loading-overlay-bg {
+#loading-overlay-bg,
+#loading-overlay-layout {
   position: fixed; /* Sit on top of the page content */
   display: block; /* Hidden by default */
   width: 100%; /* Full width (cover the whole page) */
@@ -20,7 +21,7 @@ img {
   right: 0;
   bottom: 0;
   background-color:rgb(206, 245, 255); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  z-index: 20; /* Specify a stack order in case you're using a different order for other elements */
   opacity:100;
   transition:1s;
 }
@@ -86,7 +87,7 @@ a:hover {
   background-color: rgb(59, 128, 255);
   position: sticky;
   top: 0;
-  z-index: 99;
+  z-index: 10;
 }
 
 .category-italics {

@@ -7,6 +7,7 @@ RegisterOrLogout.innerHTML = `<a href="/register">Register</a>`;
 const categoryContainer = document.querySelector(".mid-container");
 
 document.addEventListener("DOMContentLoaded", async () => {
+    const overlayBG = document.querySelector("#loading-overlay-bg");
     const userId = localStorage.getItem("RARE_USER_ID");
     try {
 
@@ -17,6 +18,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (res.ok) {
             categoryContainer.innerHTML = generateCategoriesHTML(categories);
         }
+
+
+        setTimeout(() => {
+            overlayBG.style.opacity = "0";
+        }, 1);
+
+        setTimeout(() => {
+            overlayBG.style.display = "none";
+        }, 1000);
 
     } catch (err) {
         handleErrors(err);

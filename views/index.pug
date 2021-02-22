@@ -1,6 +1,7 @@
 extends layout.pug
 
 block content
+  #loading-overlay-bg
   .total-index-container
     .index-top-container
       .categories-container.text-style2
@@ -13,5 +14,5 @@ block content
       .main-stories-left
       .main-stories-right
         .heading-text.text-style1 Popular Stories
-  include footer.pug
+    include footer.pug
   script(type="module" src="/js/index.js")

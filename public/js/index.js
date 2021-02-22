@@ -1,6 +1,7 @@
 import { handleErrors, generateArticleHtml, api } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", async (e) => {
+  const overlayBG = document.querySelector("#loading-overlay-bg");
   const topStoriesContainer = document.querySelector(".top-stories-container");
   const mainStoriesLeft = document.querySelector(".main-stories-left");
   const mainStoriesRight = document.querySelector(".main-stories-right");
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     window.location.href = "/splash";
     return;
   }
+
   try {
     const res = await fetch(`${api}story`,
       {
@@ -63,8 +65,18 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         categoryContainer.innerHTML += `<a href='/category/${category.categoryName}'>
         ${category.categoryName}</a>`;
       });
+
+
+      setTimeout(() => {
+        overlayBG.style.opacity = "0";
+      }, 1);
+
+      setTimeout(() => {
+        overlayBG.style.display = "none";
+      }, 1000);
     }
   } catch (e) {
     handleErrors(e);
   }
+
 });

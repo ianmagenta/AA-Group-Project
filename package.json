@@ -10,7 +10,7 @@
     "csurf": "^1.11.0",
     "dotenv": "^8.2.0",
     "easymde": "^2.10.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-bearer-token": "^2.4.0",
     "express-validator": "^6.4.0",
     "gregorian": "^5.0.2",
